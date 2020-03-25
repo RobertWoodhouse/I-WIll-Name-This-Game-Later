@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -3388693521454087747}
   m_Layer: 0
   m_Name: Obstacle_Sat
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7ebe2fbbb52040f0ad1fffd63334b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 2
+  movementSpeed: 5
 --- !u!114 &-6281379673579603577
 MonoBehaviour:
   m_ObjectHideFlags: 0

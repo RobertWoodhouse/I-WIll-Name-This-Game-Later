@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Net
   - Obstacle
+  - Projectile
   layers:
   - Default
   - TransparentFX
