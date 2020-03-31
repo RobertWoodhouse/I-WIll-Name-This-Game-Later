@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2194046027991394353}
   - component: {fileID: 3946132398391957232}
   - component: {fileID: 544777746420625285}
+  - component: {fileID: 6495849775548854012}
   - component: {fileID: 7283049196540368780}
   m_Layer: 0
   m_Name: Obstacle_Probe
@@ -150,7 +151,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7ebe2fbbb52040f0ad1fffd63334b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
+  randLower: -10
+  randUpper: 10
+  isRotate: 1
+  _movementSpeed: 5
 --- !u!114 &544777746420625285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,6 +167,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8a6e402cfda4eb8820029e058434fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6495849775548854012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2632646889473888255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599fd3eb906094e10854106af337c8e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 1
+  health: 1
+  speed: 1
 --- !u!50 &7283049196540368780
 Rigidbody2D:
   serializedVersion: 4

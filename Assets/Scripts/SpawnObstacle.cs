@@ -7,7 +7,7 @@ public class SpawnObstacle : MonoBehaviour
     public float time = 5.0f;
     public float respawnTime = 10.0f;
 
-    private float[] _spawnXPosRange;
+    private float[] _spawnXPosRange; // TODO add spawn range for specific obstacles
 
     [SerializeField]
     private GameObject[] _obstacles;

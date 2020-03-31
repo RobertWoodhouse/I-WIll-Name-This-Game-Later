@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7156189871485204930}
   - component: {fileID: 3366051406369472500}
   - component: {fileID: 6674959565816174809}
+  - component: {fileID: -8647109437344127662}
   - component: {fileID: 2634261745525580003}
   m_Layer: 0
   m_Name: Obstacle_Asteroid
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 34c36be7c5b8843a5b16f04c1de4fa12, type: 3}
-  m_Color: {r: 0.9490196, g: 0.8117647, b: 0.050980393, a: 1}
+  m_Color: {r: 0.99607843, g: 0.7647059, b: 0.03529412, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -123,7 +124,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7ebe2fbbb52040f0ad1fffd63334b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
+  randLower: 20
+  randUpper: 40
+  isRotate: 1
+  _movementSpeed: 5
 --- !u!114 &6674959565816174809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +140,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8a6e402cfda4eb8820029e058434fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-8647109437344127662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294409626498124768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 599fd3eb906094e10854106af337c8e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 1
+  health: 1
+  speed: 1
 --- !u!50 &2634261745525580003
 Rigidbody2D:
   serializedVersion: 4
