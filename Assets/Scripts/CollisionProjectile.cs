@@ -10,6 +10,7 @@ public class CollisionProjectile : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);
+            GameController.Score += 300;
         }
     }
 
@@ -19,6 +20,7 @@ public class CollisionProjectile : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);
+            GameController.Score += 300;
         }
     }
 }

@@ -12,7 +12,8 @@ public class Obstacle : MonoBehaviour
 
     void Awake()
     {
-        level = Random.Range(1, 5); // TEST LEVELS & COLOURS
+        //level = Random.Range(1, 5); // TEST LEVELS & COLOURS
+        level = GameController.GameLevel;
         sprite = GetComponent<SpriteRenderer>();
         ChangeObstacleColour();
         LevelUpStats();
@@ -56,7 +57,7 @@ public class Obstacle : MonoBehaviour
         }
     }
 
-    public void DamageObstacle(int damage)
+    public void DamageObstacle(int damage) // TODO Finish obstacle damange
     {
         health -= damage;
 

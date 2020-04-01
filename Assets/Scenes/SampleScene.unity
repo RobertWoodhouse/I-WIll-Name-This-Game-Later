@@ -503,6 +503,24 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8776628909595508942}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &961933619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961933618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd1ff8b0e91794043a78df588f38d05c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileType: {fileID: 3884763462994910481, guid: bc9c743182cd04c2295555d5f2fbdb39,
+    type: 3}
+  gunPos: {fileID: 1283107198}
+  projectileSpawnTime: 0.75
+  projectileFireRate: 0
+  projectileSpeed: 250
 --- !u!95 &961933626
 Animator:
   serializedVersion: 3
@@ -522,6 +540,12 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1283107198 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 691244642, guid: 506ed70033cd94297bca8c625637855f,
+    type: 3}
+  m_PrefabInstance: {fileID: 8776628909595508942}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1371519146
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,6 +761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8555bb841db80478b80d456e0dcbfaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _targetScore: 1000
 --- !u!4 &1679961890
 Transform:
   m_ObjectHideFlags: 0

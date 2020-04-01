@@ -151,8 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7ebe2fbbb52040f0ad1fffd63334b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randLower: -10
-  randUpper: 10
+  randLower: -20
+  randUpper: 20
   isRotate: 1
   _movementSpeed: 5
 --- !u!114 &544777746420625285

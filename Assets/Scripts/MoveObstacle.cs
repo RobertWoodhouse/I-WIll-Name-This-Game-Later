@@ -11,7 +11,6 @@ public class MoveObstacle : MonoBehaviour
     private float _movementSpeed = 5.0f;
     private Vector3 _rotateObstacle;
 
-
     private void Start()
     {
         _movementSpeed = this.GetComponent<Obstacle>().speed;
