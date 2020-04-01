@@ -167,6 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8a6e402cfda4eb8820029e058434fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDestroyable: 1
+  rb: {fileID: 0}
 --- !u!114 &-5643529345441349836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,6 +183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   health: 1
+  countChildren: 99
   speed: 1
 --- !u!50 &-3388693521454087747
 Rigidbody2D:

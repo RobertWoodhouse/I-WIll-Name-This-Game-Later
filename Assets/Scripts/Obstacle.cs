@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    public int level = 1, health = 1;
+    public int level = 1, health = 1, countChildren = 99; // HACK if set to 0 objects won't
     public float speed = 5.0f;
 
     private Color colour = new Color32(255, 255, 255, 255); // WHITE
@@ -14,9 +14,16 @@ public class Obstacle : MonoBehaviour
     {
         //level = Random.Range(1, 5); // TEST LEVELS & COLOURS
         level = GameController.GameLevel;
-        sprite = GetComponent<SpriteRenderer>();
+        if (GetComponent<SpriteRenderer>() == null) sprite = GetComponentInChildren<SpriteRenderer>();
+        else sprite = GetComponent<SpriteRenderer>();
+
         ChangeObstacleColour();
         LevelUpStats();
+    }
+
+    private void Update()
+    {
+        DestroyParentObstacle();
     }
 
     private void ChangeObstacleColour()
@@ -52,7 +59,7 @@ public class Obstacle : MonoBehaviour
         }
         if (level == 6)
         {
-            health = 6;
+            health = 6; 
             speed = 6.25f;
         }
     }
@@ -60,7 +67,11 @@ public class Obstacle : MonoBehaviour
     public void DamageObstacle(int damage) // TODO Finish obstacle damange
     {
         health -= damage;
-
         if (health <= 0) Destroy(gameObject);
+    }
+
+    private void DestroyParentObstacle()
+    {
+        if (countChildren <= 0) Destroy(gameObject);
     }
 }

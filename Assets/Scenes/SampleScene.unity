@@ -320,6 +320,9 @@ MonoBehaviour:
   - {fileID: 7314017980075502270, guid: 0f3adda5c1e4a4ff5b2bd3eeae1c5a8a, type: 3}
   - {fileID: 2632646889473888255, guid: c99790198bc724cca9cbaa0d901f18e2, type: 3}
   - {fileID: 1294409626498124768, guid: cb7f0c651dcd048b39e639d7ff7f70ed, type: 3}
+  - {fileID: 5296026571114480470, guid: 0636db4cc457e4e0b9c463832192f6ed, type: 3}
+  - {fileID: 4765059194693161245, guid: e99f1fd64f4d440f5971116c7e88b795, type: 3}
+  - {fileID: 6142454273360957541, guid: ac73c5c0e610a4e25b6b04dbe412b0d4, type: 3}
   _obstacleSpawnPoint: {fileID: 525753486}
 --- !u!4 &525753488
 Transform:

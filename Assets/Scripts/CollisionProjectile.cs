@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CollisionProjectile : MonoBehaviour
 {
+    /*
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Obstacle"))
@@ -23,4 +24,5 @@ public class CollisionProjectile : MonoBehaviour
             GameController.Score += 300;
         }
     }
+    */
 }

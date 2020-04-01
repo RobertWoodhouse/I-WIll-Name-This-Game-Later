@@ -8,7 +8,7 @@ public class DestroyGameobject : MonoBehaviour
 
     void Start() => StartCoroutine(DestroyObject(timer));
 
-    IEnumerator DestroyObject(float time)
+    IEnumerator DestroyObject(float time) // Destroys object after elapsed time
     {
         yield return new WaitForSeconds(time);
         Destroy(gameObject);
