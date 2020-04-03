@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9147724353458309058}
   - component: {fileID: 9034453187158500617}
   - component: {fileID: 1589312690246173847}
+  - component: {fileID: 8655325412290110323}
   m_Layer: 0
   m_Name: Obstacle_Platform02
   m_TagString: Obstacle
@@ -68,6 +69,19 @@ MonoBehaviour:
   speed: 1
   spawnXPosRange:
   - 0
+--- !u!114 &8655325412290110323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4765059194693161245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19fc32d2f4ad74b11ac05780fa707bb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 210
 --- !u!1001 &2855414717750404768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -159,6 +173,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9172781177570526294, guid: 0636db4cc457e4e0b9c463832192f6ed,
+        type: 3}
+      propertyPath: timer
+      value: 240
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0636db4cc457e4e0b9c463832192f6ed, type: 3}
@@ -259,6 +278,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9172781177570526294, guid: 0636db4cc457e4e0b9c463832192f6ed,
+        type: 3}
+      propertyPath: timer
+      value: 240
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}

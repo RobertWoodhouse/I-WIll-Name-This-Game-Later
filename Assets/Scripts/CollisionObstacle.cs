@@ -4,71 +4,55 @@ using UnityEngine;
 
 public class CollisionObstacle : MonoBehaviour
 {
-    public bool isDestroyable = true;
+    public bool isDestructable = true;
 
-    //[SerializeField]
-    //private int countChildren = 99;
-    private Rigidbody2D rb;
+    private Animator _animObstacle;
+    private BoxCollider2D[] _boxColl;
+    private Rigidbody2D _rb;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        if (transform.parent != null) GetComponentInParent<Obstacle>().countChildren = transform.parent.gameObject.transform.childCount;//transform.childCount;
+        _rb = GetComponent<Rigidbody2D>();
+        _boxColl = GetComponents<BoxCollider2D>();
+        _animObstacle = GetComponent<Animator>();
+        if (transform.parent != null) GetComponentInParent<Obstacle>().countChildren = transform.parent.gameObject.transform.childCount;
     }
-    /*
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Net"))
-        {
-            print("In the net!");
-            Destroy(gameObject);
-            Destroy(transform.parent.gameObject);
-            GameController.Score += 100;
-        }
-
-        if (collision.collider.CompareTag("Projectile") && isDestroyable.Equals(true))
-        {
-            print("DETROYED!");
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
-            Destroy(transform.parent.gameObject);
-            GameController.Score += 300;
-        }
-
-        if (collision.collider.CompareTag("Projectile") && isDestroyable.Equals(false)) // TODO add obstacle push back function if not destroyable
-        {
-            print("Push BACK!!");
-            Destroy(collision.gameObject);
-            rb.AddForce(transform.up * 20f);
-        }
-    }
-    */
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Net"))
         {
             print("In the net!");
-            Destroy(gameObject);
-            //if (transform.parent != null) Destroy(transform.parent.gameObject);
+            StartCoroutine(DestroyObject(0.6f));
             GetComponentInParent<Obstacle>().countChildren--;
             GameController.Score += 100;
         }
 
-        if (collision.CompareTag("Projectile") && isDestroyable.Equals(true))
+        if (collision.CompareTag("Projectile") && isDestructable.Equals(true))
         {
             print("DETROYED!");
             Destroy(collision.gameObject);
-            Destroy(gameObject);
-            //if (transform.parent != null)  Destroy(transform.parent.gameObject);
+            StartCoroutine(DestroyObject(0.6f));
             GameController.Score += 300;
         }
 
-        if (collision.CompareTag("Projectile") && isDestroyable.Equals(false)) // TODO add obstacle push back function if not destroyable
+        if (collision.CompareTag("Projectile") && isDestructable.Equals(false)) // Push back indestructable objects
         {
             print("Push BACK!!");
             Destroy(collision.gameObject);
-            rb.AddForce(transform.up * 20f);
+            _rb.AddForce(transform.up * 20f);
         }
+    }
+
+    IEnumerator DestroyObject(float time) // Destroys object after elapsed time
+    {
+        print("Destroy obstacle and animate explosion");
+        _animObstacle.SetTrigger("ObstacleExplode");
+        foreach(BoxCollider2D coll in _boxColl) // Disable all attached colliders
+        {
+            coll.enabled = false;
+        }
+        yield return new WaitForSeconds(time);
+        Destroy(gameObject);
     }
 }

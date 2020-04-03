@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8a6e402cfda4eb8820029e058434fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDestroyable: 0
+  isDestructable: 0
 --- !u!50 &3512522968669117123
 Rigidbody2D:
   serializedVersion: 4
@@ -156,6 +156,7 @@ GameObject:
   - component: {fileID: 7632962948930275002}
   - component: {fileID: 7673666231775126641}
   - component: {fileID: 76801926288852463}
+  - component: {fileID: 1184800615788522429}
   m_Layer: 0
   m_Name: Obstacle_Platform03
   m_TagString: Obstacle
@@ -214,6 +215,19 @@ MonoBehaviour:
   speed: 1
   spawnXPosRange:
   - 0
+--- !u!114 &1184800615788522429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6142454273360957541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19fc32d2f4ad74b11ac05780fa707bb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 210
 --- !u!1 &8773497081957966990
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,7 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8a6e402cfda4eb8820029e058434fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDestroyable: 0
+  isDestructable: 0
 --- !u!50 &5528683900256145293
 Rigidbody2D:
   serializedVersion: 4
@@ -431,7 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8a6e402cfda4eb8820029e058434fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDestroyable: 0
+  isDestructable: 0
 --- !u!50 &5528683901504148967
 Rigidbody2D:
   serializedVersion: 4

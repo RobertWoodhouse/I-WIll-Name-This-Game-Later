@@ -45,6 +45,8 @@ GameObject:
   - component: {fileID: 653312180}
   - component: {fileID: 653312181}
   - component: {fileID: 653312186}
+  - component: {fileID: 961933626}
+  - component: {fileID: 961933619}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -192,6 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a6ad2c52953484281a9f9a2da3f484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animShip: {fileID: 0}
 --- !u!114 &653312186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +208,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 1
+--- !u!95 &961933626
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8776628909147783293}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9ba528d8ace184ae084632e2a86eff48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &961933619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8776628909147783293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd1ff8b0e91794043a78df588f38d05c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileType: {fileID: 3884763462994910481, guid: bc9c743182cd04c2295555d5f2fbdb39,
+    type: 3}
+  gunPos: {fileID: 691244642}
+  projectileSpawnTime: 0.75
+  projectileFireRate: 0
+  projectileSpeed: 250
 --- !u!1 &8776628911113269000
 GameObject:
   m_ObjectHideFlags: 0
