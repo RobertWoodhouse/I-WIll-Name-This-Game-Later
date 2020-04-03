@@ -168,7 +168,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDestroyable: 1
-  rb: {fileID: 0}
 --- !u!114 &-5643529345441349836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +184,9 @@ MonoBehaviour:
   health: 1
   countChildren: 99
   speed: 1
+  spawnXPosRange:
+  - -0.6
+  - 0.6
 --- !u!50 &-3388693521454087747
 Rigidbody2D:
   serializedVersion: 4

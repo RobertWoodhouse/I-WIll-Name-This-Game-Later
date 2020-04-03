@@ -22,6 +22,6 @@ public class GameController : MonoBehaviour
             GameLevel++;
             _targetScore += 1000;
         }
-        print("Score = " + Score + " | Game Level = " + GameLevel + " | Target Score = " + _targetScore);
+        //print("Score = " + Score + " | Game Level = " + GameLevel + " | Target Score = " + _targetScore);
     }
 }

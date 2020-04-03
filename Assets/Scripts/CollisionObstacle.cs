@@ -6,7 +6,7 @@ public class CollisionObstacle : MonoBehaviour
 {
     public bool isDestroyable = true;
 
-    [SerializeField]
+    //[SerializeField]
     //private int countChildren = 99;
     private Rigidbody2D rb;
 

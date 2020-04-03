@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3512522968669117125}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7632962948930275002}
   m_RootOrder: 1
@@ -73,7 +73,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDestroyable: 0
-  rb: {fileID: 0}
 --- !u!50 &3512522968669117123
 Rigidbody2D:
   serializedVersion: 4
@@ -213,6 +212,8 @@ MonoBehaviour:
   health: 1
   countChildren: 99
   speed: 1
+  spawnXPosRange:
+  - 0
 --- !u!1 &8773497081957966990
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,8 +242,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8773497081957966990}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.09, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 1, z: 1}
+  m_LocalPosition: {x: -2.6, y: 0, z: 0}
+  m_LocalScale: {x: 0.3, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7632962948930275002}
   m_RootOrder: 0
@@ -286,7 +287,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDestroyable: 0
-  rb: {fileID: 0}
 --- !u!50 &5528683900256145293
 Rigidbody2D:
   serializedVersion: 4
@@ -387,8 +387,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8773497082874232548}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.099, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 1, z: 1}
+  m_LocalPosition: {x: 2.6, y: 0, z: 0}
+  m_LocalScale: {x: 0.3, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7632962948930275002}
   m_RootOrder: 2
@@ -432,7 +432,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDestroyable: 0
-  rb: {fileID: 0}
 --- !u!50 &5528683901504148967
 Rigidbody2D:
   serializedVersion: 4

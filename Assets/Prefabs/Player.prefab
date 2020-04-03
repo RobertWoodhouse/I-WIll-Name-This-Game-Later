@@ -156,11 +156,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ee46e7b321448a4bcb4d179c5548b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftBoundary: {x: -2.2, y: -4, z: 0}
-  rightBoundary: {x: 2.2, y: -4, z: 0}
   playerSpeed: 3.5
-  leftBound: -2.2
-  rightBound: 2.2
+  leftBound: -1.7
+  rightBound: 1.7
 --- !u!50 &653312180
 Rigidbody2D:
   serializedVersion: 4
@@ -206,12 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0595460c4eb44b678c6eddeeb1cd093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileType: {fileID: 3884763462994910481, guid: bc9c743182cd04c2295555d5f2fbdb39,
-    type: 3}
-  gunPos: {fileID: 691244642}
-  projectileSpawnTime: 0.75
-  projectileFireRate: 0
-  projectileSpeed: 200
+  power: 1
 --- !u!1 &8776628911113269000
 GameObject:
   m_ObjectHideFlags: 0

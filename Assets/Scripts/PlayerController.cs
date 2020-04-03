@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Vector3 leftBoundary, rightBoundary;
-    public float playerSpeed, leftBound = -2.2f, rightBound = 2.2f;
+    //public Vector3 leftBoundary, rightBoundary;
+    public float playerSpeed, leftBound = -1.7f, rightBound = 1.7f;
+    private Vector3 _leftBoundary, _rightBoundary;
 
     private void Start()
     {
-        leftBoundary = new Vector3(leftBound, -4.0f, 0f);
-        rightBoundary = new Vector3(rightBound, -4.0f, 0f);
+        _leftBoundary = new Vector3(leftBound, -4.0f, 0f);
+        _rightBoundary = new Vector3(rightBound, -4.0f, 0f);
     }
 
     void FixedUpdate()
@@ -33,8 +34,8 @@ public class PlayerController : MonoBehaviour
     private void Boundary(float left, float right)
     {
         //print("X pos = " + transform.position.x);
-        if (transform.position.x <= left) transform.position = leftBoundary;
-        if (transform.position.x >= right) transform.position = rightBoundary;
+        if (transform.position.x <= left) transform.position = _leftBoundary;
+        if (transform.position.x >= right) transform.position = _rightBoundary;
     }
 
     private void FireProjectile()

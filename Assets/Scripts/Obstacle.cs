@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    public int level = 1, health = 1, countChildren = 99; // HACK if set to 0 objects won't
+    public int level = 1, health = 1, countChildren = 99; // HACK if set to "<= 0" (in UI) objects won't spawn
     public float speed = 5.0f;
-
+    public float[] spawnXPosRange = new[] { -1.94f, -1.212f, -0.484f, 0.244f, 0.972f };
     private Color colour = new Color32(255, 255, 255, 255); // WHITE
     private SpriteRenderer sprite;
 
@@ -17,6 +17,8 @@ public class Obstacle : MonoBehaviour
         if (GetComponent<SpriteRenderer>() == null) sprite = GetComponentInChildren<SpriteRenderer>();
         else sprite = GetComponent<SpriteRenderer>();
 
+        //spawnXPosRange = new[] { -1.94f, -1.212f, -0.484f, 0.244f, 0.972f }; // HACK Default spawn range, set unique ranges in inspector for each obstacle
+
         ChangeObstacleColour();
         LevelUpStats();
     }
@@ -26,7 +28,7 @@ public class Obstacle : MonoBehaviour
         DestroyParentObstacle();
     }
 
-    private void ChangeObstacleColour()
+    private void ChangeObstacleColour() // TODO change child object colours
     {
         if (level == 2) colour = new Color32(114, 238, 114, 255); // GREEN
         if (level == 3) colour = new Color32(135, 206, 250, 255); // BLUE
