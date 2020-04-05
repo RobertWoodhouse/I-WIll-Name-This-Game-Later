@@ -24,20 +24,23 @@ public class BackgroundController : MonoBehaviour
 
     void BackgroundParallaxAndScroll()
     {
-        _scrollYEndPos -= Time.deltaTime;
-        if (_scrollYEndPos < -10.0f) _scrollYEndPos = _scrollYStartPos;
+        if (shipPos != null)
+        {
+            _scrollYEndPos -= Time.deltaTime;
+            if (_scrollYEndPos < -10.0f) _scrollYEndPos = _scrollYStartPos;
 
-        // Scroll parent background
-        bgStars1.transform.position = new Vector3(0, _scrollYEndPos, 0);
-        bgStars2.transform.position = new Vector3(0, _scrollYEndPos, 0);
-        bgStarsEnd1.transform.position = new Vector3(0, _scrollYEndPos + 10.0f, 0);
-        bgStarsEnd2.transform.position = new Vector3(0, _scrollYEndPos + 10.0f, 0);
+            // Scroll parent background
+            bgStars1.transform.position = new Vector3(0, _scrollYEndPos, 0);
+            bgStars2.transform.position = new Vector3(0, _scrollYEndPos, 0);
+            bgStarsEnd1.transform.position = new Vector3(0, _scrollYEndPos + 10.0f, 0);
+            bgStarsEnd2.transform.position = new Vector3(0, _scrollYEndPos + 10.0f, 0);
 
-        // Parallax and scroll backgrounds
-        bgParallax1.transform.position = new Vector3(shipPos.transform.position.x * -0.01f, _scrollYEndPos, 0);
-        bgParallax2.transform.position = new Vector3(shipPos.transform.position.x * -0.04f, _scrollYEndPos, 0);
-        bgParallaxEnd1.transform.position = new Vector3(shipPos.transform.position.x * -0.01f, _scrollYEndPos + 10.0f, 0);
-        bgParallaxEnd2.transform.position = new Vector3(shipPos.transform.position.x * -0.04f, _scrollYEndPos + 10.0f, 0);
+            // Parallax and scroll backgrounds
+            bgParallax1.transform.position = new Vector3(shipPos.transform.position.x * -0.01f, _scrollYEndPos, 0);
+            bgParallax2.transform.position = new Vector3(shipPos.transform.position.x * -0.04f, _scrollYEndPos, 0);
+            bgParallaxEnd1.transform.position = new Vector3(shipPos.transform.position.x * -0.01f, _scrollYEndPos + 10.0f, 0);
+            bgParallaxEnd2.transform.position = new Vector3(shipPos.transform.position.x * -0.04f, _scrollYEndPos + 10.0f, 0);
+        }
     }
 
     void BackgroundStarsSparkle()

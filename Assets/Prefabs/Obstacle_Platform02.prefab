@@ -50,7 +50,6 @@ MonoBehaviour:
   randLower: 0
   randUpper: 0
   isRotate: 0
-  _movementSpeed: 5
 --- !u!114 &1589312690246173847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19fc32d2f4ad74b11ac05780fa707bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 210
+  timer: 90
 --- !u!1001 &2855414717750404768
 PrefabInstance:
   m_ObjectHideFlags: 0

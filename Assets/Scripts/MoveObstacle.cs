@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class MoveObstacle : MonoBehaviour
 {
-    public float randLower = 20f, randUpper = 40f;
+    public float randLower = 20f, randUpper = 40f;//, movementSpeed = 5.0f;
     public bool isRotate = false;
 
-    [SerializeField]
-    private float _movementSpeed = 5.0f;
+    //[SerializeField]
+    //private float _movementSpeed = 5.0f;
     private Vector3 _rotateObstacle;
 
     private void Start()
     {
-        _movementSpeed = this.GetComponent<Obstacle>().speed;
+        //movementSpeed = this.GetComponent<Obstacle>().speed;
     }
 
     void FixedUpdate()
     {
-        Move(_movementSpeed);
+        //Move(movementSpeed);
+        Move(this.GetComponent<Obstacle>().speed);
         Rotate(isRotate);
     }
 

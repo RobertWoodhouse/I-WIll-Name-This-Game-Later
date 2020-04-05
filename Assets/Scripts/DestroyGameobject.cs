@@ -10,6 +10,7 @@ public class DestroyGameobject : MonoBehaviour
 
     IEnumerator DestroyObject(float time) // Destroys object after elapsed time
     {
+
         yield return new WaitForSeconds(time);
         Destroy(gameObject);
     }

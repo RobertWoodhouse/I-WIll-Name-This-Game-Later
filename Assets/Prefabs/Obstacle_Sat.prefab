@@ -156,7 +156,6 @@ MonoBehaviour:
   randLower: -15
   randUpper: 15
   isRotate: 1
-  _movementSpeed: 5
 --- !u!114 &-6281379673579603577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,7 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8a6e402cfda4eb8820029e058434fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDestroyable: 1
+  isDestructable: 1
+  _destroyTimer: 0.5
 --- !u!114 &-5643529345441349836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19fc32d2f4ad74b11ac05780fa707bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 210
+  timer: 90
 --- !u!95 &5112863684470323073
 Animator:
   serializedVersion: 3

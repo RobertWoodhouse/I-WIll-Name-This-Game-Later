@@ -6,6 +6,8 @@ public class CollisionObstacle : MonoBehaviour
 {
     public bool isDestructable = true;
 
+    [SerializeField]
+    private float _destroyTimer = 0.5f;
     private Animator _animObstacle;
     private BoxCollider2D[] _boxColl;
     private Rigidbody2D _rb;
@@ -23,7 +25,7 @@ public class CollisionObstacle : MonoBehaviour
         if (collision.CompareTag("Net"))
         {
             print("In the net!");
-            StartCoroutine(DestroyObject(0.6f));
+            StartCoroutine(DestroyObject(_destroyTimer));
             GetComponentInParent<Obstacle>().countChildren--;
             GameController.Score += 100;
         }
@@ -32,7 +34,7 @@ public class CollisionObstacle : MonoBehaviour
         {
             print("DETROYED!");
             Destroy(collision.gameObject);
-            StartCoroutine(DestroyObject(0.6f));
+            StartCoroutine(DestroyObject(_destroyTimer));
             GameController.Score += 300;
         }
 
@@ -47,6 +49,7 @@ public class CollisionObstacle : MonoBehaviour
     IEnumerator DestroyObject(float time) // Destroys object after elapsed time
     {
         print("Destroy obstacle and animate explosion");
+        this.GetComponent<Obstacle>().speed = 1.0f; // Reduce speed of obstacle after explosion
         _animObstacle.SetTrigger("ObstacleExplode");
         foreach(BoxCollider2D coll in _boxColl) // Disable all attached colliders
         {

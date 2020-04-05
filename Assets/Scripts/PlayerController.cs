@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //public Animator anim;
     public float playerSpeed, leftBound = -1.7f, rightBound = 1.7f;
+    public GameObject goAfterBurner;
 
-    private Animator _animShip;
+    private Animator _animShip, _animAfterburner;
     private Vector3 _leftBoundary, _rightBoundary;
 
     private void Start()
     {
+        if (goAfterBurner == null) goAfterBurner = GameObject.Find("Afterburner");
         _animShip = GetComponent<Animator>();
+        _animAfterburner = goAfterBurner.GetComponent<Animator>();
         _leftBoundary = new Vector3(leftBound, -4.0f, 0f);
         _rightBoundary = new Vector3(rightBound, -4.0f, 0f);
     }
@@ -27,15 +29,31 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.LeftArrow))
         {
+            _animShip.SetBool("isStrafeLeft", true);
+            _animAfterburner.SetBool("isMoving", true);
             transform.position += Vector3.left * Time.deltaTime * playerSpeed;
         }
-
-        if(Input.GetKey(KeyCode.RightArrow))
+        if(Input.GetKeyUp(KeyCode.LeftArrow))
         {
-            transform.position += Vector3.right * Time.deltaTime * playerSpeed;
-            _animShip.SetBool("ifStrafeRight", true);
+            print("Reset left animations");
+            _animShip.SetBool("isStrafeLeft", false);
+            if (_animShip.GetBool("isStrafeRight")) _animShip.SetBool("isStrafeRight", false);
+            _animAfterburner.SetBool("isMoving", false);
         }
-        else _animShip.SetBool("ifStrafeRight", false);
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            _animShip.SetBool("isStrafeRight", true);
+            _animAfterburner.SetBool("isMoving", true);
+            transform.position += Vector3.right * Time.deltaTime * playerSpeed;
+        }
+        if (Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            print("Reset right animations");
+            _animShip.SetBool("isStrafeRight", false);
+            if (_animShip.GetBool("isStrafeLeft")) _animShip.SetBool("isStrafeLeft", false);
+            _animAfterburner.SetBool("isMoving", false);
+        }
     }
 
     void TouchControls()

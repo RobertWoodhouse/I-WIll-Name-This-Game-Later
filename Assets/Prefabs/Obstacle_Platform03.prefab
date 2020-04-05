@@ -73,6 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDestructable: 0
+  _destroyTimer: 0.5
 --- !u!50 &3512522968669117123
 Rigidbody2D:
   serializedVersion: 4
@@ -196,7 +197,6 @@ MonoBehaviour:
   randLower: 0
   randUpper: 0
   isRotate: 0
-  _movementSpeed: 5
 --- !u!114 &76801926288852463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19fc32d2f4ad74b11ac05780fa707bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 210
+  timer: 90
 --- !u!1 &8773497081957966990
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,6 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDestructable: 0
+  _destroyTimer: 0.5
 --- !u!50 &5528683900256145293
 Rigidbody2D:
   serializedVersion: 4
@@ -446,6 +447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDestructable: 0
+  _destroyTimer: 0.5
 --- !u!50 &5528683901504148967
 Rigidbody2D:
   serializedVersion: 4
