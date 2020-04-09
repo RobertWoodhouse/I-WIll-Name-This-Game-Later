@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class BackgroundController : MonoBehaviour
 {
-    public Color bgColour;
     public GameObject bgStars1, bgStars2, bgParallax1, bgParallax2, bgStarsEnd1, bgStarsEnd2, bgParallaxEnd1, bgParallaxEnd2, shipPos;
 
-    [SerializeField]
-    private float _fadeAlpha = 255, _scrollYStartPos = 0;
-    private float _scrollYEndPos;
+    private float _fadeAlpha = 255, _scrollYStartPos = 0, _scrollYEndPos = 0;
+    private int _level;
+    private SpriteRenderer _sprite;
 
     void Start()
     {
         if (shipPos == null) shipPos = GameObject.FindGameObjectWithTag("Player");
+        if (_sprite == null) _sprite = GetComponent<SpriteRenderer>();
+    }
+
+    private void Update()
+    {
+        _level = GameController.GameLevel;
+        ChangeBackgroundColour();
+        BackgroundStarsSparkle();
     }
 
     void FixedUpdate()
     {
-        BackgroundStarsSparkle();
         BackgroundParallaxAndScroll();
     }
 
@@ -49,5 +55,13 @@ public class BackgroundController : MonoBehaviour
 
         bgStars1.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, (byte)(_fadeAlpha * 155));
         bgStars2.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, (byte)(_fadeAlpha * 105));
+    }
+
+    private void ChangeBackgroundColour() // TODO Fade into colours
+    {
+        if (_level == 2) _sprite.color = new Color32(114, 238, 114, 255); // GREEN
+        if (_level == 3) _sprite.color = new Color32(135, 206, 250, 255); // BLUE
+        if (_level == 4) _sprite.color = new Color32(186, 85, 211, 255); // PURPLE
+        if (_level >= 5) _sprite.color = new Color32(255, 215, 0, 255); // GOLD
     }
 }

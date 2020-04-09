@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 3884763462994910482}
   - component: {fileID: -1040037416318060280}
   - component: {fileID: 1903448586}
-  - component: {fileID: 2427366635391510590}
   - component: {fileID: -7762037725758943533}
   m_Layer: 0
   m_Name: Projectiles_Bullet
@@ -244,18 +243,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 2
---- !u!114 &2427366635391510590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3884763462994910481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5e6aa5b4ec724e0fa23aa549a72a5a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-7762037725758943533
 MonoBehaviour:
   m_ObjectHideFlags: 0

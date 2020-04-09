@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
         }
         if(Input.GetKeyUp(KeyCode.LeftArrow))
         {
-            print("Reset left animations");
+            ///print("Reset left animations");
             _animShip.SetBool("isStrafeLeft", false);
             if (_animShip.GetBool("isStrafeRight")) _animShip.SetBool("isStrafeRight", false);
             _animAfterburner.SetBool("isMoving", false);
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.RightArrow))
         {
-            print("Reset right animations");
+            //print("Reset right animations");
             _animShip.SetBool("isStrafeRight", false);
             if (_animShip.GetBool("isStrafeLeft")) _animShip.SetBool("isStrafeLeft", false);
             _animAfterburner.SetBool("isMoving", false);
