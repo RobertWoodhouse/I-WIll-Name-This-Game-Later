@@ -4,22 +4,19 @@ using UnityEngine;
 
 public class MoveObstacle : MonoBehaviour
 {
-    public float randLower = 20f, randUpper = 40f;//, movementSpeed = 5.0f;
+    public float randLower = 20f, randUpper = 40f;
     public bool isRotate = false;
 
-    //[SerializeField]
-    //private float _movementSpeed = 5.0f;
     private Vector3 _rotateObstacle;
 
-    private void Start()
+    private void Update()
     {
-        //movementSpeed = this.GetComponent<Obstacle>().speed;
+        if (CompareTag("ExpSpeed") || CompareTag("ExpPower")) Move(GetComponent<Exp>().speed);
+        if (CompareTag("Obstacle")) Move(GetComponent<Obstacle>().speed);
     }
 
     void FixedUpdate()
     {
-        //Move(movementSpeed);
-        Move(this.GetComponent<Obstacle>().speed);
         Rotate(isRotate);
     }
 
@@ -27,6 +24,6 @@ public class MoveObstacle : MonoBehaviour
 
     public void Rotate(bool rotateObject)
     {
-        if (rotateObject) transform.Rotate(_rotateObstacle = new Vector3(0f,0f,Random.Range(randLower, randUpper)) * Time.deltaTime);
+        if (rotateObject) transform.Rotate(new Vector3(0f,0f,Random.Range(randLower, randUpper)) * Time.deltaTime);
     }
 }

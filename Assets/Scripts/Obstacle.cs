@@ -13,7 +13,6 @@ public class Obstacle : MonoBehaviour
 
     void Awake()
     {
-        //level = Random.Range(1, 5); // TEST LEVELS & COLOURS
         _level = GameController.GameLevel;
         if (GetComponent<SpriteRenderer>() == null) _sprite = GetComponentInChildren<SpriteRenderer>();
         else _sprite = GetComponent<SpriteRenderer>();
@@ -22,12 +21,10 @@ public class Obstacle : MonoBehaviour
         LevelUpStats();
     }
 
-    private void Update()
-    {
-        DestroyParentObstacle();
-    }
+    private void LateUpdate() => DestroyParentObstacle();
 
-    private void ChangeObstacleColour() // TODO change child object colours
+
+    private void ChangeObstacleColour() // FIXME change child object colours
     {
         if (_level == 2) _sprite.color = new Color32(114, 238, 114, 255); // GREEN
         if (_level == 3) _sprite.color = new Color32(135, 206, 250, 255); // BLUE

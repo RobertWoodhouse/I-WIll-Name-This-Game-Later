@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnObstacle : MonoBehaviour
 {
-    public float time = 5.0f, respawnTime = 10.0f;
+    public float time = 5.0f, respawnTime = 5.0f;
 
     //private float[] _spawnXPosRange = new[] { -1.94f, -1.212f, -0.484f, 0.244f, 0.972f }; // TODO add spawn range for specific obstacles
 

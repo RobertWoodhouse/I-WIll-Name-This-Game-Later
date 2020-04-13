@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDestructable: 0
+  clipCollision: {fileID: 8300000, guid: 0e208dde6fb4947b981a79def526534d, type: 3}
   _destroyTimer: 0.5
 --- !u!50 &8937157825230579797
 Rigidbody2D:
@@ -161,7 +162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 599fd3eb906094e10854106af337c8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
   health: 1
   countChildren: 99
   speed: 1

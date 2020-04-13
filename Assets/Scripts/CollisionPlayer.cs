@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CollisionPlayer : MonoBehaviour
 {
+    public AudioClip clipExplosion;
+
     [SerializeField]
     private float _destroyTimer = 0.5f;
     private Animator _animShip;
@@ -12,21 +14,27 @@ public class CollisionPlayer : MonoBehaviour
     {
         _animShip = GetComponent<Animator>();
     }
-
+    /*
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Obstacle")) StartCoroutine(DestroyObject(_destroyTimer));
     }
+    */
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Obstacle")) StartCoroutine(DestroyObject(_destroyTimer));
+        if (collision.CompareTag("Obstacle"))
+        {
+            GameEvents.S.PlaySFX(clipExplosion);
+            StartCoroutine(DestroyObject(_destroyTimer));
+        }
     }
 
     IEnumerator DestroyObject(float time) // Destroys object after elapsed time
     {
         print("Destroy player and animate explosion");
         _animShip.SetTrigger("ShipExplode");
+        //GameEvents.S.PlaySFX(clipExplosion);
         Destroy(gameObject.transform.GetChild(0).gameObject); // HACK destroy Afterburner child GO to stop animator 
         yield return new WaitForSeconds(time);
         Destroy(gameObject);

@@ -5,6 +5,7 @@ using UnityEngine;
 public class CollisionObstacle : MonoBehaviour
 {
     public bool isDestructable = true;
+    public AudioClip clipCollision;
 
     [SerializeField]
     private float _destroyTimer = 0.5f;
@@ -24,7 +25,7 @@ public class CollisionObstacle : MonoBehaviour
     {
         if (collision.CompareTag("Net"))
         {
-            print("In the net!");
+            //print("In the net!");
             StartCoroutine(DestroyObject(_destroyTimer));
             GetComponentInParent<Obstacle>().countChildren--;
             GameController.Score += 100;
@@ -32,7 +33,8 @@ public class CollisionObstacle : MonoBehaviour
 
         if (collision.CompareTag("Projectile") && isDestructable.Equals(true))
         {
-            print("DETROYED!");
+            //print("DETROYED!");
+            GameEvents.S.PlaySFX(clipCollision);
             Destroy(collision.gameObject);
             StartCoroutine(DestroyObject(_destroyTimer));
             GameController.Score += 300;
@@ -40,16 +42,18 @@ public class CollisionObstacle : MonoBehaviour
 
         if (collision.CompareTag("Projectile") && isDestructable.Equals(false)) // Push back indestructable objects
         {
-            print("Push BACK!!");
+            //print("Push BACK!!");
+            GameEvents.S.PlaySFX(clipCollision);
             Destroy(collision.gameObject);
-            _rb.AddForce(transform.up * 20f);
+            _rb.AddForce(transform.up * 20f); // FIXME Reset back to normal speed after pushback, add coroutine?
         }
     }
 
     IEnumerator DestroyObject(float time) // Destroys object after elapsed time
     {
         print("Destroy obstacle and animate explosion");
-        this.GetComponent<Obstacle>().speed = 1.0f; // Reduce speed of obstacle after explosion
+        GetComponent<Obstacle>().speed = 1.0f; // Reduce speed of obstacle after explosion
+        //GameEvents.S.PlaySFX(clipCollision);
         _animObstacle.SetTrigger("ObstacleExplode");
         foreach(BoxCollider2D coll in _boxColl) // Disable all attached colliders
         {
