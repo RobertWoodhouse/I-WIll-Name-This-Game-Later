@@ -10,6 +10,8 @@ public class BackgroundController : MonoBehaviour
     private int _level;
     private SpriteRenderer _sprite;
 
+    public static float BgScrollSpeed = 1.0f;
+
     void Start()
     {
         if (shipPos == null) shipPos = GameObject.FindGameObjectWithTag("Player");
@@ -20,11 +22,11 @@ public class BackgroundController : MonoBehaviour
     {
         _level = GameController.GameLevel;
         ChangeBackgroundColour();
-        BackgroundStarsSparkle();
     }
 
     void FixedUpdate()
     {
+        BackgroundStarsSparkle();
         BackgroundParallaxAndScroll();
     }
 
@@ -32,7 +34,7 @@ public class BackgroundController : MonoBehaviour
     {
         if (shipPos != null)
         {
-            _scrollYEndPos -= Time.deltaTime;
+            _scrollYEndPos -= Time.deltaTime * BgScrollSpeed;
             if (_scrollYEndPos < -10.0f) _scrollYEndPos = _scrollYStartPos;
 
             // Scroll parent background
@@ -46,6 +48,8 @@ public class BackgroundController : MonoBehaviour
             bgParallax2.transform.position = new Vector3(shipPos.transform.position.x * -0.04f, _scrollYEndPos, 0);
             bgParallaxEnd1.transform.position = new Vector3(shipPos.transform.position.x * -0.01f, _scrollYEndPos + 10.0f, 0);
             bgParallaxEnd2.transform.position = new Vector3(shipPos.transform.position.x * -0.04f, _scrollYEndPos + 10.0f, 0);
+
+            if (BgScrollSpeed >= 10.0f) BgScrollSpeed = 10.0f; // Cap BG scroll speed to 10.0f
         }
     }
 

@@ -7,6 +7,8 @@ TagManager:
   - Net
   - Obstacle
   - Projectile
+  - ExpSpeed
+  - ExpPower
   - Exp
   layers:
   - Default

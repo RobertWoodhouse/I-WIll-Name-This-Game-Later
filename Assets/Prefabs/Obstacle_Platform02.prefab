@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9034453187158500617}
   - component: {fileID: 1589312690246173847}
   - component: {fileID: 8655325412290110323}
+  - component: {fileID: -52438431661111226}
   m_Layer: 0
   m_Name: Obstacle_Platform02
   m_TagString: Obstacle
@@ -62,12 +63,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 599fd3eb906094e10854106af337c8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
-  health: 1
   countChildren: 99
   speed: 1
   spawnXPosRange:
   - 0
+  sprite: {fileID: 0}
 --- !u!114 &8655325412290110323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,6 +81,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 90
+--- !u!114 &-52438431661111226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4765059194693161245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7064e8a97273d4b1083d4602ddf10d01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnXPosRange:
+  - -1.94
+  - -1.212
+  - -0.484
+  - 0.244
+  - 0.972
 --- !u!1001 &2855414717750404768
 PrefabInstance:
   m_ObjectHideFlags: 0

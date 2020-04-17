@@ -7,16 +7,10 @@ public class MoveObstacle : MonoBehaviour
     public float randLower = 20f, randUpper = 40f;
     public bool isRotate = false;
 
-    private Vector3 _rotateObstacle;
-
-    private void Update()
+    void FixedUpdate()
     {
         if (CompareTag("ExpSpeed") || CompareTag("ExpPower")) Move(GetComponent<Exp>().speed);
         if (CompareTag("Obstacle")) Move(GetComponent<Obstacle>().speed);
-    }
-
-    void FixedUpdate()
-    {
         Rotate(isRotate);
     }
 

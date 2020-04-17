@@ -18,14 +18,14 @@ public class ProjectileController : MonoBehaviour
 
     void FixedUpdate()
     {
-        FireRate();
+        FireProjectile();
     }
 
-    void FireRate()
+    void FireProjectile()
     {
-        if (_spawnTime > 0) _spawnTime -= Time.deltaTime;
+        if (_spawnTime > 0) _spawnTime -= Time.deltaTime; // Fire Rate
 
-        if (Input.GetButtonDown("Fire1") && _spawnTime < 0)
+        if (Input.GetButtonDown("Fire1") && _spawnTime <= 0)
         {
             //print("MORE FIRE!!");
             _spawnTime = projectileSpawnTime;

@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public static int GameLevel = 1;
-    public static int Score = 0;
+    public static int GameLevel = 1, Score = 0;
 
     [SerializeField]
     private int _targetScore = 1000;
@@ -21,6 +20,7 @@ public class GameController : MonoBehaviour
         {
             GameLevel++;
             _targetScore += 1000;
+            BackgroundController.BgScrollSpeed += 0.5f; // Increase BG scroll speed
         }
         //print("Score = " + Score + " | Game Level = " + GameLevel + " | Target Score = " + _targetScore);
     }

@@ -6,12 +6,22 @@ public class DestroyGameobject : MonoBehaviour
 {
     public float timer = 4.0f;
 
-    void Start() => StartCoroutine(DestroyObject(timer));
+    private void Start() => StartCoroutine(DestroyObjectByTime(timer));
 
-    IEnumerator DestroyObject(float time) // Destroys object after elapsed time
+    private void Update() => DestroyObjectByPos();
+
+    IEnumerator DestroyObjectByTime(float time) // TODO test and remove as it is redundant
     {
-        // TODO change from elapsed time to screen pos e.g. when y >= -40.0f destroy
         yield return new WaitForSeconds(time);
         Destroy(gameObject);
+    }
+
+    void DestroyObjectByPos() // TODO add to score when destoryed
+    {
+        if (gameObject.transform.localPosition.y < -10.0f)
+        {
+            Destroy(gameObject);
+            print("Object out of bounds");
+        }
     }
 }

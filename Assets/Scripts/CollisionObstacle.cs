@@ -11,11 +11,9 @@ public class CollisionObstacle : MonoBehaviour
     private float _destroyTimer = 0.5f;
     private Animator _animObstacle;
     private BoxCollider2D[] _boxColl;
-    private Rigidbody2D _rb;
 
     private void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
         _boxColl = GetComponents<BoxCollider2D>();
         _animObstacle = GetComponent<Animator>();
         if (transform.parent != null) GetComponentInParent<Obstacle>().countChildren = transform.parent.gameObject.transform.childCount;
@@ -25,15 +23,13 @@ public class CollisionObstacle : MonoBehaviour
     {
         if (collision.CompareTag("Net"))
         {
-            //print("In the net!");
             StartCoroutine(DestroyObject(_destroyTimer));
-            GetComponentInParent<Obstacle>().countChildren--;
+            if (transform.parent != null) GetComponentInParent<Obstacle>().countChildren--; // TODO TEST IF STATEMENT IS WORKING
             GameController.Score += 100;
         }
 
-        if (collision.CompareTag("Projectile") && isDestructable.Equals(true))
+        if (collision.CompareTag("Projectile") && isDestructable.Equals(true)) // Destroy destructable objects
         {
-            //print("DETROYED!");
             GameEvents.S.PlaySFX(clipCollision);
             Destroy(collision.gameObject);
             StartCoroutine(DestroyObject(_destroyTimer));
@@ -42,23 +38,46 @@ public class CollisionObstacle : MonoBehaviour
 
         if (collision.CompareTag("Projectile") && isDestructable.Equals(false)) // Push back indestructable objects
         {
-            //print("Push BACK!!");
             GameEvents.S.PlaySFX(clipCollision);
             Destroy(collision.gameObject);
-            _rb.AddForce(transform.up * 20f); // FIXME Reset back to normal speed after pushback, add coroutine?
+            StartCoroutine("KineticCharge");
+            GameController.Score += 20; // FIXME may work as score boost cheat
         }
     }
 
+    IEnumerator KineticCharge()
+    {
+        var tempSpeed = GetComponent<Obstacle>().speed;
+        var tempColour = GetComponent<Obstacle>().sprite.color;
+        GetComponent<Obstacle>().speed = 0f;
+        GetComponent<Obstacle>().sprite.color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        GetComponent<Obstacle>().sprite.color = tempColour;
+        yield return new WaitForSeconds(0.5f);
+        GetComponent<Obstacle>().sprite.color = Color.red;
+        yield return new WaitForSeconds(0.33f);
+        GetComponent<Obstacle>().sprite.color = tempColour;
+        yield return new WaitForSeconds(0.33f);
+        GetComponent<Obstacle>().sprite.color = Color.red;
+        yield return new WaitForSeconds(0.33f);
+        GetComponent<Obstacle>().sprite.color = tempColour;
+        yield return new WaitForSeconds(0.25f);
+        GetComponent<Obstacle>().sprite.color = Color.red;
+        yield return new WaitForSeconds(0.25f);
+        GetComponent<Obstacle>().sprite.color = tempColour;
+        yield return new WaitForSeconds(0.25f);
+        GetComponent<Obstacle>().sprite.color = Color.red;
+        yield return new WaitForSeconds(0.25f);
+        GetComponent<Obstacle>().sprite.color = tempColour;
+        GetComponent<Obstacle>().speed = tempSpeed+=0.25f;
+    }
+    
     IEnumerator DestroyObject(float time) // Destroys object after elapsed time
     {
         print("Destroy obstacle and animate explosion");
         GetComponent<Obstacle>().speed = 1.0f; // Reduce speed of obstacle after explosion
-        //GameEvents.S.PlaySFX(clipCollision);
         _animObstacle.SetTrigger("ObstacleExplode");
-        foreach(BoxCollider2D coll in _boxColl) // Disable all attached colliders
-        {
-            coll.enabled = false;
-        }
+        foreach(BoxCollider2D coll in _boxColl) coll.enabled = false; // Disable all attached colliders to prevent collisions during explosion animation
         yield return new WaitForSeconds(time);
         Destroy(gameObject);
     }

@@ -88,6 +88,18 @@ public class IntroController : MonoBehaviour
 		yield return new WaitForSeconds(.025f);
 		goLogo.transform.GetChild(1).localPosition = new Vector3(0f, -5.0f, 0f);
 		yield return new WaitForSeconds(.025f);
+		goLogo.transform.GetChild(1).localPosition = new Vector3(1f, -6.0f, 0f);
+		yield return new WaitForSeconds(.025f);
+		goLogo.transform.GetChild(1).localPosition = new Vector3(-1f, -6.0f, 0f);
+		yield return new WaitForSeconds(.025f);
+		goLogo.transform.GetChild(1).localPosition = new Vector3(0f, -5.0f, 0f);
+		yield return new WaitForSeconds(.025f);
+		goLogo.transform.GetChild(1).localPosition = new Vector3(1f, -6.0f, 0f);
+		yield return new WaitForSeconds(.025f);
+		goLogo.transform.GetChild(1).localPosition = new Vector3(-1f, -6.0f, 0f);
+		yield return new WaitForSeconds(.025f);
+		goLogo.transform.GetChild(1).localPosition = new Vector3(0f, -5.0f, 0f);
+		yield return new WaitForSeconds(.025f);
 	}
 
 }

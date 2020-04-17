@@ -67,9 +67,4 @@ public class PlayerController : MonoBehaviour
         if (transform.position.x <= left) transform.position = _leftBoundary;
         if (transform.position.x >= right) transform.position = _rightBoundary;
     }
-
-    private void FireProjectile()
-    {
-
-    }
 }

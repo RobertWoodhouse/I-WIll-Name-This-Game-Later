@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2087219225086335024}
   - component: {fileID: 4866150005395334002}
   - component: {fileID: 2165101912561014968}
+  - component: {fileID: 122679088772388070}
   m_Layer: 0
   m_Name: Obstacle_Asteroid
   m_TagString: Obstacle
@@ -157,13 +158,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 599fd3eb906094e10854106af337c8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
   countChildren: 99
   speed: 1
-  spawnXPosRange:
-  - -1.45
-  - 0
-  - 1.45
+  sprite: {fileID: 0}
 --- !u!50 &2634261745525580003
 Rigidbody2D:
   serializedVersion: 4
@@ -313,3 +310,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &122679088772388070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294409626498124768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7064e8a97273d4b1083d4602ddf10d01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnXPosRange:
+  - 0
+  - -1.47
+  - 1.47
