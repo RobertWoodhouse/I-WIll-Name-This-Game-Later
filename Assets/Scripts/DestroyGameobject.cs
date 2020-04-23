@@ -8,17 +8,22 @@ public class DestroyGameobject : MonoBehaviour
 
     private void Start() => StartCoroutine(DestroyObjectByTime(timer));
 
-    private void Update() => DestroyObjectByPos();
+    private void LateUpdate() => DestroyObjectByPos();
 
     IEnumerator DestroyObjectByTime(float time) // TODO test and remove as it is redundant
     {
         yield return new WaitForSeconds(time);
-        Destroy(gameObject);
+        if (gameObject.transform.position.y > -8.0f && gameObject.transform.position.y < 8.0f)
+        {
+            Destroy(gameObject);
+            print("Destroy by time and space");
+        }
+        else StartCoroutine(DestroyObjectByTime(10.0f));
     }
-
+    
     void DestroyObjectByPos() // TODO add to score when destoryed
     {
-        if (gameObject.transform.localPosition.y < -10.0f)
+        if (gameObject.transform.position.y < -10.0f)
         {
             Destroy(gameObject);
             print("Object out of bounds");

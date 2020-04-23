@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDestructable: 0
-  clipCollision: {fileID: 8300000, guid: 0e208dde6fb4947b981a79def526534d, type: 3}
+  clipCollision: {fileID: 8300000, guid: d58d7720635874cf0847f5c5f422ebc0, type: 3}
   _destroyTimer: 0.5
 --- !u!50 &5261556797899608763
 Rigidbody2D:
@@ -203,6 +203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5261556798344133287}
   - component: {fileID: -7208476383950249369}
+  - component: {fileID: 5954082737938537344}
   m_Layer: 0
   m_Name: Obstacle_Metal02
   m_TagString: Obstacle
@@ -240,6 +241,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnXPosRange:
   - 2.14
+--- !u!114 &5954082737938537344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5261556798344133284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 892d56e8837c64c07835b5c0601e21a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasChildren: 1
 --- !u!1 &8318390074662991998
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDestructable: 0
-  clipCollision: {fileID: 8300000, guid: 0e208dde6fb4947b981a79def526534d, type: 3}
+  clipCollision: {fileID: 8300000, guid: d58d7720635874cf0847f5c5f422ebc0, type: 3}
   _destroyTimer: 0.5
 --- !u!50 &5046483598834373501
 Rigidbody2D:

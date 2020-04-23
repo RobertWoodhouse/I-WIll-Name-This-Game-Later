@@ -44,7 +44,7 @@ public class AudioController : MonoBehaviour
 
     private void Update()
     {
-        MuteAudioTracks(_channels);
+        //MuteAudioTracks(_channels);
         //IntrumentsSwitch(Scales.LevelOfScales);
     }
 

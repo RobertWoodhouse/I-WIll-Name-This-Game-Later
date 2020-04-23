@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 5834209345017024437}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.1413054, y: -0.5436592, z: 2.325968}
-  m_LocalScale: {x: 0.33, y: 0.75, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.75, z: 1}
   m_Children: []
   m_Father: {fileID: 5834209346030406320}
   m_RootOrder: 1
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDestructable: 0
-  clipCollision: {fileID: 8300000, guid: 0e208dde6fb4947b981a79def526534d, type: 3}
+  clipCollision: {fileID: 8300000, guid: d58d7720635874cf0847f5c5f422ebc0, type: 3}
   _destroyTimer: 0.5
 --- !u!50 &5834209345017024447
 Rigidbody2D:
@@ -203,6 +203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5834209346030406320}
   - component: {fileID: 9027131927055996198}
+  - component: {fileID: -788795055350451371}
   m_Layer: 0
   m_Name: Obstacle_Metal03
   m_TagString: Obstacle
@@ -241,6 +242,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnXPosRange:
   - 2.14
+--- !u!114 &-788795055350451371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5834209346030406321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 892d56e8837c64c07835b5c0601e21a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasChildren: 1
 --- !u!1 &5834209346957703566
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,8 +286,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5834209346957703566}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.39, y: -0.5436592, z: 2.325968}
-  m_LocalScale: {x: 0.33, y: 0.75, z: 1}
+  m_LocalPosition: {x: -0.3, y: -0.5436592, z: 2.325968}
+  m_LocalScale: {x: 0.25, y: 0.75, z: 1}
   m_Children: []
   m_Father: {fileID: 5834209346030406320}
   m_RootOrder: 2
@@ -317,7 +331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDestructable: 0
-  clipCollision: {fileID: 8300000, guid: 0e208dde6fb4947b981a79def526534d, type: 3}
+  clipCollision: {fileID: 8300000, guid: d58d7720635874cf0847f5c5f422ebc0, type: 3}
   _destroyTimer: 0.5
 --- !u!50 &5834209346957703568
 Rigidbody2D:
@@ -465,8 +479,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7783773894494186586}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.9, y: -0.5436592, z: 2.325968}
-  m_LocalScale: {x: 0.33, y: 0.75, z: 1}
+  m_LocalPosition: {x: -4.1, y: -0.5436592, z: 2.325968}
+  m_LocalScale: {x: 0.25, y: 0.75, z: 1}
   m_Children: []
   m_Father: {fileID: 5834209346030406320}
   m_RootOrder: 0
@@ -510,7 +524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDestructable: 0
-  clipCollision: {fileID: 8300000, guid: 0e208dde6fb4947b981a79def526534d, type: 3}
+  clipCollision: {fileID: 8300000, guid: d58d7720635874cf0847f5c5f422ebc0, type: 3}
   _destroyTimer: 0.5
 --- !u!50 &6448566111314069337
 Rigidbody2D:

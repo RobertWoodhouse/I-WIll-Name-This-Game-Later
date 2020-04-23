@@ -129,8 +129,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 3.5
-  leftBound: -1.7
-  rightBound: 1.7
+  leftBound: -1.9
+  rightBound: 1.9
   goAfterBurner: {fileID: 1824111589434756697}
 --- !u!50 &6961530027733819877
 Rigidbody2D:

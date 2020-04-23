@@ -54,6 +54,9 @@ public class PlayerController : MonoBehaviour
             if (_animShip.GetBool("isStrafeLeft")) _animShip.SetBool("isStrafeLeft", false);
             _animAfterburner.SetBool("isMoving", false);
         }
+        // TEST AD Buttons
+        if (Input.GetKey(KeyCode.B)) AdMediaController.S.ShowAdBanner();
+        if (Input.GetKey(KeyCode.V)) AdMediaController.S.ShowAdVideo();
     }
 
     void TouchControls()
