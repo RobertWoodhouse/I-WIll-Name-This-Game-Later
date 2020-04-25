@@ -3392,6 +3392,10 @@ MonoBehaviour:
   nameTxt: {fileID: 9097762406501777502}
   descriptionTxt: {fileID: 4662475630035555030}
   shipImg: {fileID: 3895892231141161967}
+  _shipSprites:
+  - {fileID: 21300000, guid: 06e2db07cd6134bf79cc3c4ce1efa9bd, type: 3}
+  - {fileID: 21300000, guid: 5b2130499bae14b8fb34edc269e38e03, type: 3}
+  - {fileID: 21300000, guid: 4338366684bc4452080aced1ca539369, type: 3}
 --- !u!222 &7414240011471851818
 CanvasRenderer:
   m_ObjectHideFlags: 0
