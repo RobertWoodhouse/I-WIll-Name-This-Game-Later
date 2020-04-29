@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,11 +15,11 @@ public class SceneController : MonoBehaviour
 	public static void SceneQuit()
 	{
 #if UNITY_EDITOR
-		UnityEditor.EditorApplication.isPlaying = false; // DEBUG: Quit Editor
+        UnityEditor.EditorApplication.isPlaying = false; // DEBUG: Quit Editor
 #endif
 
 #if UNITY_ANDROID
-		Application.Quit(); // PHONE: Quit Game
+        Application.Quit(); // PHONE: Quit Game
 #endif
-	}
+    }
 }

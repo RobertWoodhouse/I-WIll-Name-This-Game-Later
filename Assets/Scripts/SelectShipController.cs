@@ -8,10 +8,14 @@ public class SelectShipController : MonoBehaviour
     public Text nameTxt, descriptionTxt;
     public Image shipImg;
 
+    //[SerializeField]
+    //private Text _headerTxt; // TODO change to single static var
     [SerializeField]
     private Sprite[] _shipSprites;
     [SerializeField]
-    private Button _leftBtn, _rightBtn;
+    private Button _leftBtn, _rightBtn, _backBtn;
+    [SerializeField]
+    private GameObject _mainMenu;
     private int _selectNum = 0;
     private string[] _names = { "SIR LENWORTH", "S.S. BUC NASTY", "BANTON CHRONICLE" };
     private string[] _descriptions =
@@ -26,6 +30,7 @@ public class SelectShipController : MonoBehaviour
         SelectShip(0); // TODO save last ship selected on phone memory
         _leftBtn.onClick.AddListener(LeftButtonOnClick);
         _rightBtn.onClick.AddListener(RightButtonOnClick);
+        _backBtn.onClick.AddListener(BackButtonOnClick);
     }
 
     void LeftButtonOnClick()
@@ -40,6 +45,14 @@ public class SelectShipController : MonoBehaviour
         _selectNum++;
         if (_selectNum > (_shipSprites.Length - 1)) _selectNum = 0;
         SelectShip(_selectNum);
+    }
+
+    void BackButtonOnClick()
+    {
+        gameObject.SetActive(false);
+        _mainMenu.SetActive(true);
+        _backBtn.gameObject.SetActive(false);
+        MainMenuController.S.SetHeaderText("I'LL NAME THIS GAME LATER");
     }
 
     void SelectShip(int select)

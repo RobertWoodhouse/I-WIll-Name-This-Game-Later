@@ -965,6 +965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goLogo: {fileID: 1383809263}
   _fadeAlpha: 0
+  _timer: 3
 --- !u!82 &1383809265
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1179,7 +1180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd60304f1d83949c0b0cfaec27598605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgColour: {r: 1, g: 1, b: 1, a: 1}
   bgStars1: {fileID: 0}
   bgStars2: {fileID: 0}
   bgParallax1: {fileID: 0}
@@ -1189,8 +1189,6 @@ MonoBehaviour:
   bgParallaxEnd1: {fileID: 0}
   bgParallaxEnd2: {fileID: 0}
   shipPos: {fileID: 0}
-  _fadeAlpha: 255
-  _scrollYStartPos: 0
 --- !u!1 &1679961888
 GameObject:
   m_ObjectHideFlags: 0
