@@ -7,16 +7,19 @@ public class SelectShipController : MonoBehaviour
 {
     public Text nameTxt, descriptionTxt;
     public Image shipImg;
+    public bool isShip2Locked = true, isShip3Locked = true;
 
     //[SerializeField]
     //private Text _headerTxt; // TODO change to single static var
     [SerializeField]
     private Sprite[] _shipSprites;
     [SerializeField]
-    private Button _leftBtn, _rightBtn, _backBtn;
+    private Sprite _shipLockedSprite;
+    [SerializeField]
+    private Button _leftBtn, _rightBtn, _backBtn, _selectBtn;
     [SerializeField]
     private GameObject _mainMenu;
-    private int _selectNum = 0;
+    public int _selectNum = 0;
     private string[] _names = { "SIR LENWORTH", "S.S. BUC NASTY", "BANTON CHRONICLE" };
     private string[] _descriptions =
     {
@@ -31,6 +34,7 @@ public class SelectShipController : MonoBehaviour
         _leftBtn.onClick.AddListener(LeftButtonOnClick);
         _rightBtn.onClick.AddListener(RightButtonOnClick);
         _backBtn.onClick.AddListener(BackButtonOnClick);
+        _selectBtn.onClick.AddListener(SelectButtonOnClick);
     }
 
     void LeftButtonOnClick()
@@ -55,10 +59,33 @@ public class SelectShipController : MonoBehaviour
         MainMenuController.S.SetHeaderText("I'LL NAME THIS GAME LATER");
     }
 
+    void SelectButtonOnClick()
+    {
+        /* SET PLAYER SHIP
+        SPAWN SHIP ON LOAD
+        */
+
+    }
+
     void SelectShip(int select)
     {
-        nameTxt.text = _names[select];
-        descriptionTxt.text = _descriptions[select];
-        shipImg.sprite = _shipSprites[select];
+        if (isShip2Locked && select == 1)
+        {
+            nameTxt.text = "???";
+            descriptionTxt.text = "PLAY AD VIDEO TO UNLOCK SHIP";
+            shipImg.sprite = _shipLockedSprite;
+        }
+        else if (isShip3Locked && select == 2)
+        {
+            nameTxt.text = "???";
+            descriptionTxt.text = "GET A SCORE OF 100000 TO UNLOCK SHIP";
+            shipImg.sprite = _shipLockedSprite;
+        }
+        else
+        {
+            nameTxt.text = _names[select];
+            descriptionTxt.text = _descriptions[select];
+            shipImg.sprite = _shipSprites[select];
+        }
     }
 }

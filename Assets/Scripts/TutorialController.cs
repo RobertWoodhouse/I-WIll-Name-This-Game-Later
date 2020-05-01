@@ -58,7 +58,8 @@ public class TutorialController : MonoBehaviour
         {
             case 1:
                 titleTxt.text = "SHIP MOVEMENT";
-                instructionsTxt.text = "TOUCH & HOLD SCREEN TO MOVE YOUR SHIP LEFT OR RIGHT";
+                instructionsTxt.text = "TOUCH AND HOLD SCREEN ON THE AREA YOU WANT TO MOVE YOUR SHIP TO" +
+                    "\nYOUR SHIP CAN MOVE LEFT OR RIGHT";
 
                 tutImg1.sprite = _shipSprite;
                 tutImg1.GetComponent<RectTransform>().anchoredPosition = new Vector2(-70, 64);
@@ -79,59 +80,59 @@ public class TutorialController : MonoBehaviour
 
             case 2:
                 titleTxt.text = "FIRE GUN";
-                instructionsTxt.text = "DOUBLE TAP SCREEN TO FIRE YOUR SHIPS GUNS";
+                instructionsTxt.text = "DOUBLE TAP THE SCREEN TO FIRE YOUR SHIPS GUNS";
 
                 tutImg1.sprite = _shipSprite;
-                tutImg1.GetComponent<RectTransform>().anchoredPosition = new Vector2(-55, 30);
+                tutImg1.GetComponent<RectTransform>().anchoredPosition = new Vector2(-55, 50);
                 tutImg1.GetComponent<RectTransform>().localRotation = Quaternion.Euler(0, 0, 0);
-                tutImg1.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100); // PRESERVED ASPECT RATIO
+                tutImg1.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100); 
 
                 tutImg2.sprite = _bulletSprite;
-                tutImg2.GetComponent<RectTransform>().anchoredPosition = new Vector2(-55, 124);
+                tutImg2.GetComponent<RectTransform>().anchoredPosition = new Vector2(-55, 140);
                 tutImg2.GetComponent<RectTransform>().localRotation = Quaternion.Euler(0, 0, 0);
                 tutImg2.GetComponent<RectTransform>().sizeDelta = new Vector2(12, 12);
 
                 tutImg3.sprite = _handTapSprite;
                 tutImg3.GetComponent<RectTransform>().anchoredPosition = new Vector2(74, 55);
                 tutImg3.GetComponent<RectTransform>().localRotation = Quaternion.Euler(0, 0, 0);
-                tutImg3.GetComponent<RectTransform>().sizeDelta = new Vector2(57.75f, 96); // PRESERVED ASPECT RATIO
+                tutImg3.GetComponent<RectTransform>().sizeDelta = new Vector2(57.75f, 96);
                 tutImg3.gameObject.SetActive(true);
                 break;
 
             case 3:
                 titleTxt.text = "OBSTACLES";
-                instructionsTxt.text = "AVOID OBSTACLES TO INCREASE SCORE \nSHOOT AND DESTROY OBSTACLES TO MAXIMISE SCORE " +
-                    "\nNOT ALL OBSTACLES CAN BE DESTROYED WITH GUN FIRE \nTHESE OBSTACLES CAN BE STALLED FOR A PERIOD OF TIME" +
-                    " \nBE CAREFUL OF KINETIC ENERGY STORED IN THESE STALLED OBSTACLES";
+                instructionsTxt.text = "SHOOT OR EVADE OBSTACLES TO BUILD YOUR SCORE" +
+                    "\nNOT ALL OBSTACLES CAN BE DESTROYED, BUT CAN BE STALLED" +
+                    "\nBE MINDFUL OF KINETIC ENERGY STORED IN THESE OBSTACLES";
 
                 tutImg1.sprite = _satSprite;
-                tutImg1.GetComponent<RectTransform>().anchoredPosition = new Vector2(-65, 63);
+                tutImg1.GetComponent<RectTransform>().anchoredPosition = new Vector2(-65, 80);
                 tutImg1.GetComponent<RectTransform>().localRotation = Quaternion.Euler(0, 0, 10);
-                tutImg1.GetComponent<RectTransform>().sizeDelta = new Vector2(165.75f, 165.75f); // PRESERVED ASPECT RATIO
+                tutImg1.GetComponent<RectTransform>().sizeDelta = new Vector2(165.75f, 165.75f);
 
                 tutImg2.sprite = _metalSprite;
                 tutImg2.GetComponent<RectTransform>().anchoredPosition = new Vector2(60, 60);
                 tutImg2.GetComponent<RectTransform>().localRotation = Quaternion.Euler(0, 0, 0);
-                tutImg2.GetComponent<RectTransform>().sizeDelta = new Vector2(96, 34.125f); // PRESERVED ASPECT RATIO
+                tutImg2.GetComponent<RectTransform>().sizeDelta = new Vector2(96, 34.125f);
 
                 tutImg3.gameObject.SetActive(false);
                 break;
 
             case 4:
                 titleTxt.text = "POWER UPS";
-                instructionsTxt.text = "COLLECT SHIP POWER UPS BY MOVING SHIP INTO THEM " +
-                    "\nTHE LIGHT POWER UP WILL INCREASE YOUR SHIPS RATE OF FIRE " +
-                    "\nTHE DARK POWER UP WILL INCREASE YOUR SHIPS MOVEMENT SPEED";
+                instructionsTxt.text = "COLLECT POWER UPS BY MOVING YOUR SHIP INTO THEM" +
+                    "\nLIGHT POWER INCREASES YOUR SHIPS RATE OF FIRE" +
+                    "\nDARK POWER INCREASES YOUR SHIPS MOVEMENT SPEED";
 
                 tutImg1.sprite = _powerUpSprite;
                 tutImg1.GetComponent<RectTransform>().anchoredPosition = new Vector2(-60, 60);
                 tutImg1.GetComponent<RectTransform>().localRotation = Quaternion.Euler(0, 0, 0);
-                tutImg1.GetComponent<RectTransform>().sizeDelta = new Vector2(60, 60); // PRESERVED ASPECT RATIO
+                tutImg1.GetComponent<RectTransform>().sizeDelta = new Vector2(60, 60);
 
                 tutImg2.sprite = _speedUpSprite;
                 tutImg2.GetComponent<RectTransform>().anchoredPosition = new Vector2(60, 60);
                 tutImg2.GetComponent<RectTransform>().localRotation = Quaternion.Euler(0, 0, 0);
-                tutImg2.GetComponent<RectTransform>().sizeDelta = new Vector2(60, 60); // PRESERVED ASPECT RATIO
+                tutImg2.GetComponent<RectTransform>().sizeDelta = new Vector2(60, 60);
 
                 tutImg3.gameObject.SetActive(false);
                 break;
