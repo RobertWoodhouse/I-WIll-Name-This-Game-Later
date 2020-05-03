@@ -23,6 +23,7 @@ public class TutorialController : MonoBehaviour
 
     void Start()
     {
+        SelectTutorial(1);
         _backBtn.onClick.AddListener(BackButtonOnClick);
         _leftBtn.onClick.AddListener(LeftButtonOnClick);
         _rightBtn.onClick.AddListener(RightButtonOnClick);
@@ -76,6 +77,8 @@ public class TutorialController : MonoBehaviour
                 tutImg3.GetComponent<RectTransform>().localRotation = Quaternion.Euler(0, 0, 0);
                 tutImg3.GetComponent<RectTransform>().sizeDelta = new Vector2(57, 73.5f);
                 tutImg3.gameObject.SetActive(true);
+
+                _leftBtn.interactable = false;
                 break;
 
             case 2:
@@ -97,6 +100,8 @@ public class TutorialController : MonoBehaviour
                 tutImg3.GetComponent<RectTransform>().localRotation = Quaternion.Euler(0, 0, 0);
                 tutImg3.GetComponent<RectTransform>().sizeDelta = new Vector2(57.75f, 96);
                 tutImg3.gameObject.SetActive(true);
+
+                _leftBtn.interactable = true;
                 break;
 
             case 3:
@@ -116,6 +121,8 @@ public class TutorialController : MonoBehaviour
                 tutImg2.GetComponent<RectTransform>().sizeDelta = new Vector2(96, 34.125f);
 
                 tutImg3.gameObject.SetActive(false);
+
+                _rightBtn.interactable = true;
                 break;
 
             case 4:
@@ -135,6 +142,8 @@ public class TutorialController : MonoBehaviour
                 tutImg2.GetComponent<RectTransform>().sizeDelta = new Vector2(60, 60);
 
                 tutImg3.gameObject.SetActive(false);
+
+                _rightBtn.interactable = false;
                 break;
 
             default:

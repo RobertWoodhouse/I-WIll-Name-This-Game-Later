@@ -74,18 +74,21 @@ public class SelectShipController : MonoBehaviour
             nameTxt.text = "???";
             descriptionTxt.text = "PLAY AD VIDEO TO UNLOCK SHIP";
             shipImg.sprite = _shipLockedSprite;
+            _selectBtn.interactable = false;
         }
         else if (isShip3Locked && select == 2)
         {
             nameTxt.text = "???";
             descriptionTxt.text = "GET A SCORE OF 100000 TO UNLOCK SHIP";
             shipImg.sprite = _shipLockedSprite;
+            _selectBtn.interactable = false;
         }
         else
         {
             nameTxt.text = _names[select];
             descriptionTxt.text = _descriptions[select];
             shipImg.sprite = _shipSprites[select];
+            _selectBtn.interactable = true;
         }
     }
 }

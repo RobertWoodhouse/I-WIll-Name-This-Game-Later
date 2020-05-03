@@ -12,7 +12,7 @@ public class MainMenuController : MonoBehaviour
     [SerializeField]
     private Button _playBtn, _selectShipBtn, _scoreShipBtn, _tutorialShipBtn;
     [SerializeField]
-    private GameObject /*_mainMenu,*/ _selectShipWin, _scoreWin, _tutorialWin;
+    private GameObject _selectShipWin, _scoreWin, _tutorialWin;
 
     public static MainMenuController S;
 
@@ -33,7 +33,6 @@ public class MainMenuController : MonoBehaviour
 
     void SelectShipButtonOnClick()
     {
-        //_mainMenu.SetActive(false);
         gameObject.SetActive(false);
         _selectShipWin.SetActive(true);
         backBtn.gameObject.SetActive(true);
@@ -42,7 +41,6 @@ public class MainMenuController : MonoBehaviour
 
     void ScoreButtonOnClick()
     {
-        //_mainMenu.SetActive(false);
         gameObject.SetActive(false);
         _scoreWin.SetActive(true);
         backBtn.gameObject.SetActive(true);
@@ -51,7 +49,6 @@ public class MainMenuController : MonoBehaviour
 
     void TutorialButtonOnClick()
     {
-        //_mainMenu.SetActive(false);
         gameObject.SetActive(false);
         _tutorialWin.SetActive(true);
         backBtn.gameObject.SetActive(true);
