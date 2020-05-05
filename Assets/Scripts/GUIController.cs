@@ -28,6 +28,8 @@ public class GUIController : MonoBehaviour
 
     void PauseButtonOnClick()
     {
+        Time.timeScale = 0.0f;
+        //PauseController.isPaused = true;
         //gameObject.SetActive(false);
         _pauseMenu.SetActive(true);
         playBtn.gameObject.SetActive(true);
