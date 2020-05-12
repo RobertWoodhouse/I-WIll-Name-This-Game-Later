@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PauseController : MonoBehaviour
 {
+    public enum PlaySpeed { Play, SlowMotion, Pause }
+
     public Button playBtn, pauseBtn;
 
     [SerializeField]
@@ -31,7 +33,9 @@ public class PauseController : MonoBehaviour
 
     void PlayButtonOnClick()
     {
-        Time.timeScale = 1.0f;
+        //Time.timeScale = 1.0f;
+        //PauseAndPlay(PlaySpeed.Play);
+        StartCoroutine(PauseAndPlay(PlaySpeed.Play));
         //isPaused = false;
         gameObject.SetActive(false);
         pauseBtn.gameObject.SetActive(true);
@@ -66,17 +70,38 @@ public class PauseController : MonoBehaviour
         _messageTxt.fontSize = 34;
     }
 
-    void YesButtonOnClick() // ADD MESSAGE e.g. Are you sure you want to quit game?
+    void YesButtonOnClick() // TODO ADD MESSAGE e.g. Are you sure you want to quit game?
     {
         if (_buttonName == "restart") SceneController.SceneSelect("02 - GameScene");
         if (_buttonName == "mainmenu") SceneController.SceneSelect("01 - MainMenu");
         if (_buttonName == "quit") SceneController.SceneQuit();
-        Time.timeScale = 1.0f;
+        //PauseAndPlay(PlaySpeed.Play);
+        StartCoroutine(PauseAndPlay(PlaySpeed.Play));
+        GameController.ResetStageStats();
+        //Time.timeScale = 1.0f;
     }
 
     void NoButtonClick()
     {
         _yesNoPanel.SetActive(false);
         gameObject.SetActive(true);
+    }
+
+    public static IEnumerator PauseAndPlay(PlaySpeed speed)
+    {
+        if (speed == PlaySpeed.SlowMotion)
+        {
+            Time.timeScale = 0.9f;
+            yield return new WaitForSeconds(0.20f);
+            Time.timeScale = 0.7f;
+            yield return new WaitForSeconds(0.20f);
+            Time.timeScale = 0.3f;
+            yield return new WaitForSeconds(0.20f);
+            Time.timeScale = 0.1f;
+            yield return new WaitForSeconds(0.20f);
+            Time.timeScale = 0.025f;
+        }
+        if (speed == PlaySpeed.Play) Time.timeScale = 1.0f;
+        if (speed == PlaySpeed.Pause) Time.timeScale = 0.0f;
     }
 }

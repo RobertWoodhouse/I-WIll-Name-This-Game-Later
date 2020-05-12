@@ -7,7 +7,7 @@ public class SelectShipController : MonoBehaviour
 {
     public Text nameTxt, descriptionTxt;
     public Image shipImg;
-    public bool isShip2Locked = true, isShip3Locked = true;
+    public static bool IsShip2Locked = true, IsShip3Locked = true;
 
     //[SerializeField]
     //private Text _headerTxt; // TODO change to single static var
@@ -16,7 +16,7 @@ public class SelectShipController : MonoBehaviour
     [SerializeField]
     private Sprite _shipLockedSprite;
     [SerializeField]
-    private Button _leftBtn, _rightBtn, _backBtn, _selectBtn;
+    private Button _leftBtn, _rightBtn, _backBtn, _selectBtn, _adBtn;
     [SerializeField]
     private GameObject _mainMenu;
     public int _selectNum = 0;
@@ -28,13 +28,23 @@ public class SelectShipController : MonoBehaviour
         "FRESH FROM THE HILLS OF JA \nTHE BANTON CHRONICLE \n\"DUPPY KNOW WHO FI FRIGHTEN\" \nMAXIMUM SPEED AND FIRE POWER"
     };
 
-    void Start()
+    private void Awake()
+    {
+        /*
+        IsShip2Locked = PlayerPrefsX.GetBool("Ship2Locked");
+        IsShip3Locked = PlayerPrefsX.GetBool("Ship3Locked");
+        */
+    }
+
+    private void Start()
     {
         SelectShip(0); // TODO save last ship selected on phone memory
+        _adBtn.gameObject.SetActive(false);
         _leftBtn.onClick.AddListener(LeftButtonOnClick);
         _rightBtn.onClick.AddListener(RightButtonOnClick);
         _backBtn.onClick.AddListener(BackButtonOnClick);
         _selectBtn.onClick.AddListener(SelectButtonOnClick);
+        _adBtn.onClick.AddListener(AdButtonOnClick);
     }
 
     void LeftButtonOnClick()
@@ -59,28 +69,33 @@ public class SelectShipController : MonoBehaviour
         MainMenuController.S.SetHeaderText("I'LL NAME THIS GAME LATER");
     }
 
-    void SelectButtonOnClick()
-    {
-        /* SET PLAYER SHIP
-        SPAWN SHIP ON LOAD
-        */
 
+    void AdButtonOnClick()
+    {
+        _adBtn.gameObject.SetActive(false);
+        AdMediaController.S.ShowAdRewardedVideo();
+    }
+
+    void SelectButtonOnClick() // TODO SET PLAYER SHIP SPAWN SHIP ON LOAD
+    {
     }
 
     void SelectShip(int select)
     {
-        if (isShip2Locked && select == 1)
+        if (IsShip2Locked && select == 1)
         {
             nameTxt.text = "???";
             descriptionTxt.text = "PLAY AD VIDEO TO UNLOCK SHIP";
             shipImg.sprite = _shipLockedSprite;
+            _adBtn.gameObject.SetActive(true);
             _selectBtn.interactable = false;
         }
-        else if (isShip3Locked && select == 2)
+        else if (IsShip3Locked && select == 2)
         {
             nameTxt.text = "???";
             descriptionTxt.text = "GET A SCORE OF 100000 TO UNLOCK SHIP";
             shipImg.sprite = _shipLockedSprite;
+            _adBtn.gameObject.SetActive(false);
             _selectBtn.interactable = false;
         }
         else
@@ -88,6 +103,7 @@ public class SelectShipController : MonoBehaviour
             nameTxt.text = _names[select];
             descriptionTxt.text = _descriptions[select];
             shipImg.sprite = _shipSprites[select];
+            _adBtn.gameObject.SetActive(false);
             _selectBtn.interactable = true;
         }
     }

@@ -18,6 +18,6 @@ public class Exp : MonoBehaviour
     public void PowerUp()
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<ProjectileController>().projectileSpeed += 10f;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<ProjectileController>().projectileSpawnTime -= 0.025f;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<ProjectileController>().projectileSpawnTime -= 0.050f;
     }
 }

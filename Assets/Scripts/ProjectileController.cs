@@ -5,7 +5,7 @@ using UnityEngine;
 public class ProjectileController : MonoBehaviour
 {
     public GameObject projectileType, gunPos;
-    public float projectileSpawnTime = 1.5f, projectileSpeed = 250.0f;//, projectileFireRate;
+    public float projectileSpawnTime = 1.5f, projectileSpeed = 250.0f;// TODO increase speed with speed up
 
     private GameObject _projectileClone;
     private float _spawnTime;

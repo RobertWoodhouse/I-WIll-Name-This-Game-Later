@@ -10,16 +10,12 @@ public class CollisionPlayer : MonoBehaviour
     private float _destroyTimer = 0.5f;
     private Animator _animShip;
 
+    //private static int _AdCounter = 4;
+
     private void Start()
     {
         _animShip = GetComponent<Animator>();
     }
-    /*
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Obstacle")) StartCoroutine(DestroyObject(_destroyTimer));
-    }
-    */
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -27,16 +23,42 @@ public class CollisionPlayer : MonoBehaviour
         {
             GameEvents.S.PlaySFX(clipExplosion);
             StartCoroutine(DestroyObject(_destroyTimer));
+            ScoreController.SetHighScoreTable(ScoreController.Score); // Set HighScore
+            GUIController.S.LoadGameOverPanel(ScoreController.Score);
+            AdMediaController.S.AdCounter();
+            //AdCounter();
+            if (SelectShipController.IsShip3Locked) Unlockable.UnlockThroughScore(); // TODO Test if true then unlock
+            StartCoroutine(PauseController.PauseAndPlay(PauseController.PlaySpeed.SlowMotion));
+            // TODO Load GameOver or New HighScore
         }
     }
 
-    IEnumerator DestroyObject(float time) // Destroys object after elapsed time
+    IEnumerator DestroyObject(float time) // Destroys shop after elapsed time
     {
         print("Destroy player and animate explosion");
         _animShip.SetTrigger("ShipExplode");
-        //GameEvents.S.PlaySFX(clipExplosion);
         Destroy(gameObject.transform.GetChild(0).gameObject); // HACK destroy Afterburner child GO to stop animator 
         yield return new WaitForSeconds(time);
         Destroy(gameObject);
     }
+    /*
+    private void AdCounter()
+    {
+        if (_AdCounter <= 0)
+        {
+            AdMediaController.S.ShowAdVideo();
+            _AdCounter = 4;
+        }
+        else if (_AdCounter > 3)
+        {
+            _AdCounter--;
+        }
+        else
+        {
+            AdMediaController.S.ShowAdBanner(true);
+            _AdCounter--;
+        }
+        print("Ad counter = " + _AdCounter);
+    }
+    */
 }

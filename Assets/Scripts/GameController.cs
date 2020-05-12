@@ -1,25 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public static int GameLevel = 1, Score = 0;
-
     [SerializeField]
     private int _targetScore = 1000;
-    [SerializeField]
-    //private Text _scoreTxt, _levelTxt;
 
+    public static int GameLevel = 1/*, Score = 0*/;
+    //private static List<int> _HighScores = new List<int>();
 
-    public void Update()
+    private void FixedUpdate()
     {
-        IncreaseLevel(Score);
-        /*
-        _scoreTxt.text = "SCORE: " + Score;
-        _levelTxt.text = "LEVEL: " + GameLevel;
-        */
+        IncreaseLevel(ScoreController.Score);
     }
 
     public void IncreaseLevel(int score)
@@ -30,6 +21,32 @@ public class GameController : MonoBehaviour
             _targetScore += 1000;
             BackgroundController.BgScrollSpeed += 0.75f; // Increase BG scroll speed
         }
-        //print("Score = " + Score + " | Game Level = " + GameLevel + " | Target Score = " + _targetScore);
     }
+
+    public static void ResetStageStats()
+    {
+        GameLevel = 1;
+        ScoreController.Score = 0;
+        AdMediaController.S.ShowAdBanner(false);
+    }
+    /*
+    public static void SetHighScoreTable(int score)
+    {
+        _HighScores.Sort();
+        if (score > _HighScores[0])
+        {
+            for (int i = 1; i < _HighScores.Count - 1; i++)
+            {
+                if (score < _HighScores[i])
+                {
+                    print("Score added: " + score);
+                    _HighScores.Insert(i, score);
+                    _HighScores.RemoveAt(0);
+                    break;
+                }
+            }
+            PlayerPrefsX.SetIntArray("HighScores", _HighScores.ToArray());
+        }
+    }
+    */
 }

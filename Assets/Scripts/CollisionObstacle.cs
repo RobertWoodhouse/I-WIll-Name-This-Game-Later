@@ -25,7 +25,7 @@ public class CollisionObstacle : MonoBehaviour
         {
             StartCoroutine(DestroyObject(_destroyTimer));
             if (transform.parent != null) GetComponentInParent<Obstacle>().countChildren--; // TODO TEST IF STATEMENT IS WORKING
-            GameController.Score += 100;
+            ScoreController.Score += 100;
         }
 
         if (collision.CompareTag("Projectile") && isDestructable.Equals(true)) // Destroy destructable objects
@@ -33,7 +33,7 @@ public class CollisionObstacle : MonoBehaviour
             GameEvents.S.PlaySFX(clipCollision);
             Destroy(collision.gameObject);
             StartCoroutine(DestroyObject(_destroyTimer));
-            GameController.Score += 300;
+            ScoreController.Score += 300;
         }
 
         if (collision.CompareTag("Projectile") && isDestructable.Equals(false)) // Push back indestructable objects
@@ -41,7 +41,7 @@ public class CollisionObstacle : MonoBehaviour
             GameEvents.S.PlaySFX(clipCollision);
             Destroy(collision.gameObject);
             StartCoroutine("KineticCharge");
-            GameController.Score += 20; // FIXME may work as score boost cheat
+            //ScoreController.Score += 20; // FIXME may work as score boost cheat
         }
     }
 
