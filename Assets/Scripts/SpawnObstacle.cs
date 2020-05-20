@@ -12,11 +12,11 @@ public class SpawnObstacle : MonoBehaviour
     [SerializeField]
     private GameObject _obstacleSpawnPoint;
 
-    void Start() => SpawnObject(_obstacleSpawnPoint);
+    //void Start() => SpawnObject(_obstacleSpawnPoint);
 
     void Update()
     {
-        if (time <= 0f)
+        if (time <= 0f && StarterObstacles.IsStarterDestroyed == true) // TODO Add starter Starter Obstacles 
         {
             SpawnObject(_obstacleSpawnPoint);
             time = respawnTime;
@@ -26,16 +26,13 @@ public class SpawnObstacle : MonoBehaviour
 
     public void SpawnObject(GameObject pos)
     {
+        int rangeIndex;
         System.Random rand = new System.Random();
         GameObject obstacleClone = Instantiate(_obstacles[Random.Range(0, _obstacles.Length)], new Vector3(0f, 4f), Quaternion.identity);
-        int rangeIndex;
 
         if (transform.parent != null)
         {
-            //rangeIndex = rand.Next(_obstacleClone.GetComponent<Obstacle>().spawnXPosRange.Length);
             rangeIndex = rand.Next(obstacleClone.GetComponentInParent<ObjectSpawnPos>().SpawnXPosRange.Length);
-
-            //_obstacleClone.transform.position = new Vector3(_obstacleClone.GetComponent<Obstacle>().spawnXPosRange[rangeIndex], pos.transform.localPosition.y);
             obstacleClone.transform.position = new Vector3(obstacleClone.GetComponentInParent<ObjectSpawnPos>().SpawnXPosRange[rangeIndex], pos.transform.localPosition.y);
         }
         else

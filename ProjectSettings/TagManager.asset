@@ -10,6 +10,10 @@ TagManager:
   - ExpSpeed
   - ExpPower
   - Exp
+  - StarterObstacles
+  - StarterExp
+  - StarterExpPower
+  - StarterExpSpeed
   layers:
   - Default
   - TransparentFX

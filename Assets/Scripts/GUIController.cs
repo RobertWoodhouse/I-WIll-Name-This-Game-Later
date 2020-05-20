@@ -32,7 +32,8 @@ public class GUIController : MonoBehaviour
     void PauseButtonOnClick()
     {
         //Time.timeScale = 0.0f;
-        PauseController.PauseAndPlay(PauseController.PlaySpeed.Pause);
+        StartCoroutine(PauseController.PauseAndPlay(PauseController.PlaySpeed.Pause));
+        //PauseController.PauseAndPlay(PauseController.PlaySpeed.Pause);
         //PauseController.isPaused = true;
         //gameObject.SetActive(false);
         _pauseMenu.SetActive(true);

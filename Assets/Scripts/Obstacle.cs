@@ -58,35 +58,35 @@ public class Obstacle : MonoBehaviour
 
     private void LevelUpStats()
     {
-        if (_level == 2) speed = 3.4f;
-        if (_level == 3) speed = 3.5f;
+        if (_level == 2) speed = 3.2f;
+        if (_level == 3) speed = 3.4f;
         if (_level == 4) speed = 3.6f;
-        if (_level == 5) speed = 3.7f;
-        if (_level == 6) speed = 3.8f;
-        if (_level == 7) speed = 3.9f;
-        if (_level == 8) speed = 4.0f;
-        if (_level == 9) speed = 4.1f;
-        if (_level == 10) speed = 4.2f;
-        if (_level == 11) speed = 4.3f;
-        if (_level == 12) speed = 4.4f;
-        if (_level == 13) speed = 4.5f;
-        if (_level == 14) speed = 4.6f;
-        if (_level == 15) speed = 4.7f;
-        if (_level == 16) speed = 4.8f;
-        if (_level == 17) speed = 4.9f;
-        if (_level == 18) speed = 5.0f;
-        if (_level == 19) speed = 5.1f;
-        if (_level == 20) speed = 5.2f;
-        if (_level == 21) speed = 5.3f;
-        if (_level == 22) speed = 5.4f;
-        if (_level == 23) speed = 5.5f;
-        if (_level == 24) speed = 5.6f;
-        if (_level == 25) speed = 5.7f;
-        if (_level == 26) speed = 5.8f;
-        if (_level == 27) speed = 5.7f;
-        if (_level == 28) speed = 5.8f;
-        if (_level == 29) speed = 5.9f;
-        if (_level >= 30) speed = 6.0f;
+        if (_level == 5) speed = 3.8f;
+        if (_level == 6) speed = 4.0f;
+        if (_level == 7) speed = 4.2f;
+        if (_level == 8) speed = 4.4f;
+        if (_level == 9) speed = 4.6f;
+        if (_level == 10) speed = 4.8f;
+        if (_level == 11) speed = 5.0f;
+        if (_level == 12) speed = 5.2f;
+        if (_level == 13) speed = 5.4f;
+        if (_level == 14) speed = 5.6f;
+        if (_level == 15) speed = 5.8f;
+        if (_level == 16) speed = 6.0f;
+        if (_level == 17) speed = 6.2f;
+        if (_level == 18) speed = 6.4f;
+        if (_level == 19) speed = 6.6f;
+        if (_level == 20) speed = 6.8f;
+        if (_level == 21) speed = 7.0f;
+        if (_level == 22) speed = 7.2f;
+        if (_level == 23) speed = 7.4f;
+        if (_level == 24) speed = 7.6f;
+        if (_level == 25) speed = 7.8f;
+        if (_level == 26) speed = 8.0f;
+        if (_level == 27) speed = 8.2f;
+        if (_level == 28) speed = 8.4f;
+        if (_level == 29) speed = 8.6f;
+        if (_level >= 30) speed = 8.8f;
     }
 
     private void DestroyParentObstacle() // TODO test and remove as may be redundant from destroy by pos

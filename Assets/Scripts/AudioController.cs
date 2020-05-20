@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
+    public enum SoundEffects
+    {
+        Voice,
+        Sound
+    }
+
     [SerializeField]
     private AudioClip[] _intruments;
 
@@ -24,28 +30,33 @@ public class AudioController : MonoBehaviour
         set { _source = value; }
     }
 
-    private AudioSource[] audioSources; // = GetComponents<AudioSource>();
+    private AudioSource[] audioSources;
 
     //public AudioClip sfxClipSwoosh, sfxClipExplosion;
-    private AudioSource audioSrcSfx;
+    private AudioSource[] audioSrcsSfx = new AudioSource[2];
 
     public static AudioController S;
 
     public void Start()
     {
-        //audioSources = GetComponents<AudioSource>();
-        audioSrcSfx = GetComponent<AudioSource>(); // FIXME SFX pauses audio, check source component
+        S = this;
+        //audioSrcsSfx = new AudioSource[2];
+        _channels = new bool[Instruments.Length];
+        audioSources = GetComponents<AudioSource>();
+        audioSrcsSfx[0] = GetComponents<AudioSource>()[7]; // FIXME SFX pauses audio, check source component
+        audioSrcsSfx[1] = GetComponents<AudioSource>()[8]; // FIXME SFX pauses audio, check source component
         //GameEvents.S.onPlayAudio += PlayBackgroundMusicTracks;
         //GameEvents.S.PlayAudio(Instruments, Source);
         GameEvents.S.onPlaySFX += PlaySFX;
-        PlayBGMTracks(Instruments, Source);
-        S = this;
+        PlayBGMTracks(Instruments/*, Source*/);
     }
 
     private void Update()
     {
-        //MuteAudioTracks(_channels);
+        MuteAudioTracks(_channels);
         //IntrumentsSwitch(Scales.LevelOfScales);
+        IntrumentsSwitch(GameController.GameLevel);
+
     }
 
     private void MuteAudioTracks(bool[] channel)
@@ -67,6 +78,9 @@ public class AudioController : MonoBehaviour
 
         if (!channel[5]) audioSources[5].mute = true;
         else audioSources[5].mute = false;
+
+        if (!channel[6]) audioSources[6].mute = true;
+        else audioSources[6].mute = false;
     }
 
     private void IntrumentsSwitch(int scaleLevel) // TODO: change from >= to == if switch not functioning
@@ -77,20 +91,23 @@ public class AudioController : MonoBehaviour
         if (scaleLevel >= 2) _channels[1] = true;
         else _channels[1] = false;
 
-        if (scaleLevel >= 3) _channels[2] = true;
+        if (scaleLevel >= 5) _channels[2] = true;
         else _channels[2] = false;
 
-        if (scaleLevel >= 4) _channels[3] = true;
+        if (scaleLevel >= 7) _channels[3] = true;
         else _channels[3] = false;
 
-        if (scaleLevel >= 5) _channels[4] = true;
+        if (scaleLevel >= 14) _channels[4] = true;
         else _channels[4] = false;
 
-        if (scaleLevel >= 6) _channels[5] = true;
+        if (scaleLevel >= 19) _channels[5] = true;
         else _channels[5] = false;
+
+        if (scaleLevel >= 25) _channels[6] = true;
+        else _channels[6] = false;
     }
 
-    public void PlayBGMTracks(AudioClip[] clip, AudioSource source)
+    public void PlayBGMTracks(AudioClip[] clip/*, AudioSource source*/)
     {
         for (int i = 0; i < clip.Length; i++)
         {
@@ -100,11 +117,21 @@ public class AudioController : MonoBehaviour
         }
     }
 
-    public void PlaySFX(AudioClip clip)
+    public void PlaySFX(AudioClip clip, SoundEffects sfx)
     {
-        print("Play Sound Effect");
-        audioSrcSfx.loop = false;
-        audioSrcSfx.clip = clip;
-        audioSrcSfx.Play();
+        if (sfx == SoundEffects.Sound)
+        {
+            print("Play Sound Effect");
+            audioSrcsSfx[0].loop = false;
+            audioSrcsSfx[0].clip = clip;
+            audioSrcsSfx[0].Play();
+        }
+        if (sfx == SoundEffects.Voice)
+        {
+            print("Play Voice");
+            audioSrcsSfx[1].loop = false;
+            audioSrcsSfx[1].clip = clip;
+            audioSrcsSfx[1].Play();
+        }
     }
 }

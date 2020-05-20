@@ -9,9 +9,15 @@ public class MoveObstacle : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (CompareTag("ExpSpeed") || CompareTag("ExpPower")) Move(GetComponent<Exp>().speed);
-        if (CompareTag("Obstacle")) Move(GetComponent<Obstacle>().speed);
-        Rotate(isRotate);
+        if (CompareTag("ExpSpeed") || CompareTag("ExpPower") || CompareTag("StarterExpSpeed") || CompareTag("StarterExpPower"))
+        {
+            Move(GetComponent<Exp>().speed);
+        }
+        if (CompareTag("Obstacle") || CompareTag("StarterObstacles"))
+        {
+            Move(GetComponent<Obstacle>().speed);
+            Rotate(isRotate);
+        }
     }
 
     public void Move(float speed) => transform.position += Vector3.down * Time.deltaTime * speed;

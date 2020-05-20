@@ -16,7 +16,8 @@ public class SpawnExp : MonoBehaviour
 
     void Update()
     {
-        if (time <= 0f)
+        //if (time <= 0f)
+        if (time <= 0f && StarterObstacles.IsStarterDestroyed == true) // TODO Add starter Starter Obstacles 
         {
             SpawnObject(_expSpawnPoint);
             time = respawnTime;

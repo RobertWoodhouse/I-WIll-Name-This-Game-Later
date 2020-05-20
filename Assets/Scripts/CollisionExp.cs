@@ -8,22 +8,22 @@ public class CollisionExp : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && gameObject.CompareTag("ExpSpeed"))
+        if (collision.CompareTag("Player") && (gameObject.CompareTag("ExpSpeed") || gameObject.CompareTag("StarterExpSpeed")))
         {
             Exp.S.SpeedUp();
-            if (collision.name == "Ship_UK") GameEvents.S.PlaySFX(clipSpeedUpUK);
-            if (collision.name == "Ship_US") GameEvents.S.PlaySFX(clipSpeedUpUS);
-            if (collision.name == "Ship_JA") GameEvents.S.PlaySFX(clipSpeedUpJA);
+            if (collision.name == "Ship_UK") GameEvents.S.PlaySFX(clipSpeedUpUK, AudioController.SoundEffects.Voice);
+            if (collision.name == "Ship_US") GameEvents.S.PlaySFX(clipSpeedUpUS, AudioController.SoundEffects.Voice);
+            if (collision.name == "Ship_JA") GameEvents.S.PlaySFX(clipSpeedUpJA, AudioController.SoundEffects.Voice);
             print("Speed Up");
             Destroy(gameObject);
         }
 
-        if (collision.CompareTag("Player") && gameObject.CompareTag("ExpPower"))
+        if (collision.CompareTag("Player") && (gameObject.CompareTag("ExpPower") || gameObject.CompareTag("StarterExpPower")))
         {
             Exp.S.PowerUp();
-            if (collision.name == "Ship_UK") GameEvents.S.PlaySFX(clipPowerUpUK);
-            if (collision.name == "Ship_US") GameEvents.S.PlaySFX(clipPowerUpUS);
-            if (collision.name == "Ship_JA") GameEvents.S.PlaySFX(clipPowerUpJA);
+            if (collision.name == "Ship_UK") GameEvents.S.PlaySFX(clipPowerUpUK, AudioController.SoundEffects.Voice);
+            if (collision.name == "Ship_US") GameEvents.S.PlaySFX(clipPowerUpUS, AudioController.SoundEffects.Voice);
+            if (collision.name == "Ship_JA") GameEvents.S.PlaySFX(clipPowerUpJA, AudioController.SoundEffects.Voice);
             print("Power Up");
             Destroy(gameObject);
         }

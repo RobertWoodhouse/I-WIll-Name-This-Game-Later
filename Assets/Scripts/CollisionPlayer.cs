@@ -19,9 +19,9 @@ public class CollisionPlayer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Obstacle"))
+        if (collision.CompareTag("Obstacle") || collision.CompareTag("StarterObstacles"))
         {
-            GameEvents.S.PlaySFX(clipExplosion);
+            GameEvents.S.PlaySFX(clipExplosion, AudioController.SoundEffects.Sound);
             StartCoroutine(DestroyObject(_destroyTimer));
             ScoreController.SetHighScoreTable(ScoreController.Score); // Set HighScore
             GUIController.S.LoadGameOverPanel(ScoreController.Score);

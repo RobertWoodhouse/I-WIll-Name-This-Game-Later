@@ -27,9 +27,8 @@ public class GameOverController : MonoBehaviour
     void RetryButtonOnClick() //=> SceneController.SceneSelect("02 - GameScene"); // TODO Reset score and level
     {
         GameController.ResetStageStats();
-        SceneController.SceneSelect("02 - GameScene");
-        PauseController.PauseAndPlay(PauseController.PlaySpeed.Play);
         StartCoroutine(PauseController.PauseAndPlay(PauseController.PlaySpeed.Play));
+        SceneController.SceneSelect("02 - GameScene");
         gameObject.SetActive(false);
     }
 

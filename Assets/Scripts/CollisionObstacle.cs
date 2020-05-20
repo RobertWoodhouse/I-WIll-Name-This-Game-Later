@@ -30,7 +30,7 @@ public class CollisionObstacle : MonoBehaviour
 
         if (collision.CompareTag("Projectile") && isDestructable.Equals(true)) // Destroy destructable objects
         {
-            GameEvents.S.PlaySFX(clipCollision);
+            GameEvents.S.PlaySFX(clipCollision, AudioController.SoundEffects.Sound);
             Destroy(collision.gameObject);
             StartCoroutine(DestroyObject(_destroyTimer));
             ScoreController.Score += 300;
@@ -38,7 +38,7 @@ public class CollisionObstacle : MonoBehaviour
 
         if (collision.CompareTag("Projectile") && isDestructable.Equals(false)) // Push back indestructable objects
         {
-            GameEvents.S.PlaySFX(clipCollision);
+            GameEvents.S.PlaySFX(clipCollision, AudioController.SoundEffects.Sound);
             Destroy(collision.gameObject);
             StartCoroutine("KineticCharge");
             //ScoreController.Score += 20; // FIXME may work as score boost cheat
