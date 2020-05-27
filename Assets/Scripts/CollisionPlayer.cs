@@ -7,7 +7,7 @@ public class CollisionPlayer : MonoBehaviour
     public AudioClip clipExplosion;
 
     [SerializeField]
-    private float _destroyTimer = 0.5f;
+    private float _destroyTime = 0.5f;
     private Animator _animShip;
 
     //private static int _AdCounter = 4;
@@ -22,7 +22,7 @@ public class CollisionPlayer : MonoBehaviour
         if (collision.CompareTag("Obstacle") || collision.CompareTag("StarterObstacles"))
         {
             GameEvents.S.PlaySFX(clipExplosion, AudioController.SoundEffects.Sound);
-            StartCoroutine(DestroyObject(_destroyTimer));
+            StartCoroutine(DestroyObject(_destroyTime));
             ScoreController.SetHighScoreTable(ScoreController.Score); // Set HighScore
             GUIController.S.LoadGameOverPanel(ScoreController.Score);
             AdMediaController.S.AdCounter();

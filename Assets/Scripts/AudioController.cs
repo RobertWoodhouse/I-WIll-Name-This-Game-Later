@@ -18,10 +18,7 @@ public class AudioController : MonoBehaviour
         get { return _intruments; }
         set { _intruments = value; }
     }
-
-    [SerializeField]
-    private bool[] _channels;
-
+    /*
     private AudioSource _source;
 
     public AudioSource Source // = GameController
@@ -29,10 +26,11 @@ public class AudioController : MonoBehaviour
         get { return _source; }
         set { _source = value; }
     }
+    */
 
+    [SerializeField]
+    private bool[] _channels;
     private AudioSource[] audioSources;
-
-    //public AudioClip sfxClipSwoosh, sfxClipExplosion;
     private AudioSource[] audioSrcsSfx = new AudioSource[2];
 
     public static AudioController S;
@@ -40,23 +38,18 @@ public class AudioController : MonoBehaviour
     public void Start()
     {
         S = this;
-        //audioSrcsSfx = new AudioSource[2];
         _channels = new bool[Instruments.Length];
         audioSources = GetComponents<AudioSource>();
         audioSrcsSfx[0] = GetComponents<AudioSource>()[7]; // FIXME SFX pauses audio, check source component
         audioSrcsSfx[1] = GetComponents<AudioSource>()[8]; // FIXME SFX pauses audio, check source component
-        //GameEvents.S.onPlayAudio += PlayBackgroundMusicTracks;
-        //GameEvents.S.PlayAudio(Instruments, Source);
         GameEvents.S.onPlaySFX += PlaySFX;
-        PlayBGMTracks(Instruments/*, Source*/);
+        PlayBGMTracks(Instruments);
     }
 
     private void Update()
     {
         MuteAudioTracks(_channels);
-        //IntrumentsSwitch(Scales.LevelOfScales);
         IntrumentsSwitch(GameController.GameLevel);
-
     }
 
     private void MuteAudioTracks(bool[] channel)
@@ -97,17 +90,17 @@ public class AudioController : MonoBehaviour
         if (scaleLevel >= 7) _channels[3] = true;
         else _channels[3] = false;
 
-        if (scaleLevel >= 14) _channels[4] = true;
+        if (scaleLevel >= 10) _channels[4] = true;
         else _channels[4] = false;
 
-        if (scaleLevel >= 19) _channels[5] = true;
+        if (scaleLevel >= 14) _channels[5] = true;
         else _channels[5] = false;
 
-        if (scaleLevel >= 25) _channels[6] = true;
+        if (scaleLevel >= 20) _channels[6] = true;
         else _channels[6] = false;
     }
 
-    public void PlayBGMTracks(AudioClip[] clip/*, AudioSource source*/)
+    public void PlayBGMTracks(AudioClip[] clip)
     {
         for (int i = 0; i < clip.Length; i++)
         {

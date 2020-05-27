@@ -6,24 +6,22 @@ public class Obstacle : MonoBehaviour
 {
     public int countChildren = 99; // HACK if set to "<= 0" (in UI) objects won't spawn
     public float speed = 3.0f;
-    //public float[] spawnXPosRange = new[] { -1.94f, -1.212f, -0.484f, 0.244f, 0.972f };
     public SpriteRenderer sprite;
 
     private int _level = 1;
 
-    void Awake()
+    private void Awake()
     {
         _level = GameController.GameLevel;
         if (GetComponent<SpriteRenderer>() == null) sprite = GetComponentInChildren<SpriteRenderer>();
         else sprite = GetComponent<SpriteRenderer>();
 
-        ChangeObstacleColour();
+        //ChangeObstacleColour();
         LevelUpStats();
     }
 
     private void LateUpdate() => DestroyParentObstacle();
-
-
+    /*
     private void ChangeObstacleColour() // FIXME change child object colours
     {
         if (_level == 2) sprite.color = new Color32(255, 255, 255, 255);
@@ -55,6 +53,7 @@ public class Obstacle : MonoBehaviour
         if (_level == 29) sprite.color = new Color32(171, 171, 171, 255);
         if (_level >= 30) sprite.color = new Color32(170, 170, 170, 255);
     }
+    */
 
     private void LevelUpStats()
     {

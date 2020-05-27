@@ -11,6 +11,7 @@ public class CollisionExp : MonoBehaviour
         if (collision.CompareTag("Player") && (gameObject.CompareTag("ExpSpeed") || gameObject.CompareTag("StarterExpSpeed")))
         {
             Exp.S.SpeedUp();
+            ScoreController.Score += 500;
             if (collision.name == "Ship_UK") GameEvents.S.PlaySFX(clipSpeedUpUK, AudioController.SoundEffects.Voice);
             if (collision.name == "Ship_US") GameEvents.S.PlaySFX(clipSpeedUpUS, AudioController.SoundEffects.Voice);
             if (collision.name == "Ship_JA") GameEvents.S.PlaySFX(clipSpeedUpJA, AudioController.SoundEffects.Voice);
@@ -21,6 +22,7 @@ public class CollisionExp : MonoBehaviour
         if (collision.CompareTag("Player") && (gameObject.CompareTag("ExpPower") || gameObject.CompareTag("StarterExpPower")))
         {
             Exp.S.PowerUp();
+            ScoreController.Score += 500;
             if (collision.name == "Ship_UK") GameEvents.S.PlaySFX(clipPowerUpUK, AudioController.SoundEffects.Voice);
             if (collision.name == "Ship_US") GameEvents.S.PlaySFX(clipPowerUpUS, AudioController.SoundEffects.Voice);
             if (collision.name == "Ship_JA") GameEvents.S.PlaySFX(clipPowerUpJA, AudioController.SoundEffects.Voice);

@@ -8,20 +8,21 @@ public class GameOverController : MonoBehaviour
     public Text titleTxt, messageTxt;
 
     [SerializeField]
-    private Button _retryBtn, _quitBtn;
+    private Button _retryBtn, _quitBtn, _mainMenuBtn;
     [SerializeField]
-    private GameObject _guiPanel;
+    private GameObject _guiPanel, _gameOverPanel;
 
     public static GameOverController S;
-    public static string Title, Message;
+    //public static string Title, Message;
 
     void Start()
     {
         S = this;
         _retryBtn.onClick.AddListener(RetryButtonOnClick);
         _quitBtn.onClick.AddListener(QuitButtonOnClick);
-        titleTxt.text = Title;
-        messageTxt.text = Message;
+        _mainMenuBtn.onClick.AddListener(MainMenuButtonOnClick);
+        //titleTxt.text = Title;
+        //messageTxt.text = Message;
     }
 
     void RetryButtonOnClick() //=> SceneController.SceneSelect("02 - GameScene"); // TODO Reset score and level
@@ -29,15 +30,24 @@ public class GameOverController : MonoBehaviour
         GameController.ResetStageStats();
         StartCoroutine(PauseController.PauseAndPlay(PauseController.PlaySpeed.Play));
         SceneController.SceneSelect("02 - GameScene");
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        _gameOverPanel.SetActive(false);
     }
 
+    void QuitButtonOnClick() => SceneController.SceneQuit();
 
-    void QuitButtonOnClick() //=> SceneController.SceneQuit();
+    void MainMenuButtonOnClick() //=> SceneController.SceneSelect("02 - GameScene"); // TODO Reset score and level
     {
-        SceneController.SceneQuit();
-        //PauseController.PauseAndPlay(PauseController.PlaySpeed.Play);
-        //StartCoroutine(PauseController.PauseAndPlay(PauseController.PlaySpeed.Play));
+        GameController.ResetStageStats();
+        StartCoroutine(PauseController.PauseAndPlay(PauseController.PlaySpeed.Play));
+        SceneController.SceneSelect("01 - MainMenu");
         //gameObject.SetActive(false);
+        _gameOverPanel.SetActive(false);
+    }
+
+    public void UpdateGameOverText(string title, string message)
+    {
+        titleTxt.text = title;
+        messageTxt.text = message;
     }
 }

@@ -14,13 +14,15 @@ public class PauseController : MonoBehaviour
     [SerializeField]
     private Button _restartBtn, _mainMenuBtn, _quitBtn, _yesBtn, _noBtn;
     [SerializeField]
-    private GameObject _guiPanel, _yesNoPanel;
+    private GameObject _guiPanel, _yesNoPanel, _pauseMenu;
+    private Image _guiImage;
     private string _buttonName = "";
 
     public static PauseController S;
 
     void Start()
     {
+        _guiImage = _guiPanel.GetComponent<Image>();
         S = this;
         playBtn.onClick.AddListener(PlayButtonOnClick);
         _restartBtn.onClick.AddListener(RestartButtonOnClick);
@@ -33,17 +35,20 @@ public class PauseController : MonoBehaviour
     void PlayButtonOnClick()
     {
         StartCoroutine(PauseAndPlay(PlaySpeed.Play));
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        _pauseMenu.SetActive(false);
         pauseBtn.gameObject.SetActive(true);
         playBtn.gameObject.SetActive(false);
-        _guiPanel.GetComponent<Image>().color = new Color(_guiPanel.GetComponent<Image>().color.r, _guiPanel.GetComponent<Image>().color.g, _guiPanel.GetComponent<Image>().color.b, 0.75f);
+        //_guiPanel.GetComponent<Image>().color = new Color(_guiPanel.GetComponent<Image>().color.r, _guiPanel.GetComponent<Image>().color.g, _guiPanel.GetComponent<Image>().color.b, 0.75f);
+        _guiImage.color = new Color(_guiImage.color.r, _guiImage.color.g, _guiImage.color.b, 0.75f);
     }
 
     void RestartButtonOnClick()
     {
         _buttonName = "restart";
         _yesNoPanel.SetActive(true);
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        _pauseMenu.SetActive(false);
         _messageTxt.text = "RESTART GAME?";
         _messageTxt.fontSize = 29;
     }
@@ -52,7 +57,8 @@ public class PauseController : MonoBehaviour
     {
         _buttonName = "mainmenu";
         _yesNoPanel.SetActive(true);
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        _pauseMenu.SetActive(false);
         _messageTxt.text = "RETURN TO MAIN MENU?";
         _messageTxt.fontSize = 30;
     }
@@ -61,7 +67,8 @@ public class PauseController : MonoBehaviour
     {
         _buttonName = "quit";
         _yesNoPanel.SetActive(true);
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        _pauseMenu.SetActive(false);
         _messageTxt.text = "QUIT GAME?";
         _messageTxt.fontSize = 34;
     }
@@ -78,7 +85,9 @@ public class PauseController : MonoBehaviour
     void NoButtonClick()
     {
         _yesNoPanel.SetActive(false);
-        gameObject.SetActive(true);
+        //gameObject.SetActive(true);
+        _pauseMenu.SetActive(true);
+
     }
 
     public static IEnumerator PauseAndPlay(PlaySpeed speed)

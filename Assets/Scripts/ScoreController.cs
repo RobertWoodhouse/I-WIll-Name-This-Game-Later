@@ -24,7 +24,7 @@ public class ScoreController : MonoBehaviour
     {
         if (PlayerPrefsX.GetIntArray("HighScores") == null || PlayerPrefsX.GetIntArray("HighScores").Length < 10)
         {
-            PlayerPrefsX.SetIntArray("HighScores", new int[] {10000, 9000, 8000, 7000, 6000, 5000, 4000, 3000, 2000, 1000});
+            PlayerPrefsX.SetIntArray("HighScores", new int[] {10000, 9000, 8000, 7000, 6000, 5000, 4000, 3000, 2000, 1000}); // TODO switch order?
         }
 
         _HighScores = PlayerPrefsX.GetIntArray("HighScores").ToList<int>();

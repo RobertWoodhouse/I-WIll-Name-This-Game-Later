@@ -9,7 +9,9 @@ public class Exp : MonoBehaviour
     [SerializeField]
     private Sprite _speedExpSprite, _powerExpSprite;
     private Sprite _defaultSpeedSprite, _defaultPowerSprite;
-    private float _timer;
+    private float _flashTimer;
+    [SerializeField]
+    private float _playerSpeedExp = 0.25f, _projectileSpeedExp = 10f, _projectileSpawnTimeExp = 0.050f; 
 
     public static Exp S;
 
@@ -18,7 +20,7 @@ public class Exp : MonoBehaviour
         S = this;
         _defaultSpeedSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
         _defaultPowerSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
-       _timer = 1.5f;
+       _flashTimer = 1.5f;
     }
 
     private void Update()
@@ -28,34 +30,34 @@ public class Exp : MonoBehaviour
 
     private void ExpFlash()
     {
-        _timer -= Time.deltaTime;
+        _flashTimer -= Time.deltaTime;
 
-        if (_timer < 1.5f && _timer >= 1.0f && (gameObject.CompareTag("ExpPower") || gameObject.CompareTag("StarterExpPower")))
+        if (_flashTimer < 1.5f && _flashTimer >= 1.0f && (gameObject.CompareTag("ExpPower") || gameObject.CompareTag("StarterExpPower")))
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = _powerExpSprite;
         }
-        if (_timer < 1.0f && (gameObject.CompareTag("ExpPower") || gameObject.CompareTag("StarterExpPower")))
+        if (_flashTimer < 1.0f && (gameObject.CompareTag("ExpPower") || gameObject.CompareTag("StarterExpPower")))
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = _defaultPowerSprite;
-            _timer = 2.0f;
+            _flashTimer = 2.0f;
         }
 
-        if (_timer < 1.5f && _timer >= 1.0f && (gameObject.CompareTag("ExpSpeed") || gameObject.CompareTag("StarterExpSpeed")))
+        if (_flashTimer < 1.5f && _flashTimer >= 1.0f && (gameObject.CompareTag("ExpSpeed") || gameObject.CompareTag("StarterExpSpeed")))
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = _speedExpSprite;
         }
-        if (_timer < 1.0f && (gameObject.CompareTag("ExpSpeed") || gameObject.CompareTag("StarterExpSpeed")))
+        if (_flashTimer < 1.0f && (gameObject.CompareTag("ExpSpeed") || gameObject.CompareTag("StarterExpSpeed")))
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = _defaultSpeedSprite;
-            _timer = 2.0f;
+            _flashTimer = 2.0f;
         }
     }
 
-    public void SpeedUp() => GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().playerSpeed += 0.25f;
+    public void SpeedUp() => GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().playerSpeed += _playerSpeedExp;
 
     public void PowerUp()
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<ProjectileController>().projectileSpeed += 10f;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<ProjectileController>().projectileSpawnTime -= 0.050f;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<ProjectileController>().projectileSpeed += _projectileSpeedExp;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<ProjectileController>().projectileSpawnTime -= _projectileSpawnTimeExp;
     }
 }

@@ -21,8 +21,13 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        #if UNITY_EDITOR
         DebugControls();
+        #endif
+
+        #if UNITY_ANDROID
         TouchControls();
+        #endif
         Boundary(leftBound, rightBound);
     }
 
