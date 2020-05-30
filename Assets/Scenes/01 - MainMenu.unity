@@ -1069,7 +1069,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 668749912}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c118bf828ea74e48b85d082b30be42e, type: 3}
   m_Name: 
@@ -1083,6 +1083,7 @@ MonoBehaviour:
   _selectShipWin: {fileID: 7405891742161711442}
   _scoreWin: {fileID: 1647317936}
   _tutorialWin: {fileID: 1804013753}
+  _mainMenu: {fileID: 0}
 --- !u!1 &804748800
 GameObject:
   m_ObjectHideFlags: 0
@@ -3101,7 +3102,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1647317936}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0669292d2ed2437fa73fa30122b9077, type: 3}
   m_Name: 
@@ -3109,6 +3110,7 @@ MonoBehaviour:
   _scoreTxt: {fileID: 972831759}
   _backBtn: {fileID: 1341567454}
   _mainMenu: {fileID: 668749912}
+  _scoreWin: {fileID: 0}
 --- !u!1 &1662990967
 GameObject:
   m_ObjectHideFlags: 0
@@ -3359,7 +3361,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804013753}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1748983334c1f4c36bea0e385107eb2d, type: 3}
   m_Name: 
@@ -3385,6 +3387,7 @@ MonoBehaviour:
   _rightBtn: {fileID: 185999793}
   _backBtn: {fileID: 1341567454}
   _mainMenu: {fileID: 668749912}
+  _tutorialWin: {fileID: 0}
 --- !u!114 &1804013756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3434,6 +3437,10 @@ GameObject:
   - component: {fileID: 1831079904}
   - component: {fileID: 1831079903}
   - component: {fileID: 1831079902}
+  - component: {fileID: 1831079906}
+  - component: {fileID: 1831079907}
+  - component: {fileID: 1831079908}
+  - component: {fileID: 1831079909}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3527,6 +3534,106 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1831079906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831079901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c118bf828ea74e48b85d082b30be42e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backBtn: {fileID: 1341567454}
+  _headerTxt: {fileID: 2025052539}
+  _playBtn: {fileID: 655604289}
+  _selectShipBtn: {fileID: 1700890142}
+  _scoreShipBtn: {fileID: 2020156287}
+  _tutorialShipBtn: {fileID: 389868842}
+  _selectShipWin: {fileID: 7405891742161711442}
+  _scoreWin: {fileID: 1647317936}
+  _tutorialWin: {fileID: 1804013753}
+  _mainMenu: {fileID: 668749912}
+--- !u!114 &1831079907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831079901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93877f016e1244408c0de9519526b58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameTxt: {fileID: 9097762406501777502}
+  descriptionTxt: {fileID: 4662475630035555030}
+  shipImg: {fileID: 3895892231141161967}
+  _shipSprites:
+  - {fileID: 21300000, guid: 06e2db07cd6134bf79cc3c4ce1efa9bd, type: 3}
+  - {fileID: 21300000, guid: 5b2130499bae14b8fb34edc269e38e03, type: 3}
+  - {fileID: 21300000, guid: 4338366684bc4452080aced1ca539369, type: 3}
+  _shipLockedSprite: {fileID: 21300000, guid: fe26ab4815f964cb597a4a99c682c94e, type: 3}
+  _leftBtn: {fileID: 411046431}
+  _rightBtn: {fileID: 61373725}
+  _backBtn: {fileID: 1341567454}
+  _selectBtn: {fileID: 1046752717}
+  _adBtn: {fileID: 1451546450}
+  _mainMenu: {fileID: 668749912}
+  _selectShipWin: {fileID: 7405891742161711442}
+  _selectNum: 0
+--- !u!114 &1831079908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831079901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0669292d2ed2437fa73fa30122b9077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scoreTxt: {fileID: 972831759}
+  _backBtn: {fileID: 1341567454}
+  _mainMenu: {fileID: 668749912}
+  _scoreWin: {fileID: 1647317936}
+--- !u!114 &1831079909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831079901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1748983334c1f4c36bea0e385107eb2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleTxt: {fileID: 1305137305}
+  instructionsTxt: {fileID: 871865781}
+  tutImg1: {fileID: 2109947371}
+  tutImg2: {fileID: 53073130}
+  tutImg3: {fileID: 1106746188}
+  _shipSprite: {fileID: 21300000, guid: 06e2db07cd6134bf79cc3c4ce1efa9bd, type: 3}
+  _arrowSprite: {fileID: 21300004, guid: 0a15f2ef17680f34eba054a12eb1a223, type: 3}
+  _handSprite: {fileID: -8333400969404257233, guid: c87bdb233b9f9404f9ffa60a99fbdd0b,
+    type: 3}
+  _handTapSprite: {fileID: 21300022, guid: 0a15f2ef17680f34eba054a12eb1a223, type: 3}
+  _bulletSprite: {fileID: 2013881728091588454, guid: 082e678f5059740d29b160105b6f65c8,
+    type: 3}
+  _powerUpSprite: {fileID: 21300000, guid: fe99c46bc629c4f398499b128a078c37, type: 3}
+  _speedUpSprite: {fileID: 21300000, guid: a14e21ff378cb4dc6a3a4d7f5fadb14a, type: 3}
+  _metalSprite: {fileID: -9163426285224168042, guid: 2a48a72126e1743a386e5c4432f5ee3a,
+    type: 3}
+  _satSprite: {fileID: 21300000, guid: 54cffbbf131fd462fb339a23625bf0da, type: 3}
+  _leftBtn: {fileID: 891232214}
+  _rightBtn: {fileID: 185999793}
+  _backBtn: {fileID: 1341567454}
+  _mainMenu: {fileID: 668749912}
+  _tutorialWin: {fileID: 1804013753}
 --- !u!1 &1856168451
 GameObject:
   m_ObjectHideFlags: 0
@@ -4557,7 +4664,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7405891742161711442}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b93877f016e1244408c0de9519526b58, type: 3}
   m_Name: 
@@ -4576,6 +4683,7 @@ MonoBehaviour:
   _selectBtn: {fileID: 1046752717}
   _adBtn: {fileID: 1451546450}
   _mainMenu: {fileID: 668749912}
+  _selectShipWin: {fileID: 0}
   _selectNum: 0
 --- !u!222 &7414240011471851818
 CanvasRenderer:

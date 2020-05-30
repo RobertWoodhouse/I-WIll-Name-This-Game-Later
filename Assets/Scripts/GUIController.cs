@@ -43,45 +43,40 @@ public class GUIController : MonoBehaviour
 
     public void LoadGameOverPanel(int score) //FIXME correct messages displayed for getting scores in range
     {
-        /*
-        for(int i = 0; i < PlayerPrefsX.GetIntArray("HighScores").Length - 1; i++) // TEST
+      
+        for(int i = 0; i < PlayerPrefsX.GetIntArray("HighScores").Length; i++) // TEST
         {
             print("Score " + (i + 1) + ": " + PlayerPrefsX.GetIntArray("HighScores")[i]);
         }
-        */
+        print("Current score: " + score);
 
         _gameOverPanel.SetActive(true);
         _pauseBtn.gameObject.SetActive(false);
         //gameObject.SetActive(false);
         _guiPanel.SetActive(false);
         int rand = Random.Range(0, _gameOverMessages.Length - 1);
+        int randLose = Random.Range(0, _gameOverLoserMessages.Length - 1);
+
         print("Random No. " + rand);
 
-        if (score == PlayerPrefsX.GetIntArray("HighScores")[9])
+        if (score > PlayerPrefsX.GetIntArray("HighScores")[0])
         {
-            //print("TEST HIGH SCORE");
-            //GameOverController.Title = "NEW HIGH SCORE!";
-            //GameOverController.Message = score.ToString();
+            print("TEST HIGH SCORE");
             GameOverController.S.UpdateGameOverText("NEW HIGH SCORE!", score.ToString());
         }
-        else if (score < PlayerPrefsX.GetIntArray("HighScores")[9] && score > PlayerPrefsX.GetIntArray("HighScores")[1])
+        else if (score >= PlayerPrefsX.GetIntArray("HighScores")[9] && score <= PlayerPrefsX.GetIntArray("HighScores")[0])
         {
-            //print("TEST MID SCORE");
-            //GameOverController.Title = "YOU CRACKED THE TOP 10";
-            //GameOverController.Message = score.ToString();
+            print("TEST MID SCORE");
             GameOverController.S.UpdateGameOverText("YOU CRACKED THE TOP 10", score.ToString());
         }
-        else if (score > 2000)
+        else if (score > 1500)
         {
-            //print("TEST GAMEOVER");
-            //GameOverController.Title = "GAME OVER";
-            //GameOverController.Message = _gameOverMessages[rand];
+            print("TEST GAMEOVER");
             GameOverController.S.UpdateGameOverText("GAME OVER", _gameOverMessages[rand]);
         }
         else
         {
-            // TODO Add random range for loser messages
-            GameOverController.S.UpdateGameOverText("GAME OVER", _gameOverLoserMessages[1]);
+            GameOverController.S.UpdateGameOverText("GAME OVER", _gameOverLoserMessages[randLose]);
         }
     }
 }

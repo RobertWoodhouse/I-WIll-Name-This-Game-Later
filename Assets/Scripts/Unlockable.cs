@@ -15,7 +15,7 @@ public class Unlockable : MonoBehaviour
     {
         foreach (int highScore in PlayerPrefsX.GetIntArray("HighScores"))
         {
-            if (highScore >= 10000)
+            if (highScore >= 15000)
             {
                 PlayerPrefsX.SetBool("Ship3Locked", false);
                 SelectShipController.IsShip3Locked = PlayerPrefsX.GetBool("Ship3Locked");

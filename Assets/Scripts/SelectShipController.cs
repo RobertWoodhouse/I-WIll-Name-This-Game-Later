@@ -18,7 +18,7 @@ public class SelectShipController : MonoBehaviour
     [SerializeField]
     private Button _leftBtn, _rightBtn, _backBtn, _selectBtn, _adBtn;
     [SerializeField]
-    private GameObject _mainMenu;
+    private GameObject _mainMenu, _selectShipWin;
     public int _selectNum = 0;
     private string[] _names = { "SIR LENWORTH", "S.S. BUC NASTY", "BANTON CHRONICLE" };
     private string[] _descriptions =
@@ -63,7 +63,8 @@ public class SelectShipController : MonoBehaviour
 
     void BackButtonOnClick()
     {
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        _selectShipWin.SetActive(false);
         _mainMenu.SetActive(true);
         _backBtn.gameObject.SetActive(false);
         MainMenuController.S.SetHeaderText("I'LL NAME THIS GAME LATER");

@@ -46,7 +46,7 @@ public class ProjectileController : MonoBehaviour
     {
         if (_spawnTime > 0) _spawnTime -= Time.deltaTime; // Fire Rate
         if (_doubleTapTime > 0 )_doubleTapTime -= Time.deltaTime;
-        print("Double tap time " + _doubleTapTime);
+        //print("Double tap time " + _doubleTapTime);
 
         if (Input.touchCount > 0)
         {
@@ -62,7 +62,7 @@ public class ProjectileController : MonoBehaviour
             }
 
             //_doubleTapTime = 1.0f;
-            print("Double tap time reset " + _doubleTapTime);
+            //print("Double tap time reset " + _doubleTapTime);
             
             if (touch.phase == TouchPhase.Ended)
             {

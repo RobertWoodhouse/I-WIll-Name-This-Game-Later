@@ -19,7 +19,7 @@ public class TutorialController : MonoBehaviour
     [SerializeField]
     private Button _leftBtn, _rightBtn, _backBtn;
     [SerializeField]
-    private GameObject _mainMenu;
+    private GameObject _mainMenu, _tutorialWin;
 
     void Start()
     {
@@ -31,7 +31,8 @@ public class TutorialController : MonoBehaviour
 
     void BackButtonOnClick()
     {
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        _tutorialWin.SetActive(false);
         _mainMenu.SetActive(true);
         _backBtn.gameObject.SetActive(false);
         MainMenuController.S.SetHeaderText("I'LL NAME THIS GAME LATER");
