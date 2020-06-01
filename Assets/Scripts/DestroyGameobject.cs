@@ -16,7 +16,7 @@ public class DestroyGameobject : MonoBehaviour
         if (gameObject.transform.position.y > -8.0f && gameObject.transform.position.y < 8.0f)
         {
             Destroy(gameObject);
-            print("Destroy by time and space");
+            //print("Destroy by time and space");
         }
         else StartCoroutine(DestroyObjectByTime(10.0f));
     }
@@ -26,7 +26,7 @@ public class DestroyGameobject : MonoBehaviour
         if (gameObject.transform.position.y < -10.0f)
         {
             Destroy(gameObject);
-            print("Object out of bounds");
+            //print("Object out of bounds");
         }
     }
 }

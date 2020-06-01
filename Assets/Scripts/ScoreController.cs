@@ -15,14 +15,14 @@ public class ScoreController : MonoBehaviour
     [SerializeField]
     private GameObject _mainMenu, _scoreWin;
 
-    public static int Score = 0; // TODO when game starts set to 0
+    public static int Score = 0;
 
     private static List<int> _HighScores = new List<int>();
 
 
     private void Awake()
     {
-        //PlayerPrefs.DeleteAll(); // TODO remove delete
+        PlayerPrefs.DeleteAll(); // TODO remove delete
 
         if (PlayerPrefsX.GetIntArray("HighScores") == null || PlayerPrefsX.GetIntArray("HighScores").Length < 10)
         {

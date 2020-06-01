@@ -29,7 +29,7 @@ public class StarterObstacles : MonoBehaviour
     public void SwitchOnObstacleSpawn()
     {
         var count = GameObject.FindGameObjectsWithTag("StarterObstacles").Length + GameObject.FindGameObjectsWithTag("StarterExpPower").Length + GameObject.FindGameObjectsWithTag("StarterExpSpeed").Length;
-        print("Starer Tag Count = " + count);
+        //print("Starer Tag Count = " + count);
         if (count <= 0) IsStarterDestroyed = true;
     }
 }

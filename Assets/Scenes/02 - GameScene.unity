@@ -1271,6 +1271,7 @@ MonoBehaviour:
   _scoreTxt: {fileID: 0}
   _backBtn: {fileID: 0}
   _mainMenu: {fileID: 0}
+  _scoreWin: {fileID: 0}
 --- !u!4 &629246860
 Transform:
   m_ObjectHideFlags: 0
@@ -1647,6 +1648,54 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0636db4cc457e4e0b9c463832192f6ed, type: 3}
+--- !u!1 &818438858
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 818438860}
+  - component: {fileID: 818438859}
+  m_Layer: 0
+  m_Name: ShipSpawnPos
+  m_TagString: Untagged
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &818438859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818438858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01bae965676cc43ec97ed02461b5a840, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ship:
+  - {fileID: 1824111587667435820, guid: 042666fc1959b411db8b4c3b41f26e8e, type: 3}
+  - {fileID: 5529563654973927505, guid: bcc5674e6e9f24814bc76ef69aa8d115, type: 3}
+  - {fileID: 2434015296715157548, guid: 00c2d71e17ade4d5ca0b995cc5ebbf30, type: 3}
+  _shipSpawnPoint: {fileID: 818438858}
+--- !u!4 &818438860
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818438858}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &821416177
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1713,6 +1762,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ship_UK
+      objectReference: {fileID: 0}
+    - target: {fileID: 1824111587667435820, guid: 042666fc1959b411db8b4c3b41f26e8e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 042666fc1959b411db8b4c3b41f26e8e, type: 3}

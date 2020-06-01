@@ -114,14 +114,14 @@ public class AudioController : MonoBehaviour
     {
         if (sfx == SoundEffects.Sound)
         {
-            print("Play Sound Effect");
+            //print("Play Sound Effect");
             audioSrcsSfx[0].loop = false;
             audioSrcsSfx[0].clip = clip;
             audioSrcsSfx[0].Play();
         }
         if (sfx == SoundEffects.Voice)
         {
-            print("Play Voice");
+            //print("Play Voice");
             audioSrcsSfx[1].loop = false;
             audioSrcsSfx[1].clip = clip;
             audioSrcsSfx[1].Play();

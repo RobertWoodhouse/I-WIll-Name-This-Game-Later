@@ -6,8 +6,9 @@ public class Unlockable : MonoBehaviour
 {
     public static void UnlockThroughAd()
     {
-        PlayerPrefsX.SetBool("Ship2Locked", false);
-        SelectShipController.IsShip2Locked = PlayerPrefsX.GetBool("Ship2Locked");
+        //PlayerPrefsX.SetBool("Ship2Locked", false);
+        PlayerPrefsX.SetBool("Ship2Locked", true);
+        SelectShipController.IsShip2Unlocked = PlayerPrefsX.GetBool("Ship2Locked");
         print("SHIP 2 UNLOCKED!!!");
     }
 
@@ -17,8 +18,8 @@ public class Unlockable : MonoBehaviour
         {
             if (highScore >= 15000)
             {
-                PlayerPrefsX.SetBool("Ship3Locked", false);
-                SelectShipController.IsShip3Locked = PlayerPrefsX.GetBool("Ship3Locked");
+                PlayerPrefsX.SetBool("Ship3Locked", true);
+                SelectShipController.IsShip3Unlocked = PlayerPrefsX.GetBool("Ship3Locked");
                 print("SHIP 3 UNLOCKED!!!");
                 // TODO add ship unlocked message
                 break;

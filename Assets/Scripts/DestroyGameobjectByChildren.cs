@@ -13,7 +13,7 @@ public class DestroyGameobjectByChildren : MonoBehaviour
         if (hasChild == true && transform.childCount == 0)
         {
             Destroy(gameObject);
-            print("Destroy parent");
+            //print("Destroy parent");
         }
     }
 }

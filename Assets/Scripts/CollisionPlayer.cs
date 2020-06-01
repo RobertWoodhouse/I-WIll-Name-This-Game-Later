@@ -31,7 +31,7 @@ public class CollisionPlayer : MonoBehaviour
                 GUIController.S.LoadGameOverPanel(ScoreController.Score);
                 AdMediaController.S.AdCounter();
                 //AdCounter();
-                if (SelectShipController.IsShip3Locked) Unlockable.UnlockThroughScore(); // TODO Test if true then unlock
+                if (!SelectShipController.IsShip3Unlocked) Unlockable.UnlockThroughScore(); // TODO Test if true then unlock
                 StartCoroutine(PauseController.PauseAndPlay(PauseController.PlaySpeed.SlowMotion));
             }
         }

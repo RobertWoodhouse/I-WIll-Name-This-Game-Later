@@ -7,7 +7,8 @@ public class SelectShipController : MonoBehaviour
 {
     public Text nameTxt, descriptionTxt;
     public Image shipImg;
-    public static bool IsShip2Locked = true, IsShip3Locked = true;
+    public static bool IsShip2Unlocked = false, IsShip3Unlocked = false;
+    public static int SelectedShip = 0;
 
     //[SerializeField]
     //private Text _headerTxt; // TODO change to single static var
@@ -30,10 +31,9 @@ public class SelectShipController : MonoBehaviour
 
     private void Awake()
     {
-        /*
-        IsShip2Locked = PlayerPrefsX.GetBool("Ship2Locked");
-        IsShip3Locked = PlayerPrefsX.GetBool("Ship3Locked");
-        */
+        //PlayerPrefs.DeleteAll(); // TODO remove delete
+        IsShip2Unlocked = PlayerPrefsX.GetBool("Ship2Locked");
+        IsShip3Unlocked = PlayerPrefsX.GetBool("Ship3Locked");
     }
 
     private void Start()
@@ -73,17 +73,22 @@ public class SelectShipController : MonoBehaviour
 
     void AdButtonOnClick()
     {
+        nameTxt.text = _names[1];
+        descriptionTxt.text = _descriptions[1];
+        shipImg.sprite = _shipSprites[1];
+        _selectBtn.interactable = true;
         _adBtn.gameObject.SetActive(false);
         AdMediaController.S.ShowAdRewardedVideo();
     }
 
     void SelectButtonOnClick() // TODO SET PLAYER SHIP SPAWN SHIP ON LOAD
     {
+        SelectedShip = _selectNum;
     }
 
     void SelectShip(int select)
     {
-        if (IsShip2Locked && select == 1)
+        if (!IsShip2Unlocked && select == 1)
         {
             nameTxt.text = "???";
             descriptionTxt.text = "PLAY AD VIDEO TO UNLOCK SHIP";
@@ -91,7 +96,7 @@ public class SelectShipController : MonoBehaviour
             _adBtn.gameObject.SetActive(true);
             _selectBtn.interactable = false;
         }
-        else if (IsShip3Locked && select == 2)
+        else if (!IsShip3Unlocked && select == 2)
         {
             nameTxt.text = "???";
             descriptionTxt.text = "GET A SCORE OF 100000 TO UNLOCK SHIP";
