@@ -1,0 +1,446 @@
+fileFormatVersion: 2
+guid: d38f46b95d5bf47deb4d193da6e7fc28
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2380107272485216878
+    second: MJR Final_0
+  - first:
+      213: -3818686407126637840
+    second: MJR Final_1
+  - first:
+      213: -189710835407263061
+    second: MJR Final_2
+  - first:
+      213: 4303176246676289181
+    second: MJR Final_3
+  - first:
+      213: -5966720593893015903
+    second: MJR Final_4
+  - first:
+      213: 8813633437892417741
+    second: MJR Final_5
+  - first:
+      213: 80225872042928156
+    second: MJR Final_6
+  - first:
+      213: 8333373480501862447
+    second: MJR Final_7
+  - first:
+      213: 266364900550856692
+    second: MJR Final_8
+  - first:
+      213: 124653895245991175
+    second: MJR Final_9
+  - first:
+      213: -1309899608169504936
+    second: MJR Final_10
+  - first:
+      213: -8864935131996080474
+    second: MJR Final_11
+  - first:
+      213: 293174793537478237
+    second: MJR Final_12
+  - first:
+      213: 3587428343376731469
+    second: MJR Final_13
+  - first:
+      213: -3004374975397482539
+    second: MJR Final_14
+  - first:
+      213: 7431428249855539961
+    second: MJR Final_15
+  - first:
+      213: -1674245893143753629
+    second: MJR Final_16
+  - first:
+      213: -7467958997058484859
+    second: MJR Final_17
+  - first:
+      213: -3982212336542143909
+    second: MJR Final_18
+  - first:
+      213: 8420405428142038660
+    second: MJR Final_19
+  - first:
+      213: -6919579018475987576
+    second: MJR Final_20
+  - first:
+      213: -4774869065540748662
+    second: MJR Final_21
+  - first:
+      213: 2487071451483259909
+    second: MJR Final_22
+  - first:
+      213: 1959412732369193611
+    second: MJR Final_23
+  - first:
+      213: -370353784597638818
+    second: MJR Final_24
+  - first:
+      213: 6047933884779057806
+    second: MJR Final_25
+  - first:
+      213: -3093944108592822133
+    second: MJR Final_26
+  - first:
+      213: -6401472296653601925
+    second: MJR Final_27
+  - first:
+      213: -4545417465407230778
+    second: MJR Final_28
+  - first:
+      213: 646556875635516073
+    second: MJR Final_29
+  - first:
+      213: -8915833804143832598
+    second: MJR Final_30
+  - first:
+      213: -3732846521948591596
+    second: MJR Final_31
+  - first:
+      213: 7551841098693072747
+    second: MJR Final_32
+  - first:
+      213: 4383309906008273417
+    second: MJR Final_33
+  - first:
+      213: 8720593368283373139
+    second: MJR Final_34
+  - first:
+      213: 2931364829639380840
+    second: MJR Final_35
+  - first:
+      213: 7589740399233996768
+    second: MJR Final_36
+  - first:
+      213: -6041389829992957595
+    second: MJR Final_37
+  - first:
+      213: 2717347133029214056
+    second: MJR Final_38
+  - first:
+      213: 7952343093210983696
+    second: MJR Final_39
+  - first:
+      213: 6003259596965981540
+    second: MJR Final_40
+  - first:
+      213: 1979930613133212061
+    second: MJR Final_41
+  - first:
+      213: 1042965733610829171
+    second: MJR Final_42
+  - first:
+      213: -4946270851383034337
+    second: MJR Final_43
+  - first:
+      213: 6194119999581483490
+    second: MJR Final_44
+  - first:
+      213: 8325442420882577395
+    second: MJR Final_45
+  - first:
+      213: -5055414136708146432
+    second: MJR Final_46
+  - first:
+      213: 8335678849457185075
+    second: MJR Final_47
+  - first:
+      213: 5626614676157672117
+    second: MJR Final_48
+  - first:
+      213: -1127905599153135798
+    second: MJR Final_49
+  - first:
+      213: -7941782470018995930
+    second: MJR Final_50
+  - first:
+      213: -3785890072115155492
+    second: MJR Final_51
+  - first:
+      213: 8257331537058576368
+    second: MJR Final_52
+  - first:
+      213: -3010104233469337514
+    second: MJR Final_53
+  - first:
+      213: 1268287447856865689
+    second: MJR Final_54
+  - first:
+      213: 966678511999801982
+    second: MJR Final_55
+  - first:
+      213: -3408264133260668860
+    second: MJR Final_56
+  - first:
+      213: 315050430146950970
+    second: MJR Final_57
+  - first:
+      213: 8801871434693914881
+    second: MJR Final_58
+  - first:
+      213: -4806248341143918529
+    second: MJR Final_59
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MJR Final_0
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 432
+        width: 136
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29dd138cb0928fed0800000000000000
+      internalID: -2380107272485216878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MJR Final_1
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 240
+        width: 172
+        height: 346
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f2aa9ae1fc410bc0800000000000000
+      internalID: -3818686407126637840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MJR Final_2
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 456
+        width: 163
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baae18510030e5df0800000000000000
+      internalID: -189710835407263061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MJR Final_3
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 306
+        width: 122
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d96f9054ff3f7bb30800000000000000
+      internalID: 4303176246676289181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MJR Final_4
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 299
+        width: 133
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aebffe9b33f13da0800000000000000
+      internalID: -5966720593893015903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MJR Final_5
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 52
+        width: 600
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc815164ae0505a70800000000000000
+      internalID: 8813633437892417741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
