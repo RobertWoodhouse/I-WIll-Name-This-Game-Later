@@ -7,7 +7,6 @@ public class BackgroundController : MonoBehaviour
     public GameObject bgStars1, bgStars2, bgParallax1, bgParallax2, bgStarsEnd1, bgStarsEnd2, bgParallaxEnd1, bgParallaxEnd2, shipPos;
 
     private float _fadeAlpha = 255, _scrollYStartPos = 0, _scrollYEndPos = 0;
-    //private int level;
     private SpriteRenderer _sprite;
 
     public static float BgScrollSpeed = 1.0f;
@@ -20,7 +19,6 @@ public class BackgroundController : MonoBehaviour
 
     private void Update()
     {
-        //level = GameController.GameLevel;
         ChangeBackgroundColour(GameController.GameLevel);
     }
 

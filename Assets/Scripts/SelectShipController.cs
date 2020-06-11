@@ -7,6 +7,7 @@ public class SelectShipController : MonoBehaviour
 {
     public Text nameTxt, descriptionTxt;
     public Image shipImg;
+    public AudioClip[] clipSelectSFX;
     public static bool IsShip2Unlocked = false, IsShip3Unlocked = false;
     public static int SelectedShip = 0;
 
@@ -28,6 +29,7 @@ public class SelectShipController : MonoBehaviour
         "FROM THE US MILLITARY \nTHEY SAY THE SKY IS COVERED IN DARKNESS WHEN THIS SHIP RAINS GUNFIRE \nTHE S.S. BUC NASTY BOASTS SUPERIOR FIRE POWER",
         "FRESH FROM THE HILLS OF JA \nTHE BANTON CHRONICLE \n\"DUPPY KNOW WHO FI FRIGHTEN\" \nMAXIMUM SPEED AND FIRE POWER"
     };
+
 
     private void Awake()
     {
@@ -73,17 +75,32 @@ public class SelectShipController : MonoBehaviour
 
     void AdButtonOnClick()
     {
+        /*
         nameTxt.text = _names[1];
         descriptionTxt.text = _descriptions[1];
         shipImg.sprite = _shipSprites[1];
         _selectBtn.interactable = true;
         _adBtn.gameObject.SetActive(false);
-        AdMediaController.S.ShowAdRewardedVideo();
+        */
+        StartCoroutine(ResetShipSelection());
+        //AdMediaController.S.ShowAdRewardedVideo();
     }
 
-    void SelectButtonOnClick() // TODO SET PLAYER SHIP SPAWN SHIP ON LOAD
+    void SelectButtonOnClick() 
     {
         SelectedShip = _selectNum;
+        GameEvents.S.PlaySFX(clipSelectSFX[_selectNum], AudioController.SoundEffects.Menu);
+    }
+
+    IEnumerator ResetShipSelection()
+    {
+        AdMediaController.S.ShowAdRewardedVideo();
+        yield return new WaitForSeconds(0.25f);
+        nameTxt.text = _names[1];
+        descriptionTxt.text = _descriptions[1];
+        shipImg.sprite = _shipSprites[1];
+        _selectBtn.interactable = true;
+        _adBtn.gameObject.SetActive(false);
     }
 
     void SelectShip(int select)

@@ -40,7 +40,7 @@ public class SpawnObstacle : MonoBehaviour
         {
             obstacleClone = Instantiate(_obstaclesDestructable[Random.Range(0, _obstaclesDestructable.Length)], new Vector3(0f, 4f), Quaternion.identity);
             _SpawnSwitchCounter = Random.Range(5, 7);
-            print("Spawn destructable after " + _SpawnSwitchCounter + " objects");
+            //print("Spawn destructable after " + _SpawnSwitchCounter + " objects");
         }
 
         if (transform.parent != null)

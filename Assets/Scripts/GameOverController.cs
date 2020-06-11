@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameOverController : MonoBehaviour
 {
     public Text titleTxt, messageTxt;
+    //public AudioClip[] clipGameOverSFX;
 
     [SerializeField]
     private Button _retryBtn, _quitBtn, _mainMenuBtn;
@@ -13,7 +14,6 @@ public class GameOverController : MonoBehaviour
     private GameObject _guiPanel, _gameOverPanel;
 
     public static GameOverController S;
-    //public static string Title, Message;
 
     void Start()
     {
@@ -21,33 +21,30 @@ public class GameOverController : MonoBehaviour
         _retryBtn.onClick.AddListener(RetryButtonOnClick);
         _quitBtn.onClick.AddListener(QuitButtonOnClick);
         _mainMenuBtn.onClick.AddListener(MainMenuButtonOnClick);
-        //titleTxt.text = Title;
-        //messageTxt.text = Message;
     }
 
-    void RetryButtonOnClick() //=> SceneController.SceneSelect("02 - GameScene"); // TODO Reset score and level
+    void RetryButtonOnClick()
     {
         GameController.ResetStageStats();
         StartCoroutine(PauseController.PauseAndPlay(PauseController.PlaySpeed.Play));
         SceneController.SceneSelect("02 - GameScene");
-        //gameObject.SetActive(false);
         _gameOverPanel.SetActive(false);
     }
 
     void QuitButtonOnClick() => SceneController.SceneQuit();
 
-    void MainMenuButtonOnClick() //=> SceneController.SceneSelect("02 - GameScene"); // TODO Reset score and level
+    void MainMenuButtonOnClick()
     {
         GameController.ResetStageStats();
         StartCoroutine(PauseController.PauseAndPlay(PauseController.PlaySpeed.Play));
         SceneController.SceneSelect("01 - MainMenu");
-        //gameObject.SetActive(false);
         _gameOverPanel.SetActive(false);
     }
 
-    public void UpdateGameOverText(string title, string message)
+    public void UpdateGameOverScreen(string title, string message)
     {
         titleTxt.text = title;
         messageTxt.text = message;
+        //GameEvents.S.PlaySFX(clipGameOverSFX[SelectShipController.SelectedShip], AudioController.SoundEffects.Menu);
     }
 }

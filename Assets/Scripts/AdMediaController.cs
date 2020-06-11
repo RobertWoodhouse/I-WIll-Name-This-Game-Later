@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
 
-public class AdMediaController : MonoBehaviour/*, IUnityAdsListener*/
+public class AdMediaController : MonoBehaviour
 {
     public string gameIdDroid = "3566617", placementBanner = "banner", placementVideo = "video", placementRewardedVideo = "rewardedVideo";
-    public bool testMode = true;
+    public bool testMode = false; 
 
     public static AdMediaController S;
     private static int _AdCounter = 4;
@@ -25,6 +25,10 @@ public class AdMediaController : MonoBehaviour/*, IUnityAdsListener*/
             Advertisement.Show(placementVideo);
             print("Show Video Ad");
         }
+        else
+        {
+            Advertisement.Initialize(gameIdDroid, testMode);
+        }
     }
 
     public void ShowAdRewardedVideo()
@@ -35,6 +39,10 @@ public class AdMediaController : MonoBehaviour/*, IUnityAdsListener*/
             Advertisement.Show(placementRewardedVideo);
             Unlockable.UnlockThroughAd();
             print("Show Rewarded Video Ad");
+        }
+        else
+        {
+            Advertisement.Initialize(gameIdDroid, testMode);
         }
     }
 
@@ -48,6 +56,35 @@ public class AdMediaController : MonoBehaviour/*, IUnityAdsListener*/
             Advertisement.Banner.Hide(showBanner); // Hide Banner
             print("Show Banner Ad");
         }
+        else
+        {
+            Advertisement.Initialize(gameIdDroid, testMode);
+        }
+    }
+
+    public IEnumerator ShowBannerWhenReady()
+    {
+        while (!Advertisement.IsReady(placementBanner))
+        {
+            yield return new WaitForSeconds(0.5f);
+        }
+        Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
+        Advertisement.Banner.Show(placementBanner);
+        print("Show Banner Ad");
+    }
+
+    public void HideAdBanner()
+    {
+        Advertisement.Banner.Hide(false); // Hide Banner
+    }
+
+    public void ResetAdBanner() // TEST IF SHOWING
+    {
+        if (Advertisement.isShowing)
+        {
+            Advertisement.Banner.Hide(false);
+            print("Banner No Longer Showing");
+        }
     }
 
     public void AdCounter()
@@ -57,51 +94,16 @@ public class AdMediaController : MonoBehaviour/*, IUnityAdsListener*/
             ShowAdVideo();
             _AdCounter = 4;
         }
-        else if (_AdCounter > 3)
+        else if (_AdCounter > 3) 
         {
             _AdCounter--;
         }
         else
         {
-            ShowAdBanner(true);
+            //ShowAdBanner(true);
+            StartCoroutine(ShowBannerWhenReady());
             _AdCounter--;
         }
         print("Ad counter = " + _AdCounter);
     }
-
-    /*
-    // Implement IUnityAdsListener interface methods:
-    public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
-    {
-        // Define conditional logic for each ad completion status:
-        if (showResult == ShowResult.Finished)
-        {
-            Unlockable.UnlockThroughAd();
-            // Reward the user for watching the ad to completion.
-        }
-        else if (showResult == ShowResult.Skipped)
-        {
-            // Do not reward the user for skipping the ad.
-        }
-        else if (showResult == ShowResult.Failed)
-        {
-            Debug.LogWarning("The ad did not finish due to an error.");
-        }
-    }
-
-    public void OnUnityAdsReady(string placementId)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnUnityAdsDidError(string message)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnUnityAdsDidStart(string placementId)
-    {
-        throw new System.NotImplementedException();
-    }
-    */
 }

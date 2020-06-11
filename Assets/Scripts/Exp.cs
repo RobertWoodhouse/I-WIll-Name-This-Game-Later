@@ -18,8 +18,8 @@ public class Exp : MonoBehaviour
     void Start()
     {
         S = this;
-        _defaultSpeedSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
-        _defaultPowerSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
+        _defaultSpeedSprite = GetComponent<SpriteRenderer>().sprite;
+        _defaultPowerSprite = GetComponent<SpriteRenderer>().sprite;
        _flashTimer = 1.5f;
     }
 
@@ -32,23 +32,23 @@ public class Exp : MonoBehaviour
     {
         _flashTimer -= Time.deltaTime;
 
-        if (_flashTimer < 1.5f && _flashTimer >= 1.0f && (gameObject.CompareTag("ExpPower") || gameObject.CompareTag("StarterExpPower")))
+        if (_flashTimer < 1.5f && _flashTimer >= 1.0f && (CompareTag("ExpPower") || CompareTag("StarterExpPower")))
         {
-            gameObject.GetComponent<SpriteRenderer>().sprite = _powerExpSprite;
+            GetComponent<SpriteRenderer>().sprite = _powerExpSprite;
         }
-        if (_flashTimer < 1.0f && (gameObject.CompareTag("ExpPower") || gameObject.CompareTag("StarterExpPower")))
+        if (_flashTimer < 1.0f && (CompareTag("ExpPower") || CompareTag("StarterExpPower")))
         {
-            gameObject.GetComponent<SpriteRenderer>().sprite = _defaultPowerSprite;
+            GetComponent<SpriteRenderer>().sprite = _defaultPowerSprite;
             _flashTimer = 2.0f;
         }
 
-        if (_flashTimer < 1.5f && _flashTimer >= 1.0f && (gameObject.CompareTag("ExpSpeed") || gameObject.CompareTag("StarterExpSpeed")))
+        if (_flashTimer < 1.5f && _flashTimer >= 1.0f && (CompareTag("ExpSpeed") || CompareTag("StarterExpSpeed")))
         {
-            gameObject.GetComponent<SpriteRenderer>().sprite = _speedExpSprite;
+            GetComponent<SpriteRenderer>().sprite = _speedExpSprite;
         }
-        if (_flashTimer < 1.0f && (gameObject.CompareTag("ExpSpeed") || gameObject.CompareTag("StarterExpSpeed")))
+        if (_flashTimer < 1.0f && (CompareTag("ExpSpeed") || CompareTag("StarterExpSpeed")))
         {
-            gameObject.GetComponent<SpriteRenderer>().sprite = _defaultSpeedSprite;
+            GetComponent<SpriteRenderer>().sprite = _defaultSpeedSprite;
             _flashTimer = 2.0f;
         }
     }

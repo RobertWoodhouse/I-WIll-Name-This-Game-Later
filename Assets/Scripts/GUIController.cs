@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GUIController : MonoBehaviour
 {
+    public AudioClip[] clipHighScoreSFX, clipTopTenSFX, clipGameOverSFX, clipGameOverLoserSFX;
+
     [SerializeField]
     private Button _playBtn, _pauseBtn;
     [SerializeField]
@@ -37,46 +39,49 @@ public class GUIController : MonoBehaviour
         _pauseMenu.SetActive(true);
         _playBtn.gameObject.SetActive(true);
         _pauseBtn.gameObject.SetActive(false);
-        //GetComponent<Image>().color = new Color(GetComponent<Image>().color.r, GetComponent<Image>().color.g, GetComponent<Image>().color.b, 1f);
         _guiImage.color = new Color(_guiImage.color.r, _guiImage.color.g, _guiImage.color.b, 1f);
     }
 
-    public void LoadGameOverPanel(int score) //FIXME correct messages displayed for getting scores in range
+    public void LoadGameOverPanel(int score)
     {
-      
+        /*
         for(int i = 0; i < PlayerPrefsX.GetIntArray("HighScores").Length; i++) // TEST
         {
             print("Score " + (i + 1) + ": " + PlayerPrefsX.GetIntArray("HighScores")[i]);
         }
         print("Current score: " + score);
+        */
 
         _gameOverPanel.SetActive(true);
         _pauseBtn.gameObject.SetActive(false);
-        //gameObject.SetActive(false);
         _guiPanel.SetActive(false);
         int rand = Random.Range(0, _gameOverMessages.Length - 1);
         int randLose = Random.Range(0, _gameOverLoserMessages.Length - 1);
 
-        print("Random No. " + rand);
+        //print("Random No. " + rand);
 
         if (score > PlayerPrefsX.GetIntArray("HighScores")[0])
         {
             print("TEST HIGH SCORE");
-            GameOverController.S.UpdateGameOverText("NEW HIGH SCORE!", score.ToString());
+            GameOverController.S.UpdateGameOverScreen("NEW HIGH SCORE!", score.ToString());
+            GameEvents.S.PlaySFX(clipHighScoreSFX[SelectShipController.SelectedShip], AudioController.SoundEffects.Menu);
         }
         else if (score >= PlayerPrefsX.GetIntArray("HighScores")[9] && score <= PlayerPrefsX.GetIntArray("HighScores")[0])
         {
             print("TEST MID SCORE");
-            GameOverController.S.UpdateGameOverText("YOU CRACKED THE TOP 10", score.ToString());
+            GameOverController.S.UpdateGameOverScreen("YOU CRACKED THE TOP 10", score.ToString());
+            GameEvents.S.PlaySFX(clipTopTenSFX[SelectShipController.SelectedShip], AudioController.SoundEffects.Menu);
         }
         else if (score > 1500)
         {
             print("TEST GAMEOVER");
-            GameOverController.S.UpdateGameOverText("GAME OVER", _gameOverMessages[rand]);
+            GameOverController.S.UpdateGameOverScreen("GAME OVER", _gameOverMessages[rand]);
+            GameEvents.S.PlaySFX(clipGameOverSFX[SelectShipController.SelectedShip], AudioController.SoundEffects.Menu);
         }
         else
         {
-            GameOverController.S.UpdateGameOverText("GAME OVER", _gameOverLoserMessages[randLose]);
+            GameOverController.S.UpdateGameOverScreen("GAME OVER", _gameOverLoserMessages[randLose]);
+            GameEvents.S.PlaySFX(clipGameOverLoserSFX[SelectShipController.SelectedShip], AudioController.SoundEffects.Menu);
         }
     }
 }

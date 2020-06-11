@@ -13,15 +13,20 @@ public class CollisionObstacle : MonoBehaviour
     private Animator _animObstacle;
     private BoxCollider2D[] _boxColl;
     private SpriteRenderer _sprite;
-    //private Obstacle _obstacle;
+    private float _tempSpeed;
+    private Color _tempColour;
+    private Obstacle _obstacle;
 
     private void Start()
     {
+        _obstacle = GetComponent<Obstacle>();
         _boxColl = GetComponents<BoxCollider2D>();
         _animObstacle = GetComponent<Animator>();
         _sprite = GetComponent<Obstacle>().sprite;
-        //_obstacle = GetComponent<Obstacle>();
-        if (transform.parent != null) GetComponentInParent<Obstacle>().countChildren = transform.parent.gameObject.transform.childCount;
+        //if (transform.parent != null) GetComponentInParent<Obstacle>().countChildren = transform.parent.gameObject.transform.childCount;
+        if (transform.parent != null) _obstacle.countChildren = transform.parent.gameObject.transform.childCount;
+        _tempSpeed = GetComponent<Obstacle>().speed;
+        _tempColour = GetComponent<Obstacle>().sprite.color;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -29,7 +34,8 @@ public class CollisionObstacle : MonoBehaviour
         if (collision.CompareTag("Net"))
         {
             StartCoroutine(DestroyObject(_destroyTimer));
-            if (transform.parent != null) GetComponentInParent<Obstacle>().countChildren--; // TODO TEST IF STATEMENT IS WORKING
+            //if (transform.parent != null) GetComponentInParent<Obstacle>().countChildren--; // TODO TEST IF STATEMENT IS WORKING
+            if (transform.parent != null) _obstacle.countChildren--; // TODO TEST IF STATEMENT IS WORKING
             ScoreController.Score += 100;
         }
 
@@ -55,38 +61,65 @@ public class CollisionObstacle : MonoBehaviour
                 }
                 health--;
             }
-            //StartCoroutine(DestroyObject(_destroyTimer)); // TEST
             StartCoroutine("KineticCharge");
         }
     }
 
     IEnumerator KineticCharge()
     {
+        /*
         isInvincible = true;
-        var tempSpeed = GetComponent<Obstacle>().speed;
-        var tempColour = GetComponent<Obstacle>().sprite.color;
+        var _tempSpeed = GetComponent<Obstacle>().speed;
+        var _tempColour = GetComponent<Obstacle>().sprite.color;
         GetComponent<Obstacle>().speed = 0f;
         GetComponent<Obstacle>().sprite.color = Color.red;
         yield return new WaitForSeconds(0.5f);
-        GetComponent<Obstacle>().sprite.color = tempColour;
+        GetComponent<Obstacle>().sprite.color = _tempColour;
         yield return new WaitForSeconds(0.5f);
         GetComponent<Obstacle>().sprite.color = Color.red;
         yield return new WaitForSeconds(0.33f);
-        GetComponent<Obstacle>().sprite.color = tempColour;
+        GetComponent<Obstacle>().sprite.color = _tempColour;
         yield return new WaitForSeconds(0.33f);
         GetComponent<Obstacle>().sprite.color = Color.red;
         yield return new WaitForSeconds(0.33f);
-        GetComponent<Obstacle>().sprite.color = tempColour;
+        GetComponent<Obstacle>().sprite.color = _tempColour;
         yield return new WaitForSeconds(0.25f);
         GetComponent<Obstacle>().sprite.color = Color.red;
         yield return new WaitForSeconds(0.25f);
-        GetComponent<Obstacle>().sprite.color = tempColour;
+        GetComponent<Obstacle>().sprite.color = _tempColour;
         yield return new WaitForSeconds(0.25f);
         GetComponent<Obstacle>().sprite.color = Color.red;
         yield return new WaitForSeconds(0.25f);
-        GetComponent<Obstacle>().sprite.color = tempColour;
-        GetComponent<Obstacle>().speed = tempSpeed+=0.25f;
+        GetComponent<Obstacle>().sprite.color = _tempColour;
+        GetComponent<Obstacle>().speed = _tempSpeed+=0.25f;
         isInvincible = false;
+        */
+        if (!isInvincible)
+        {
+            isInvincible = true;
+            _obstacle.speed = 0f;
+            _obstacle.sprite.color = Color.red;
+            yield return new WaitForSeconds(0.5f);
+            _obstacle.sprite.color = _tempColour;
+            yield return new WaitForSeconds(0.5f);
+            _obstacle.sprite.color = Color.red;
+            yield return new WaitForSeconds(0.33f);
+            _obstacle.sprite.color = _tempColour;
+            yield return new WaitForSeconds(0.33f);
+            _obstacle.sprite.color = Color.red;
+            yield return new WaitForSeconds(0.33f);
+            _obstacle.sprite.color = _tempColour;
+            yield return new WaitForSeconds(0.25f);
+            _obstacle.sprite.color = Color.red;
+            yield return new WaitForSeconds(0.25f);
+            _obstacle.sprite.color = _tempColour;
+            yield return new WaitForSeconds(0.25f);
+            _obstacle.sprite.color = Color.red;
+            yield return new WaitForSeconds(0.25f);
+            _obstacle.sprite.color = _tempColour;
+            _obstacle.speed = _tempSpeed += 0.5f;
+            isInvincible = false;
+        }
     }
     
     IEnumerator DestroyObject(float time) // Destroys object after elapsed time
@@ -102,23 +135,6 @@ public class CollisionObstacle : MonoBehaviour
         }
         else // Shrink and fade animation
         {
-            /*
-            GetComponent<Obstacle>().sprite.color = new Color32(255, 255, 255, 205);
-            GetComponent<Obstacle>().transform.localScale = new Vector3(0.50f, 0.50f, 1.0f);
-            yield return new WaitForSeconds(0.25f);
-            GetComponent<Obstacle>().sprite.color = new Color32(255, 255, 255, 155);
-            GetComponent<Obstacle>().transform.localScale = new Vector3(0.25f, 0.25f, 1.0f);
-            yield return new WaitForSeconds(0.25f);
-            GetComponent<Obstacle>().sprite.color = new Color32(255, 255, 255, 105);
-            GetComponent<Obstacle>().transform.localScale = new Vector3(0.125f, 0.125f, 1.0f);
-            yield return new WaitForSeconds(0.25f);
-            GetComponent<Obstacle>().sprite.color = new Color32(255, 255, 255, 55);
-            GetComponent<Obstacle>().transform.localScale = new Vector3(0.125f, 0.125f, 1.0f);
-            yield return new WaitForSeconds(0.25f);
-            GetComponent<Obstacle>().sprite.color = new Color32(255, 255, 255, 5);
-            GetComponent<Obstacle>().transform.localScale = new Vector3(0.0625f, 0.0625f, 1.0f);
-            */
-
             _sprite.color = new Color32(255, 255, 255, 205);
             //transform.localScale = new Vector3(0.50f, 0.50f, 1.0f);
             transform.localScale = new Vector3((transform.localScale.x * 0.75f), (transform.localScale.y * 0.75f), 1.0f);

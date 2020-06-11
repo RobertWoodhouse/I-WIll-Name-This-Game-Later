@@ -7,7 +7,8 @@ public class AudioController : MonoBehaviour
     public enum SoundEffects
     {
         Voice,
-        Sound
+        Sound,
+        Menu
     }
 
     [SerializeField]
@@ -18,20 +19,11 @@ public class AudioController : MonoBehaviour
         get { return _intruments; }
         set { _intruments = value; }
     }
-    /*
-    private AudioSource _source;
-
-    public AudioSource Source // = GameController
-    {
-        get { return _source; }
-        set { _source = value; }
-    }
-    */
 
     [SerializeField]
     private bool[] _channels;
     private AudioSource[] audioSources;
-    private AudioSource[] audioSrcsSfx = new AudioSource[2];
+    private AudioSource[] audioSrcsSfx = new AudioSource[3];
 
     public static AudioController S;
 
@@ -40,8 +32,9 @@ public class AudioController : MonoBehaviour
         S = this;
         _channels = new bool[Instruments.Length];
         audioSources = GetComponents<AudioSource>();
-        audioSrcsSfx[0] = GetComponents<AudioSource>()[7]; // FIXME SFX pauses audio, check source component
-        audioSrcsSfx[1] = GetComponents<AudioSource>()[8]; // FIXME SFX pauses audio, check source component
+        audioSrcsSfx[0] = GetComponents<AudioSource>()[7];
+        audioSrcsSfx[1] = GetComponents<AudioSource>()[8];
+        audioSrcsSfx[2] = GetComponents<AudioSource>()[9];
         GameEvents.S.onPlaySFX += PlaySFX;
         PlayBGMTracks(Instruments);
     }
@@ -125,6 +118,13 @@ public class AudioController : MonoBehaviour
             audioSrcsSfx[1].loop = false;
             audioSrcsSfx[1].clip = clip;
             audioSrcsSfx[1].Play();
+        }
+        if (sfx == SoundEffects.Menu)
+        {
+            //print("Play Voice");
+            audioSrcsSfx[2].loop = false;
+            audioSrcsSfx[2].clip = clip;
+            audioSrcsSfx[2].Play();
         }
     }
 }

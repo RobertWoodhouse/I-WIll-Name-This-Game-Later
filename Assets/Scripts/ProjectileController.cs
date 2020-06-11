@@ -19,13 +19,13 @@ public class ProjectileController : MonoBehaviour
 
     void FixedUpdate()
     {
-    #if UNITY_EDITOR
+        #if UNITY_EDITOR
         FireProjectileDebug();
-    #endif
+        #endif
 
-    #if UNITY_ANDROID
+        #if UNITY_ANDROID
         FireProjectileTouchScreen();
-    #endif
+        #endif
     }
 
     public void FireProjectileDebug()
@@ -66,7 +66,7 @@ public class ProjectileController : MonoBehaviour
             
             if (touch.phase == TouchPhase.Ended)
             {
-                _doubleTapTime = 0.5f;
+                _doubleTapTime = 0.25f;
             }
         
         }

@@ -22,7 +22,7 @@ public class ScoreController : MonoBehaviour
 
     private void Awake()
     {
-        PlayerPrefs.DeleteAll(); // TODO remove delete
+        //PlayerPrefs.DeleteAll(); // TODO remove delete
 
         if (PlayerPrefsX.GetIntArray("HighScores") == null || PlayerPrefsX.GetIntArray("HighScores").Length < 10)
         {

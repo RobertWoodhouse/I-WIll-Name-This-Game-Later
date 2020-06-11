@@ -69,9 +69,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.V))
         {
-            //AdMediaController.S.ShowAdVideo();
             AdMediaController.S.ShowAdRewardedVideo();
-            //AdMediaController.S.OnUnityAdsDidFinish("rewardedVideo", UnityEngine.Advertisements.ShowResult.Finished);
         }
     }
 

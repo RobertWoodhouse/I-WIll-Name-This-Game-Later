@@ -260,8 +260,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 2.5
-  leftBound: -1.9
-  rightBound: 1.9
+  leftBound: -1.75
+  rightBound: 1.75
   goAfterBurner: {fileID: 5529563653517893412}
 --- !u!50 &3850627875753226392
 Rigidbody2D:
@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clipExplosion: {fileID: 8300000, guid: 69785f9d83fb341789f68872f5a6cb1a, type: 3}
-  _destroyTimer: 0.5
+  _destroyTime: 0.5
 --- !u!95 &3850627876010967318
 Animator:
   serializedVersion: 3

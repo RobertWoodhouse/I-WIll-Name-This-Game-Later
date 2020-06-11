@@ -76,6 +76,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDestructable: 0
+  isInvincible: 0
+  health: 2
   clipCollision: {fileID: 8300000, guid: d58d7720635874cf0847f5c5f422ebc0, type: 3}
   _destroyTimer: 0.5
 --- !u!50 &5834209345017024447
@@ -286,7 +288,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5834209346957703566}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.14, y: -0.5436592, z: 2.325968}
+  m_LocalPosition: {x: -0.34, y: -0.5436592, z: 2.325968}
   m_LocalScale: {x: 0.2, y: 0.75, z: 1}
   m_Children: []
   m_Father: {fileID: 5834209346030406320}
@@ -331,6 +333,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDestructable: 0
+  isInvincible: 0
+  health: 2
   clipCollision: {fileID: 8300000, guid: d58d7720635874cf0847f5c5f422ebc0, type: 3}
   _destroyTimer: 0.5
 --- !u!50 &5834209346957703568
@@ -479,7 +483,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7783773894494186586}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.44, y: -0.5436592, z: 2.325968}
+  m_LocalPosition: {x: -4.24, y: -0.5436592, z: 2.325968}
   m_LocalScale: {x: 0.2, y: 0.75, z: 1}
   m_Children: []
   m_Father: {fileID: 5834209346030406320}
@@ -524,6 +528,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDestructable: 0
+  isInvincible: 0
+  health: 2
   clipCollision: {fileID: 8300000, guid: d58d7720635874cf0847f5c5f422ebc0, type: 3}
   _destroyTimer: 0.5
 --- !u!50 &6448566111314069337

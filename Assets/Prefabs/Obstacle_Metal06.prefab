@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1197861734023348003}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.8, y: 0, z: 0}
+  m_LocalPosition: {x: -3.7, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.75, z: 1}
   m_Children: []
   m_Father: {fileID: 3092773730343288314}
@@ -76,6 +76,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDestructable: 0
+  isInvincible: 0
+  health: 2
   clipCollision: {fileID: 8300000, guid: d58d7720635874cf0847f5c5f422ebc0, type: 3}
   _destroyTimer: 0.5
 --- !u!50 &2731368634403853344
@@ -330,6 +332,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDestructable: 0
+  isInvincible: 0
+  health: 2
   clipCollision: {fileID: 8300000, guid: d58d7720635874cf0847f5c5f422ebc0, type: 3}
   _destroyTimer: 0.5
 --- !u!50 &3092773730435962342

@@ -15,7 +15,6 @@ public class CollisionExp : MonoBehaviour
             if (collision.name == "Ship_UK" || collision.name == "Ship_UK(Clone)") GameEvents.S.PlaySFX(clipSpeedUpUK, AudioController.SoundEffects.Voice);
             if (collision.name == "Ship_US" || collision.name == "Ship_US(Clone)") GameEvents.S.PlaySFX(clipSpeedUpUS, AudioController.SoundEffects.Voice);
             if (collision.name == "Ship_JA" || collision.name == "Ship_JA(Clone)") GameEvents.S.PlaySFX(clipSpeedUpJA, AudioController.SoundEffects.Voice);
-            //print("Speed Up");
             Destroy(gameObject);
         }
 
@@ -26,7 +25,6 @@ public class CollisionExp : MonoBehaviour
             if (collision.name == "Ship_UK" || collision.name == "Ship_UK(Clone)") GameEvents.S.PlaySFX(clipPowerUpUK, AudioController.SoundEffects.Voice);
             if (collision.name == "Ship_US" || collision.name == "Ship_US(Clone)") GameEvents.S.PlaySFX(clipPowerUpUS, AudioController.SoundEffects.Voice);
             if (collision.name == "Ship_JA" || collision.name == "Ship_JA(Clone)") GameEvents.S.PlaySFX(clipPowerUpJA, AudioController.SoundEffects.Voice);
-            //print("Power Up");
             Destroy(gameObject);
         }
     }
