@@ -1036,7 +1036,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 668749913}
-  - component: {fileID: 668749914}
   m_Layer: 0
   m_Name: MainMenu
   m_TagString: Untagged
@@ -1062,28 +1061,6 @@ Transform:
   m_Father: {fileID: 1831079905}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &668749914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 668749912}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c118bf828ea74e48b85d082b30be42e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  backBtn: {fileID: 1341567454}
-  _headerTxt: {fileID: 2025052539}
-  _playBtn: {fileID: 655604289}
-  _selectShipBtn: {fileID: 1700890142}
-  _scoreShipBtn: {fileID: 2020156287}
-  _tutorialShipBtn: {fileID: 389868842}
-  _selectShipWin: {fileID: 7405891742161711442}
-  _scoreWin: {fileID: 1647317936}
-  _tutorialWin: {fileID: 1804013753}
-  _mainMenu: {fileID: 0}
 --- !u!1001 &799353660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1375,9 +1352,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 166c71b3ef21d4b79939e6b99552e742, type: 3}
     m_FontSize: 15
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 54
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 15
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -3167,7 +3144,6 @@ GameObject:
   - component: {fileID: 1647317937}
   - component: {fileID: 1647317940}
   - component: {fileID: 1647317939}
-  - component: {fileID: 1647317941}
   m_Layer: 5
   m_Name: ScoreWin
   m_TagString: Untagged
@@ -3233,22 +3209,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1647317936}
   m_CullTransparentMesh: 0
---- !u!114 &1647317941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1647317936}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0669292d2ed2437fa73fa30122b9077, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _scoreTxt: {fileID: 972831759}
-  _backBtn: {fileID: 1341567454}
-  _mainMenu: {fileID: 668749912}
-  _scoreWin: {fileID: 0}
 --- !u!1 &1662990967
 GameObject:
   m_ObjectHideFlags: 0
@@ -3458,7 +3418,6 @@ GameObject:
   - component: {fileID: 1804013754}
   - component: {fileID: 1804013757}
   - component: {fileID: 1804013756}
-  - component: {fileID: 1804013755}
   m_Layer: 5
   m_Name: TutorialWin
   m_TagString: Untagged
@@ -3492,40 +3451,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -37.299988}
   m_SizeDelta: {x: 290, y: 460}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1804013755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1804013753}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1748983334c1f4c36bea0e385107eb2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  titleTxt: {fileID: 1305137305}
-  instructionsTxt: {fileID: 871865781}
-  tutImg1: {fileID: 2109947371}
-  tutImg2: {fileID: 53073130}
-  tutImg3: {fileID: 1106746188}
-  _shipSprite: {fileID: 21300000, guid: 06e2db07cd6134bf79cc3c4ce1efa9bd, type: 3}
-  _arrowSprite: {fileID: 21300004, guid: 0a15f2ef17680f34eba054a12eb1a223, type: 3}
-  _handSprite: {fileID: -8333400969404257233, guid: c87bdb233b9f9404f9ffa60a99fbdd0b,
-    type: 3}
-  _handTapSprite: {fileID: 21300022, guid: 0a15f2ef17680f34eba054a12eb1a223, type: 3}
-  _bulletSprite: {fileID: 2013881728091588454, guid: 082e678f5059740d29b160105b6f65c8,
-    type: 3}
-  _powerUpSprite: {fileID: 21300000, guid: fe99c46bc629c4f398499b128a078c37, type: 3}
-  _speedUpSprite: {fileID: 21300000, guid: a14e21ff378cb4dc6a3a4d7f5fadb14a, type: 3}
-  _metalSprite: {fileID: -9163426285224168042, guid: 2a48a72126e1743a386e5c4432f5ee3a,
-    type: 3}
-  _satSprite: {fileID: 21300000, guid: 54cffbbf131fd462fb339a23625bf0da, type: 3}
-  _leftBtn: {fileID: 891232214}
-  _rightBtn: {fileID: 185999793}
-  _backBtn: {fileID: 1341567454}
-  _mainMenu: {fileID: 668749912}
-  _tutorialWin: {fileID: 0}
 --- !u!114 &1804013756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4830,9 +4755,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 166c71b3ef21d4b79939e6b99552e742, type: 3}
     m_FontSize: 15
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 54
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 15
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -4891,8 +4816,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -60}
-  m_SizeDelta: {x: 240, y: 130}
+  m_AnchoredPosition: {x: 0, y: -62.5}
+  m_SizeDelta: {x: 240, y: 173.02475}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7405891742161711442
 GameObject:
@@ -4905,7 +4830,6 @@ GameObject:
   - component: {fileID: 4084181762407955329}
   - component: {fileID: 5021365237822278435}
   - component: {fileID: 1237268356813225381}
-  - component: {fileID: 7405891742161711443}
   m_Layer: 5
   m_Name: SelectShipWin
   m_TagString: Untagged
@@ -4913,35 +4837,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &7405891742161711443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7405891742161711442}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b93877f016e1244408c0de9519526b58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameTxt: {fileID: 9097762406501777502}
-  descriptionTxt: {fileID: 4662475630035555030}
-  shipImg: {fileID: 3895892231141161967}
-  clipSelectSFX: []
-  _shipSprites:
-  - {fileID: 21300000, guid: 06e2db07cd6134bf79cc3c4ce1efa9bd, type: 3}
-  - {fileID: 21300000, guid: 5b2130499bae14b8fb34edc269e38e03, type: 3}
-  - {fileID: 21300000, guid: 4338366684bc4452080aced1ca539369, type: 3}
-  _shipLockedSprite: {fileID: 21300000, guid: fe26ab4815f964cb597a4a99c682c94e, type: 3}
-  _leftBtn: {fileID: 411046431}
-  _rightBtn: {fileID: 61373725}
-  _backBtn: {fileID: 1341567454}
-  _selectBtn: {fileID: 1046752717}
-  _adBtn: {fileID: 1451546450}
-  _mainMenu: {fileID: 668749912}
-  _selectShipWin: {fileID: 0}
-  _selectNum: 0
 --- !u!222 &7414240011471851818
 CanvasRenderer:
   m_ObjectHideFlags: 0

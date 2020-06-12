@@ -108,8 +108,8 @@ public class TutorialController : MonoBehaviour
             case 3:
                 titleTxt.text = "OBSTACLES";
                 instructionsTxt.text = "SHOOT OR EVADE OBSTACLES TO BUILD YOUR SCORE" +
-                    "\nNOT ALL OBSTACLES CAN BE DESTROYED, BUT CAN BE STALLED" +
-                    "\nBE MINDFUL OF KINETIC ENERGY STORED IN THESE OBSTACLES";
+                    "\nNOT ALL OBSTACLES CAN BE DESTROYED WITH ONE SHOT, THEY CAN HOWEVER BE STALLED" +
+                    "\nBE MINDFUL OF THE KINETIC ENERGY STORED IN THESE OBSTACLES";
 
                 tutImg1.sprite = _satSprite;
                 tutImg1.GetComponent<RectTransform>().anchoredPosition = new Vector2(-65, 80);
