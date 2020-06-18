@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CollisionObstacle : MonoBehaviour
 {
-    public bool isDestructable = true, isInvincible = false;
-    public int health = 2;
+    public bool isDestructable = true, /*isInvincible = false,*/ isStalled = false;
+    public int defencePoints = 3;
     public AudioClip clipCollision;
 
     [SerializeField]
@@ -14,7 +14,7 @@ public class CollisionObstacle : MonoBehaviour
     private BoxCollider2D[] _boxColl;
     private SpriteRenderer _sprite;
     private float _tempSpeed;
-    private Color _tempColour;
+    //private Color _tempColour;
     private Obstacle _obstacle;
 
     private void Start()
@@ -26,7 +26,7 @@ public class CollisionObstacle : MonoBehaviour
         //if (transform.parent != null) GetComponentInParent<Obstacle>().countChildren = transform.parent.gameObject.transform.childCount;
         if (transform.parent != null) _obstacle.countChildren = transform.parent.gameObject.transform.childCount;
         _tempSpeed = GetComponent<Obstacle>().speed;
-        _tempColour = GetComponent<Obstacle>().sprite.color;
+        //_tempColour = GetComponent<Obstacle>().sprite.color;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -49,6 +49,7 @@ public class CollisionObstacle : MonoBehaviour
 
         if (collision.CompareTag("Projectile") && isDestructable.Equals(false)) // Push back indestructable objects
         {
+            /*
             GameEvents.S.PlaySFX(clipCollision, AudioController.SoundEffects.Sound);
             Destroy(collision.gameObject);
             if (!isInvincible)
@@ -62,38 +63,25 @@ public class CollisionObstacle : MonoBehaviour
                 health--;
             }
             StartCoroutine("KineticCharge");
+            */
+
+            var attackPoints = collision.GetComponent<CollisionProjectile>().attackPoints;
+            defencePoints -= attackPoints;
+            GameEvents.S.PlaySFX(clipCollision, AudioController.SoundEffects.Sound);
+            Destroy(collision.gameObject);
+            if (defencePoints <= 0)
+            {
+                print("Destroy metal obeject");
+                StartCoroutine(DestroyObject(_destroyTimer));
+                ScoreController.Score += 600;
+            }
+            StartCoroutine("KineticCharge");
         }
     }
 
     IEnumerator KineticCharge()
     {
         /*
-        isInvincible = true;
-        var _tempSpeed = GetComponent<Obstacle>().speed;
-        var _tempColour = GetComponent<Obstacle>().sprite.color;
-        GetComponent<Obstacle>().speed = 0f;
-        GetComponent<Obstacle>().sprite.color = Color.red;
-        yield return new WaitForSeconds(0.5f);
-        GetComponent<Obstacle>().sprite.color = _tempColour;
-        yield return new WaitForSeconds(0.5f);
-        GetComponent<Obstacle>().sprite.color = Color.red;
-        yield return new WaitForSeconds(0.33f);
-        GetComponent<Obstacle>().sprite.color = _tempColour;
-        yield return new WaitForSeconds(0.33f);
-        GetComponent<Obstacle>().sprite.color = Color.red;
-        yield return new WaitForSeconds(0.33f);
-        GetComponent<Obstacle>().sprite.color = _tempColour;
-        yield return new WaitForSeconds(0.25f);
-        GetComponent<Obstacle>().sprite.color = Color.red;
-        yield return new WaitForSeconds(0.25f);
-        GetComponent<Obstacle>().sprite.color = _tempColour;
-        yield return new WaitForSeconds(0.25f);
-        GetComponent<Obstacle>().sprite.color = Color.red;
-        yield return new WaitForSeconds(0.25f);
-        GetComponent<Obstacle>().sprite.color = _tempColour;
-        GetComponent<Obstacle>().speed = _tempSpeed+=0.25f;
-        isInvincible = false;
-        */
         if (!isInvincible)
         {
             isInvincible = true;
@@ -120,6 +108,26 @@ public class CollisionObstacle : MonoBehaviour
             _obstacle.speed = _tempSpeed += 0.5f;
             isInvincible = false;
         }
+        */
+
+        if (!isStalled)
+        {
+            isStalled = true;
+            _obstacle.speed = 0f;
+            _obstacle.sprite.color = Color.grey;
+            yield return new WaitForSeconds(1.0f);
+            _obstacle.sprite.color = SetObstacleColour();
+            _obstacle.speed = _tempSpeed += 0.5f;
+            isStalled = false;
+        }
+    }
+
+    private Color SetObstacleColour()
+    {
+        Color colour = new Color32(255, 255, 255, 255);
+        if (defencePoints == 2) colour = new Color32(255, 128, 128, 255);
+        if (defencePoints <= 1) colour = new Color32(255, 64, 64, 255);
+        return colour;
     }
     
     IEnumerator DestroyObject(float time) // Destroys object after elapsed time
@@ -136,23 +144,18 @@ public class CollisionObstacle : MonoBehaviour
         else // Shrink and fade animation
         {
             _sprite.color = new Color32(255, 255, 255, 205);
-            //transform.localScale = new Vector3(0.50f, 0.50f, 1.0f);
             transform.localScale = new Vector3((transform.localScale.x * 0.75f), (transform.localScale.y * 0.75f), 1.0f);
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
             _sprite.color = new Color32(255, 255, 255, 155);
-            //transform.localScale = new Vector3(0.25f, 0.25f, 1.0f);
             transform.localScale = new Vector3((transform.localScale.x * 0.75f), (transform.localScale.y * 0.75f), 1.0f);
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
             _sprite.color = new Color32(255, 255, 255, 105);
-            //transform.localScale = new Vector3(0.125f, 0.125f, 1.0f);
             transform.localScale = new Vector3((transform.localScale.x * 0.75f), (transform.localScale.y * 0.75f), 1.0f);
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
             _sprite.color = new Color32(255, 255, 255, 55);
-            //transform.localScale = new Vector3(0.125f, 0.125f, 1.0f);
             transform.localScale = new Vector3((transform.localScale.x * 0.75f), (transform.localScale.y * 0.75f), 1.0f);
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
             _sprite.color = new Color32(255, 255, 255, 5);
-            //transform.localScale = new Vector3(0.0625f, 0.0625f, 1.0f);
             transform.localScale = new Vector3((transform.localScale.x * 0.75f), (transform.localScale.y * 0.75f), 1.0f);
         }
         //yield return new WaitForSeconds(time);

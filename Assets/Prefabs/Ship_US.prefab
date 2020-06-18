@@ -329,7 +329,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd1ff8b0e91794043a78df588f38d05c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileType: {fileID: 3884763462994910481, guid: bc9c743182cd04c2295555d5f2fbdb39,
+  projectileBullet: {fileID: 3884763462994910481, guid: bc9c743182cd04c2295555d5f2fbdb39,
+    type: 3}
+  projectilePlasma: {fileID: 3915217660042146008, guid: f8ad892cd0b7b4499ad121119f0d7f27,
     type: 3}
   gunPos: {fileID: 3850627875740827214}
   projectileSpawnTime: 0.75

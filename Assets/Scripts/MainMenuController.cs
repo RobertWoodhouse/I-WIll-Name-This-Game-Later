@@ -8,11 +8,11 @@ public class MainMenuController : MonoBehaviour
     public Button backBtn;
 
     [SerializeField]
-    private Text _headerTxt;
+    private Text _headerTxt, _messageTxt;
     [SerializeField]
-    private Button _playBtn, _selectShipBtn, _scoreShipBtn, _tutorialShipBtn;
+    private Button _playBtn, _selectShipBtn, _scoreBtn, _tutorialBtn, _quitBtn, _yesBtn, _noBtn;
     [SerializeField]
-    private GameObject _selectShipWin, _scoreWin, _tutorialWin, _mainMenu;
+    private GameObject _selectShipWin, _scoreWin, _tutorialWin, _mainMenu, _yesNoPanel;
 
     public static MainMenuController S;
 
@@ -21,8 +21,11 @@ public class MainMenuController : MonoBehaviour
         S = this;
         _playBtn.onClick.AddListener(PlayButtonOnClick);
         _selectShipBtn.onClick.AddListener(SelectShipButtonOnClick);
-        _scoreShipBtn.onClick.AddListener(ScoreButtonOnClick);
-        _tutorialShipBtn.onClick.AddListener(TutorialButtonOnClick);
+        _scoreBtn.onClick.AddListener(ScoreButtonOnClick);
+        _tutorialBtn.onClick.AddListener(TutorialButtonOnClick);
+        _quitBtn.onClick.AddListener(QuitButtonOnClick);
+        _yesBtn.onClick.AddListener(YesButtonOnClick);
+        _noBtn.onClick.AddListener(NoButtonClick);
         if (backBtn.gameObject.activeSelf) backBtn.gameObject.SetActive(false);
         SetHeaderText("I'LL NAME THIS GAME LATER");
     }
@@ -33,7 +36,6 @@ public class MainMenuController : MonoBehaviour
 
     void SelectShipButtonOnClick()
     {
-        //gameObject.SetActive(false);
         _mainMenu.SetActive(false);
         _selectShipWin.SetActive(true);
         backBtn.gameObject.SetActive(true);
@@ -42,7 +44,6 @@ public class MainMenuController : MonoBehaviour
 
     void ScoreButtonOnClick()
     {
-        //gameObject.SetActive(false);
         _mainMenu.SetActive(false);
         _scoreWin.SetActive(true);
         backBtn.gameObject.SetActive(true);
@@ -51,10 +52,28 @@ public class MainMenuController : MonoBehaviour
 
     void TutorialButtonOnClick()
     {
-        //gameObject.SetActive(false);
         _mainMenu.SetActive(false);
         _tutorialWin.SetActive(true);
         backBtn.gameObject.SetActive(true);
         SetHeaderText("TUTORIAL");
+    }
+
+    void QuitButtonOnClick()
+    {
+        _yesNoPanel.SetActive(true);
+        _mainMenu.SetActive(false);
+        _messageTxt.text = "QUIT GAME?";
+        _messageTxt.fontSize = 34;
+    }
+
+    void YesButtonOnClick()
+    {
+        SceneController.SceneQuit();
+    }
+
+    void NoButtonClick()
+    {
+        _yesNoPanel.SetActive(false);
+        _mainMenu.SetActive(true);
     }
 }
