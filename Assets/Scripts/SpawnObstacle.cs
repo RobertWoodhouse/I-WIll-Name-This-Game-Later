@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnObstacle : MonoBehaviour
 {
-    public float time = 18.0f, respawnTime = 2.0f;
+    public float timer = 16.0f, respawnTime = 2.0f, respawnTimeMin = 0.5f, respawnTimeMax = 1.5f;
 
     [SerializeField]
     private GameObject[] _obstacles, _obstaclesDestructable;
@@ -16,12 +16,13 @@ public class SpawnObstacle : MonoBehaviour
 
     void Update()
     {
-        if (time <= 0f && StarterObstacles.IsStarterDestroyed == true) // Spawn after StartObstacles have been destroyed
+        if (timer <= 0f && StarterObstacles.IsStarterDestroyed == true) // Spawn after StartObstacles have been destroyed
         {
             SpawnObject(_obstacleSpawnPoint);
-            time = respawnTime;
+            //timer = respawnTime;
+            timer = Random.Range(respawnTimeMin, respawnTimeMax);
         }
-        else time -= Time.deltaTime;
+        else timer -= Time.deltaTime;
     }
 
     public void SpawnObject(GameObject pos)

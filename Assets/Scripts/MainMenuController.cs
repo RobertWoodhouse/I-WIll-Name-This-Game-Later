@@ -47,7 +47,7 @@ public class MainMenuController : MonoBehaviour
         _mainMenu.SetActive(false);
         _scoreWin.SetActive(true);
         backBtn.gameObject.SetActive(true);
-        SetHeaderText("SCORE");
+        SetHeaderText("SCORES");
     }
 
     void TutorialButtonOnClick()
@@ -66,10 +66,7 @@ public class MainMenuController : MonoBehaviour
         _messageTxt.fontSize = 34;
     }
 
-    void YesButtonOnClick()
-    {
-        SceneController.SceneQuit();
-    }
+    void YesButtonOnClick() => SceneController.SceneQuit();
 
     void NoButtonClick()
     {

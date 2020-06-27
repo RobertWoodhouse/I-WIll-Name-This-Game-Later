@@ -26,7 +26,7 @@ public class ScoreController : MonoBehaviour
 
         if (PlayerPrefsX.GetIntArray("HighScores") == null || PlayerPrefsX.GetIntArray("HighScores").Length < 10)
         {
-            PlayerPrefsX.SetIntArray("HighScores", new int[] {12000, 10000, 9000, 8000, 7000, 6000, 5000, 4000, 3000, 2000}); // TODO switch order?
+            PlayerPrefsX.SetIntArray("HighScores", new int[] {30000, 28000, 26000, 24000, 22000, 20000, 18000, 16000, 14000, 12000}); // TODO switch order?
         }
 
         _HighScores = PlayerPrefsX.GetIntArray("HighScores").ToList<int>();
@@ -51,7 +51,7 @@ public class ScoreController : MonoBehaviour
         if (_backBtn != null) _backBtn.onClick.AddListener(BackButtonOnClick);
 
         if (_scoreTxt != null) _scoreTxt.text = "1. " + PlayerPrefsX.GetIntArray("HighScores")[0] +
-        "\n2. " + PlayerPrefsX.GetIntArray("HighScores")[1] + "\n3. " + PlayerPrefsX.GetIntArray("HighScores")[3] +
+        "\n2. " + PlayerPrefsX.GetIntArray("HighScores")[1] + "\n3. " + PlayerPrefsX.GetIntArray("HighScores")[2] +
         "\n4. " + PlayerPrefsX.GetIntArray("HighScores")[3] + "\n5. " + PlayerPrefsX.GetIntArray("HighScores")[4] +
         "\n6. " + PlayerPrefsX.GetIntArray("HighScores")[5] + "\n7. " + PlayerPrefsX.GetIntArray("HighScores")[6] +
         "\n8. " + PlayerPrefsX.GetIntArray("HighScores")[7] + "\n9. " + PlayerPrefsX.GetIntArray("HighScores")[8] +
@@ -90,12 +90,18 @@ public class ScoreController : MonoBehaviour
         }
         */
 
-        if (score >= _HighScores[9] || score >= _HighScores[0]) // HACK Add score if higher than 9 or 0 then sort in ascending and reverse
+        print("Current Score = " + score);
+        print("HighScore at 10 = " + _HighScores[_HighScores.Count - 1]);
+        print("HighScore at 1 = " + _HighScores[0]);
+        //if (score >= _HighScores[9] || score >= _HighScores[0]) // HACK Add score if higher than 9 or 0 then sort in ascending and reverse
+        if (score >= _HighScores[_HighScores.Count - 1] || score >= _HighScores[0]) // HACK Add score if higher than 9 
         {
-            _HighScores.Insert(9, score);
+            //_HighScores.Insert(9, score);
+            _HighScores.Insert(_HighScores.Count - 1, score);
             _HighScores.Sort(); // Sort in ascending
             _HighScores.Reverse(); // Reverse sort
-            _HighScores.RemoveAt(9);
+            _HighScores.RemoveAt(_HighScores.Count - 1);
+            //_HighScores.Insert(9, score);
             PlayerPrefsX.SetIntArray("HighScores", _HighScores.ToArray());
         }
     }

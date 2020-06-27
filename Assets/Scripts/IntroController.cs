@@ -5,17 +5,19 @@ using UnityEngine.UI;
 
 public class IntroController : MonoBehaviour
 {
-	public GameObject goLogo;
-	public Camera cam;
+	public GameObject goLogo, goBackground;
+	//public Camera cam;
 
     [SerializeField]
 	private float _timer = 3.0f;
-	private Color32[] _colours32 = { new Color32(248, 9, 26, 255), new Color32(254, 253, 51, 255), new Color32(34, 152, 20, 255) };
+	[SerializeField]
+	private Color32[] _colours32 = { new Color32(248, 9, 26, 75), new Color32(254, 253, 51, 75), new Color32(34, 152, 20, 75) };
 
 	void Start()
 	{
 		if (goLogo == null) goLogo = gameObject;
-		cam.backgroundColor = _colours32[Random.Range(0, 3)]; // RED(0) / YELLOW (1) / GREEN (2)
+		//cam.backgroundColor = _colours32[Random.Range(0, 3)]; // RED(0) / YELLOW (1) / GREEN (2)
+		goBackground.GetComponent<SpriteRenderer>().color = _colours32[Random.Range(0, 3)];
 		StartCoroutine("VibrateLogo");
 		StartCoroutine(SceneController.SceneTransition("01 - MainMenu", _timer));
 	}

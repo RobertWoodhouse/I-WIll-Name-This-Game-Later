@@ -85,7 +85,17 @@ public class Obstacle : MonoBehaviour
         if (_level == 27) speed = 8.2f;
         if (_level == 28) speed = 8.4f;
         if (_level == 29) speed = 8.6f;
-        if (_level >= 30) speed = 8.8f;
+        if (_level == 30) speed = 8.8f;
+        if (_level == 31) speed = 9.0f;
+        if (_level == 32) speed = 9.2f;
+        if (_level == 33) speed = 9.4f;
+        if (_level == 34) speed = 9.6f;
+        if (_level == 35) speed = 9.8f;
+        if (_level == 36) speed = 10.0f;
+        if (_level == 37) speed = 10.2f;
+        if (_level == 38) speed = 10.4f;
+        if (_level == 39) speed = 10.6f;
+        if (_level >= 40) speed = 10.8f;
     }
 
     private void DestroyParentObstacle() // TODO test and remove as may be redundant from destroy by pos

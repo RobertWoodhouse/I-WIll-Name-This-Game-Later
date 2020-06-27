@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour
         if (score >= _targetScore)
         {
             GameLevel++;
-            _targetScore += 1000;
+            _targetScore += 2400;
             BackgroundController.BgScrollSpeed += 0.75f; // Increase BG scroll speed
         }
     }

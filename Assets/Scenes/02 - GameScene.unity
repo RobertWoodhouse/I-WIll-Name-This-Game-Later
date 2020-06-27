@@ -1107,8 +1107,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a33b95ea72f184e4e8b8d929b3230793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 16
+  timer: 16
   respawnTime: 1.35
+  respawnTimeMin: 0.7
+  respawnTimeMax: 1.2
   _obstacles:
   - {fileID: 5296026571114480470, guid: 0636db4cc457e4e0b9c463832192f6ed, type: 3}
   - {fileID: 5261556798344133284, guid: 3418a66e649ef4654a512fc483c9e7c1, type: 3}

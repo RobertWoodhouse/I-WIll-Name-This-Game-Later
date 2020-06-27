@@ -32,5 +32,7 @@ public class SpawnExp : MonoBehaviour
         int rangeIndex = rand.Next(_spawnXPosRange.Length);
         _expClone.transform.position = new Vector3(_spawnXPosRange[rangeIndex], pos.transform.localPosition.y);
         respawnTime = Random.Range(15, 30); // Set respawn time to random range
+        //respawnTime = 3.0f; // TODO TEST SPAWN TIME
+
     }
 }

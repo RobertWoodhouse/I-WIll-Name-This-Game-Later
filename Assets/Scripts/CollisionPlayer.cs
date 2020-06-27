@@ -25,8 +25,11 @@ public class CollisionPlayer : MonoBehaviour
                 _isCollide = true;
                 GameEvents.S.PlaySFX(clipExplosion, AudioController.SoundEffects.Sound);
                 StartCoroutine(DestroyObject(_destroyTime));
-                ScoreController.SetHighScoreTable(ScoreController.Score); // Set HighScore
                 GUIController.S.LoadGameOverPanel(ScoreController.Score);
+                ScoreController.SetHighScoreTable(ScoreController.Score); // Set HighScore
+                //GUIController.S.LoadGameOverPanel(29100); // TODO TEST GUI
+                //ScoreController.SetHighScoreTable(29100); // TODO TEST HIGHSCORE
+                print("Is Ship 3 unlocked?" + SelectShipController.IsShip3Unlocked);
                 AdMediaController.S.AdCounter();
                 if (!SelectShipController.IsShip3Unlocked) Unlockable.UnlockThroughScore(); // TODO Test if true then unlock
                 StartCoroutine(PauseController.PauseAndPlay(PauseController.PlaySpeed.SlowMotion));

@@ -90,11 +90,16 @@ public class BackgroundController : MonoBehaviour
         if (level == 27) _sprite.color = new Color32(255, 63, 63, 255);
         if (level == 28) _sprite.color = new Color32(255, 0, 63, 255);
         if (level == 29) _sprite.color = new Color32(255, 191, 0, 255);
-        if (level == 30) _sprite.color = new Color32(255, 128, 0, 255);
-        if (level == 31) _sprite.color = new Color32(255, 63, 0, 255);
-        if (level == 32) _sprite.color = new Color32(191, 0, 0, 255);
-        if (level == 33) _sprite.color = new Color32(128, 0, 0, 255);
-        if (level == 34) _sprite.color = new Color32(63, 0, 0, 255);
-        if (level >= 35) _sprite.color = new Color32(0, 0, 0, 255);
+        if (level == 30) _sprite.color = new Color32(255, 173, 0, 255);
+        if (level == 31) _sprite.color = new Color32(255, 163, 0, 255);
+        if (level == 32) _sprite.color = new Color32(255, 128, 0, 255);
+        if (level == 33) _sprite.color = new Color32(255, 63, 0, 255);
+        if (level == 34) _sprite.color = new Color32(255, 28, 0, 255);
+        if (level == 35) _sprite.color = new Color32(191, 0, 0, 255);
+        if (level == 36) _sprite.color = new Color32(173, 0, 0, 255);
+        if (level == 37) _sprite.color = new Color32(163, 0, 0, 255);
+        if (level == 38) _sprite.color = new Color32(128, 0, 0, 255);
+        if (level == 39) _sprite.color = new Color32(63, 0, 0, 255);
+        if (level >= 40) _sprite.color = new Color32(0, 0, 0, 255);
     }
 }

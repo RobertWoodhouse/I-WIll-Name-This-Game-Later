@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ee46e7b321448a4bcb4d179c5548b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 2.5
+  playerSpeed: 2
   leftBound: -1.75
   rightBound: 1.75
   goAfterBurner: {fileID: 5529563653517893412}
@@ -334,7 +334,7 @@ MonoBehaviour:
   projectilePlasma: {fileID: 3915217660042146008, guid: f8ad892cd0b7b4499ad121119f0d7f27,
     type: 3}
   gunPos: {fileID: 3850627875740827214}
-  projectileSpawnTime: 0.75
+  projectileSpawnTime: 0.5
   projectileSpeed: 300
 --- !u!82 &6122677449838253640
 AudioSource:

@@ -18,11 +18,17 @@ public class GUIController : MonoBehaviour
 
     public static GUIController S;
 
+    private void Awake()
+    {
+        SelectShipController.IsShip2Unlocked = PlayerPrefsX.GetBool("Ship2Locked");
+        SelectShipController.IsShip3Unlocked = PlayerPrefsX.GetBool("Ship3Locked");
+    }
+
     void Start()
     {
         _guiImage = _guiPanel.GetComponent<Image>();
-        _gameOverMessages = new string[] { "A GEM CANNOT BE POLISHED WITHOUT FRICTION, NOR A MAN PERFECTED WITHOUT TRIALS", "WITHIN EVERY OBSTACLE IS AN OPPORTUNITY TO IMPROVE YOUR CONDITION", "WHAT IS DEFEAT? NOTHING BUT THE FIRST STEPS TO SOMETHING BETTER", "WINNERS NEVER QUIT, QUITTERS NEVER WIN", "SOMETIMES LIFE HITS YOU ON THE HEAD WITH A BRICK. DON'T LOSE FAITH", "YOU HAVE POWER OVER YOUR MIND, NOT OUTSIDE EVENTS. REALIZE THIS AND YOU WILL FIND STRENGTH", "DISCOMFORT IS THE CURRENCY OF SUCCESS", "IF OT DOESN'T CHALLENGE YOU, IT WON'T CHANGE YOU", "MAKE THE MIND TOUGHER BY EXPOSING IT TO ADVERSITY", "A MAN IS NO BIGGER THAN THE SMALLEST THING THAT PROVOKES HIM", "LEARN TO DETACH YOURSELF FROM THE CHAOS OF THE BATTLEFIELD", "GROWTH AND COMFORT DO NOT COEXIST" };
-        _gameOverLoserMessages = new string[] { "DAT NUH LOOK GOOD...", "NAH FAM, YOU'RE HAVING A LAUGH", "IS THAT IT?!" , "WEAK!...", "THIS A JOKE TING"};
+        _gameOverMessages = new string[] { "A GEM CANNOT BE POLISHED WITHOUT FRICTION, NOR A MAN PERFECTED WITHOUT TRIALS", "WITHIN EVERY OBSTACLE IS AN OPPORTUNITY TO IMPROVE YOUR CONDITION", "WHAT IS DEFEAT? NOTHING BUT THE FIRST STEPS TO SOMETHING BETTER", "WINNERS NEVER QUIT, QUITTERS NEVER WIN", "SOMETIMES LIFE HITS YOU ON THE HEAD WITH A BRICK. DON'T LOSE FAITH", "YOU HAVE POWER OVER YOUR MIND, NOT OUTSIDE EVENTS. REALIZE THIS AND YOU WILL FIND STRENGTH", "DISCOMFORT IS THE CURRENCY OF SUCCESS", "IF IT DOESN'T CHALLENGE YOU, IT WON'T CHANGE YOU", "MAKE THE MIND TOUGHER BY EXPOSING IT TO ADVERSITY", "A MAN IS NO BIGGER THAN THE SMALLEST THING THAT PROVOKES HIM", "LEARN TO DETACH YOURSELF FROM THE CHAOS OF THE BATTLEFIELD", "GROWTH AND COMFORT DO NOT COEXIST" };
+        _gameOverLoserMessages = new string[] { "DAT NUH LOOK GOOD...", "NAH FAM, YOU'RE HAVING A LAUGH", "IS THAT IT?!" , "WEAK!...", "THIS A JOKE TING", "REALLY?", "NAH... THAT AIN'T IT"};
         S = this;
         _pauseBtn.onClick.AddListener(PauseButtonOnClick);
     }
@@ -44,13 +50,18 @@ public class GUIController : MonoBehaviour
 
     public void LoadGameOverPanel(int score)
     {
-        /*
+        /*   
         for(int i = 0; i < PlayerPrefsX.GetIntArray("HighScores").Length; i++) // TEST
         {
             print("Score " + (i + 1) + ": " + PlayerPrefsX.GetIntArray("HighScores")[i]);
         }
         print("Current score: " + score);
         */
+
+        //int[] highScores = PlayerPrefsX.GetIntArray("HighScores");
+
+        print("Score = " + score + " | Top 10 #1 = " + PlayerPrefsX.GetIntArray("HighScores")[0]);
+        print("Score = " + score + " | Top 10 #10 = " + PlayerPrefsX.GetIntArray("HighScores")[9]);
 
         _gameOverPanel.SetActive(true);
         _pauseBtn.gameObject.SetActive(false);
@@ -72,7 +83,7 @@ public class GUIController : MonoBehaviour
             GameOverController.S.UpdateGameOverScreen("YOU CRACKED THE TOP 10", score.ToString());
             GameEvents.S.PlaySFX(clipTopTenSFX[SelectShipController.SelectedShip], AudioController.SoundEffects.Menu);
         }
-        else if (score > 1500)
+        else if (score > 2000 && score < PlayerPrefsX.GetIntArray("HighScores")[9])
         {
             print("TEST GAMEOVER");
             GameOverController.S.UpdateGameOverScreen("GAME OVER", _gameOverMessages[rand]);

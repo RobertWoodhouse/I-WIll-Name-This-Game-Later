@@ -14,6 +14,8 @@ public class CollisionObstacle : MonoBehaviour
     private BoxCollider2D[] _boxColl;
     private SpriteRenderer _sprite;
     private float _tempSpeed;
+    [SerializeField]
+    private float _kineticSpeedBoost = 2.0f;
     //private Color _tempColour;
     private Obstacle _obstacle;
 
@@ -34,7 +36,6 @@ public class CollisionObstacle : MonoBehaviour
         if (collision.CompareTag("Net"))
         {
             StartCoroutine(DestroyObject(_destroyTimer));
-            //if (transform.parent != null) GetComponentInParent<Obstacle>().countChildren--; // TODO TEST IF STATEMENT IS WORKING
             if (transform.parent != null) _obstacle.countChildren--; // TODO TEST IF STATEMENT IS WORKING
             ScoreController.Score += 100;
         }
@@ -42,7 +43,7 @@ public class CollisionObstacle : MonoBehaviour
         if (collision.CompareTag("Projectile") && isDestructable.Equals(true)) // Destroy destructable objects
         {
             GameEvents.S.PlaySFX(clipCollision, AudioController.SoundEffects.Sound);
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
             StartCoroutine(DestroyObject(_destroyTimer));
             ScoreController.Score += 300;
         }
@@ -68,7 +69,7 @@ public class CollisionObstacle : MonoBehaviour
             var attackPoints = collision.GetComponent<CollisionProjectile>().attackPoints;
             defencePoints -= attackPoints;
             GameEvents.S.PlaySFX(clipCollision, AudioController.SoundEffects.Sound);
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
             if (defencePoints <= 0)
             {
                 print("Destroy metal obeject");
@@ -117,7 +118,7 @@ public class CollisionObstacle : MonoBehaviour
             _obstacle.sprite.color = Color.grey;
             yield return new WaitForSeconds(1.0f);
             _obstacle.sprite.color = SetObstacleColour();
-            _obstacle.speed = _tempSpeed += 0.5f;
+            _obstacle.speed = _tempSpeed += _kineticSpeedBoost;
             isStalled = false;
         }
     }

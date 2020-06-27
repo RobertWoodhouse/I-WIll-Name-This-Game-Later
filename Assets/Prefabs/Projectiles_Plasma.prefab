@@ -256,4 +256,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPoints: 3
+  _isAnimated: 1
   _destroyTime: 0.5

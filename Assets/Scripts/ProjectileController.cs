@@ -134,7 +134,7 @@ public class ProjectileController : MonoBehaviour
                     {
                         print("Charge Colour = " + chargeColour);
                         float chargeColourConvert = chargeColour;
-                        if (chargeColour >= 1) chargeColourConvert -= (Time.deltaTime * 256);
+                        if (chargeColour >= 1) chargeColourConvert -= (Time.deltaTime * 256); // FIXME 256?
                         if (chargeColour < 1) chargeColourConvert = 255;
                         chargeColour = (byte)chargeColourConvert;
                         _sprite.color = new Color32(255, 255, chargeColour, 255);

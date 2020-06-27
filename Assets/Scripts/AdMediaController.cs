@@ -51,7 +51,7 @@ public class AdMediaController : MonoBehaviour
         print("Advertisement is banner ready? " + Advertisement.IsReady(placementBanner));
         if (Advertisement.IsReady(placementBanner))
         {
-            Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
+            Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
             Advertisement.Banner.Show(placementBanner);
             Advertisement.Banner.Hide(showBanner); // Hide Banner
             print("Show Banner Ad");
@@ -68,7 +68,7 @@ public class AdMediaController : MonoBehaviour
         {
             yield return new WaitForSeconds(0.5f);
         }
-        Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
+        Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
         Advertisement.Banner.Show(placementBanner);
         print("Show Banner Ad");
     }
@@ -104,6 +104,6 @@ public class AdMediaController : MonoBehaviour
             StartCoroutine(ShowBannerWhenReady());
             _AdCounter--;
         }
-        print("Ad counter = " + _AdCounter);
+        //print("Ad counter = " + _AdCounter);
     }
 }
