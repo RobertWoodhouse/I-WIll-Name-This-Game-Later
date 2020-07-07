@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
 
@@ -78,7 +77,7 @@ public class AdMediaController : MonoBehaviour
         Advertisement.Banner.Hide(false); // Hide Banner
     }
 
-    public void ResetAdBanner() // TEST IF SHOWING
+    public void ResetAdBanner()
     {
         if (Advertisement.isShowing)
         {
@@ -100,10 +99,8 @@ public class AdMediaController : MonoBehaviour
         }
         else
         {
-            //ShowAdBanner(true);
             StartCoroutine(ShowBannerWhenReady());
             _AdCounter--;
         }
-        //print("Ad counter = " + _AdCounter);
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,8 +10,6 @@ public class SelectShipController : MonoBehaviour
     public static bool IsShip2Unlocked = false, IsShip3Unlocked = false;
     public static int SelectedShip = 0;
 
-    //[SerializeField]
-    //private Text _headerTxt; // TODO change to single static var
     [SerializeField]
     private Sprite[] _shipSprites;
     [SerializeField]
@@ -35,14 +32,13 @@ public class SelectShipController : MonoBehaviour
 
     private void Awake()
     {
-        //PlayerPrefs.DeleteAll(); // TODO remove delete
         IsShip2Unlocked = PlayerPrefsX.GetBool("Ship2Locked");
         IsShip3Unlocked = PlayerPrefsX.GetBool("Ship3Locked");
     }
 
     private void Start()
     {
-        SelectShip(0); // TODO save last ship selected on phone memory
+        SelectShip(0);
         _adBtn.gameObject.SetActive(false);
         _leftBtn.onClick.AddListener(LeftButtonOnClick);
         _rightBtn.onClick.AddListener(RightButtonOnClick);
@@ -67,7 +63,6 @@ public class SelectShipController : MonoBehaviour
 
     void BackButtonOnClick()
     {
-        //gameObject.SetActive(false);
         _selectShipWin.SetActive(false);
         _mainMenu.SetActive(true);
         _backBtn.gameObject.SetActive(false);
@@ -77,15 +72,7 @@ public class SelectShipController : MonoBehaviour
 
     void AdButtonOnClick()
     {
-        /*
-        nameTxt.text = _names[1];
-        descriptionTxt.text = _descriptions[1];
-        shipImg.sprite = _shipSprites[1];
-        _selectBtn.interactable = true;
-        _adBtn.gameObject.SetActive(false);
-        */
         StartCoroutine(ResetShipSelection());
-        //AdMediaController.S.ShowAdRewardedVideo();
     }
 
     void SelectButtonOnClick() 

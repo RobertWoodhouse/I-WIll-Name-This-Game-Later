@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -68,7 +67,7 @@ public class PauseController : MonoBehaviour
         _messageTxt.fontSize = 34;
     }
 
-    void YesButtonOnClick() // TODO ADD MESSAGE e.g. Are you sure you want to quit game?
+    void YesButtonOnClick()
     {
         if (_buttonName == "restart") SceneController.SceneSelect("02 - GameScene");
         if (_buttonName == "mainmenu") SceneController.SceneSelect("01 - MainMenu");
@@ -92,11 +91,6 @@ public class PauseController : MonoBehaviour
             yield return new WaitForSeconds(1.0f);
             print("Slower time");
             Time.timeScale = 0.05f;
-            /*
-            yield return new WaitForSeconds(0.5f);
-            print("Even Slower time");
-            Time.timeScale = 0.0f;
-            */
         }
         if (speed == PlaySpeed.Play) Time.timeScale = 1.0f;
         if (speed == PlaySpeed.Pause) Time.timeScale = 0.0f;

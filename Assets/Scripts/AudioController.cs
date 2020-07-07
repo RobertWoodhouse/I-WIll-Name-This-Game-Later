@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
@@ -69,7 +67,7 @@ public class AudioController : MonoBehaviour
         else audioSources[6].mute = false;
     }
 
-    private void IntrumentsSwitch(int scaleLevel) // TODO: change from >= to == if switch not functioning
+    private void IntrumentsSwitch(int scaleLevel)
     {
         if (scaleLevel >= 1) _channels[0] = true;
         else _channels[0] = false;
@@ -107,21 +105,18 @@ public class AudioController : MonoBehaviour
     {
         if (sfx == SoundEffects.Sound)
         {
-            //print("Play Sound Effect");
             audioSrcsSfx[0].loop = false;
             audioSrcsSfx[0].clip = clip;
             audioSrcsSfx[0].Play();
         }
         if (sfx == SoundEffects.Voice)
         {
-            //print("Play Voice");
             audioSrcsSfx[1].loop = false;
             audioSrcsSfx[1].clip = clip;
             audioSrcsSfx[1].Play();
         }
         if (sfx == SoundEffects.Menu)
         {
-            //print("Play Voice");
             audioSrcsSfx[2].loop = false;
             audioSrcsSfx[2].clip = clip;
             audioSrcsSfx[2].Play();

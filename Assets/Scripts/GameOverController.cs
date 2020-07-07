@@ -1,12 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class GameOverController : MonoBehaviour
 {
     public Text titleTxt, messageTxt;
-    //public AudioClip[] clipGameOverSFX;
 
     [SerializeField]
     private Button _retryBtn, _quitBtn, _mainMenuBtn;
@@ -45,6 +42,5 @@ public class GameOverController : MonoBehaviour
     {
         titleTxt.text = title;
         messageTxt.text = message;
-        //GameEvents.S.PlaySFX(clipGameOverSFX[SelectShipController.SelectedShip], AudioController.SoundEffects.Menu);
     }
 }

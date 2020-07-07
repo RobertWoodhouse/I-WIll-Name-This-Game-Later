@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DestroyGameobjectByChildren : MonoBehaviour
 {
@@ -8,12 +6,11 @@ public class DestroyGameobjectByChildren : MonoBehaviour
 
     private void LateUpdate() => DestroyObjectByChild(hasChildren);
 
-    void DestroyObjectByChild(bool hasChild) // TODO add to score when destoryed
+    void DestroyObjectByChild(bool hasChild)
     {
         if (hasChild == true && transform.childCount == 0)
         {
             Destroy(gameObject);
-            //print("Destroy parent");
         }
     }
 }

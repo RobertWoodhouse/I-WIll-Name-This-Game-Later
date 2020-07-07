@@ -1,16 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class TutorialController : MonoBehaviour
 {
     public Text titleTxt, instructionsTxt;
     public Image tutImg1, tutImg2, tutImg3, tutImg4;
-    /*
-    [SerializeField]
-    private Text _headerTxt; // TODO change to single static var
-    */
     
     [SerializeField]
     private Sprite _shipSprite, _arrowSprite, _handSprite, _handTapSprite, _bulletSprite, _plasmaSprite, _powerUpSprite, _speedUpSprite, _metalSprite, _satSprite;
@@ -31,7 +25,6 @@ public class TutorialController : MonoBehaviour
 
     void BackButtonOnClick()
     {
-        //gameObject.SetActive(false);
         _tutorialWin.SetActive(false);
         _mainMenu.SetActive(true);
         _backBtn.gameObject.SetActive(false);

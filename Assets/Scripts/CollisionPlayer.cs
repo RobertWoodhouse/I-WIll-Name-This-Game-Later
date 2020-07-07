@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CollisionPlayer : MonoBehaviour
@@ -27,11 +26,9 @@ public class CollisionPlayer : MonoBehaviour
                 StartCoroutine(DestroyObject(_destroyTime));
                 GUIController.S.LoadGameOverPanel(ScoreController.Score);
                 ScoreController.SetHighScoreTable(ScoreController.Score); // Set HighScore
-                //GUIController.S.LoadGameOverPanel(29100); // TODO TEST GUI
-                //ScoreController.SetHighScoreTable(29100); // TODO TEST HIGHSCORE
                 print("Is Ship 3 unlocked?" + SelectShipController.IsShip3Unlocked);
                 AdMediaController.S.AdCounter();
-                if (!SelectShipController.IsShip3Unlocked) Unlockable.UnlockThroughScore(); // TODO Test if true then unlock
+                if (!SelectShipController.IsShip3Unlocked) Unlockable.UnlockThroughScore();
                 StartCoroutine(PauseController.PauseAndPlay(PauseController.PlaySpeed.SlowMotion));
             }
         }

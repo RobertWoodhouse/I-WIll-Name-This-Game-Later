@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SpawnObstacle : MonoBehaviour
 {
@@ -19,7 +17,6 @@ public class SpawnObstacle : MonoBehaviour
         if (timer <= 0f && StarterObstacles.IsStarterDestroyed == true) // Spawn after StartObstacles have been destroyed
         {
             SpawnObject(_obstacleSpawnPoint);
-            //timer = respawnTime;
             timer = Random.Range(respawnTimeMin, respawnTimeMax);
         }
         else timer -= Time.deltaTime;
@@ -41,7 +38,6 @@ public class SpawnObstacle : MonoBehaviour
         {
             obstacleClone = Instantiate(_obstaclesDestructable[Random.Range(0, _obstaclesDestructable.Length)], new Vector3(0f, 4f), Quaternion.identity);
             _SpawnSwitchCounter = Random.Range(5, 7);
-            //print("Spawn destructable after " + _SpawnSwitchCounter + " objects");
         }
 
         if (transform.parent != null)

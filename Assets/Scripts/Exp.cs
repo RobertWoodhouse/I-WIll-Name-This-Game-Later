@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Exp : MonoBehaviour
 {
-    public float speed = 3.0f; // TODO change to random range
+    public float speed = 3.0f;
 
     [SerializeField]
     private Sprite _speedExpSprite, _powerExpSprite;
@@ -12,14 +10,12 @@ public class Exp : MonoBehaviour
     private float _flashTimer;
     [SerializeField]
     private float _playerSpeedExp = 0.25f, _projectileSpeedExp = 10f, _projectileSpawnTimeExp = 0.050f;
-    //private GameObject _player;
 
     public static Exp S;
 
     void Start()
     {
         S = this;
-        //_player = GameObject.FindGameObjectWithTag("Player");
         _defaultSpeedSprite = GetComponent<SpriteRenderer>().sprite;
         _defaultPowerSprite = GetComponent<SpriteRenderer>().sprite;
        _flashTimer = 1.5f;
@@ -54,16 +50,6 @@ public class Exp : MonoBehaviour
             _flashTimer = 2.0f;
         }
     }
-    /*
-    public void SpeedUp() => _player.GetComponent<PlayerController>().playerSpeed += _playerSpeedExp;
-
-    public void PowerUp()
-    {
-        _player.GetComponent<ProjectileController>().projectileSpeed += _projectileSpeedExp;
-
-        if (_player.GetComponent<ProjectileController>().projectileSpawnTime > 0.3f) _player.GetComponent<ProjectileController>().projectileSpawnTime -= _projectileSpawnTimeExp;
-    }
-    */
     
     public void SpeedUp()
     {

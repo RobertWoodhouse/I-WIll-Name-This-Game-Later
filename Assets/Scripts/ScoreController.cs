@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-
-
 
 public class ScoreController : MonoBehaviour
 {
@@ -22,28 +19,13 @@ public class ScoreController : MonoBehaviour
 
     private void Awake()
     {
-        //PlayerPrefs.DeleteAll(); // TODO remove delete
 
         if (PlayerPrefsX.GetIntArray("HighScores") == null || PlayerPrefsX.GetIntArray("HighScores").Length < 10)
         {
-            PlayerPrefsX.SetIntArray("HighScores", new int[] {30000, 28000, 26000, 24000, 22000, 20000, 18000, 16000, 14000, 12000}); // TODO switch order?
+            PlayerPrefsX.SetIntArray("HighScores", new int[] {30000, 28000, 26000, 24000, 22000, 20000, 18000, 16000, 14000, 12000});
         }
 
         _HighScores = PlayerPrefsX.GetIntArray("HighScores").ToList<int>();
-        //_HighScores.Reverse();
-        //UpdateScoreArray();
-        /*
-        for(int i = 0; i < _HighScores.Count; i++) // TEST
-        {
-            print("Score " + (i + 1) + ": " + _HighScores[i]);
-        }
-        */
-        /*
-        for (int i = 0; i < PlayerPrefsX.GetIntArray("HighScores").Length; i++) // TEST
-        {
-            print("Score " + (i + 1) + ": " + PlayerPrefsX.GetIntArray("HighScores")[i]);
-        }
-        */
     }
 
     void Start()
@@ -60,7 +42,6 @@ public class ScoreController : MonoBehaviour
 
     void BackButtonOnClick()
     {
-        //gameObject.SetActive(false);
         _scoreWin.SetActive(false);
         _mainMenu.SetActive(true);
         _backBtn.gameObject.SetActive(false);
@@ -69,39 +50,12 @@ public class ScoreController : MonoBehaviour
 
     public static void SetHighScoreTable(int score)
     {
-        /*
-        if (score >= _HighScores[9])
-        {
-            for (int i = _HighScores.Count - 1; i >= 0; i--)
-            //for (int i = 1; i < _HighScores.Count; i++)
-            {
-                if (score < _HighScores[i])
-                {
-                    print("Score added: " + score);
-                    _HighScores.RemoveAt(9);
-                    _HighScores.Insert(i, score);
-                    //_HighScores.RemoveAt(9);
-                    //_HighScores.Sort(); // TODO change to reverse?
-                    //_HighScores.Reverse();
-                    break;
-                }
-            }
-            PlayerPrefsX.SetIntArray("HighScores", _HighScores.ToArray());
-        }
-        */
-
-        print("Current Score = " + score);
-        print("HighScore at 10 = " + _HighScores[_HighScores.Count - 1]);
-        print("HighScore at 1 = " + _HighScores[0]);
-        //if (score >= _HighScores[9] || score >= _HighScores[0]) // HACK Add score if higher than 9 or 0 then sort in ascending and reverse
         if (score >= _HighScores[_HighScores.Count - 1] || score >= _HighScores[0]) // HACK Add score if higher than 9 
         {
-            //_HighScores.Insert(9, score);
             _HighScores.Insert(_HighScores.Count - 1, score);
             _HighScores.Sort(); // Sort in ascending
             _HighScores.Reverse(); // Reverse sort
             _HighScores.RemoveAt(_HighScores.Count - 1);
-            //_HighScores.Insert(9, score);
             PlayerPrefsX.SetIntArray("HighScores", _HighScores.ToArray());
         }
     }

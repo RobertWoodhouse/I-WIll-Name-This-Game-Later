@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class GUIController : MonoBehaviour
@@ -50,42 +48,24 @@ public class GUIController : MonoBehaviour
 
     public void LoadGameOverPanel(int score)
     {
-        /*   
-        for(int i = 0; i < PlayerPrefsX.GetIntArray("HighScores").Length; i++) // TEST
-        {
-            print("Score " + (i + 1) + ": " + PlayerPrefsX.GetIntArray("HighScores")[i]);
-        }
-        print("Current score: " + score);
-        */
-
-        //int[] highScores = PlayerPrefsX.GetIntArray("HighScores");
-
-        print("Score = " + score + " | Top 10 #1 = " + PlayerPrefsX.GetIntArray("HighScores")[0]);
-        print("Score = " + score + " | Top 10 #10 = " + PlayerPrefsX.GetIntArray("HighScores")[9]);
-
         _gameOverPanel.SetActive(true);
         _pauseBtn.gameObject.SetActive(false);
         _guiPanel.SetActive(false);
         int rand = Random.Range(0, _gameOverMessages.Length - 1);
         int randLose = Random.Range(0, _gameOverLoserMessages.Length - 1);
 
-        //print("Random No. " + rand);
-
         if (score > PlayerPrefsX.GetIntArray("HighScores")[0])
         {
-            print("TEST HIGH SCORE");
             GameOverController.S.UpdateGameOverScreen("NEW HIGH SCORE!", score.ToString());
             GameEvents.S.PlaySFX(clipHighScoreSFX[SelectShipController.SelectedShip], AudioController.SoundEffects.Menu);
         }
         else if (score >= PlayerPrefsX.GetIntArray("HighScores")[9] && score <= PlayerPrefsX.GetIntArray("HighScores")[0])
         {
-            print("TEST MID SCORE");
             GameOverController.S.UpdateGameOverScreen("YOU CRACKED THE TOP 10", score.ToString());
             GameEvents.S.PlaySFX(clipTopTenSFX[SelectShipController.SelectedShip], AudioController.SoundEffects.Menu);
         }
         else if (score > 2000 && score < PlayerPrefsX.GetIntArray("HighScores")[9])
         {
-            print("TEST GAMEOVER");
             GameOverController.S.UpdateGameOverScreen("GAME OVER", _gameOverMessages[rand]);
             GameEvents.S.PlaySFX(clipGameOverSFX[SelectShipController.SelectedShip], AudioController.SoundEffects.Menu);
         }

@@ -27,7 +27,6 @@ public class GameController : MonoBehaviour
         GameLevel = 1;
         ScoreController.Score = 0;
         BackgroundController.BgScrollSpeed = 1.0f;
-        //AdMediaController.S.ShowAdBanner(false);
         AdMediaController.S.HideAdBanner();
     }
 }

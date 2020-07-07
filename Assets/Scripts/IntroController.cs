@@ -1,12 +1,9 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class IntroController : MonoBehaviour
 {
 	public GameObject goLogo, goBackground;
-	//public Camera cam;
 
     [SerializeField]
 	private float _timer = 3.0f;
@@ -16,7 +13,6 @@ public class IntroController : MonoBehaviour
 	void Start()
 	{
 		if (goLogo == null) goLogo = gameObject;
-		//cam.backgroundColor = _colours32[Random.Range(0, 3)]; // RED(0) / YELLOW (1) / GREEN (2)
 		goBackground.GetComponent<SpriteRenderer>().color = _colours32[Random.Range(0, 3)];
 		StartCoroutine("VibrateLogo");
 		StartCoroutine(SceneController.SceneTransition("01 - MainMenu", _timer));
@@ -262,19 +258,6 @@ public class IntroController : MonoBehaviour
 		goLogo.transform.GetChild(3).localRotation = Quaternion.Euler(0, 0, 0); // TOP-RIGHT
 		goLogo.transform.GetChild(4).localRotation = Quaternion.Euler(0, 0, 0); // BOTTOM-LEFT
 		goLogo.transform.GetChild(5).localRotation = Quaternion.Euler(0, 0, 0); // BOTTOM-RIGHT
-		yield return new WaitForSeconds(.025f); // 5
-		/*
-		goLogo.transform.GetChild(2).localRotation = Quaternion.Euler(0, 0, -20); // TOP-LEFT
-		goLogo.transform.GetChild(3).localRotation = Quaternion.Euler(0, 0, 20); // TOP-RIGHT
-		goLogo.transform.GetChild(4).localRotation = Quaternion.Euler(0, 0, -20); // BOTTOM-LEFT
-		goLogo.transform.GetChild(5).localRotation = Quaternion.Euler(0, 0, 20); // BOTTOM-RIGHT
 		yield return new WaitForSeconds(.025f);
-
-		goLogo.transform.GetChild(2).localRotation = Quaternion.Euler(0, 0, 0); // TOP-LEFT
-		goLogo.transform.GetChild(3).localRotation = Quaternion.Euler(0, 0, 0); // TOP-RIGHT
-		goLogo.transform.GetChild(4).localRotation = Quaternion.Euler(0, 0, 0); // BOTTOM-LEFT
-		goLogo.transform.GetChild(5).localRotation = Quaternion.Euler(0, 0, 0); // BOTTOM-RIGHT
-		yield return new WaitForSeconds(.025f);
-		*/
 	}
 }

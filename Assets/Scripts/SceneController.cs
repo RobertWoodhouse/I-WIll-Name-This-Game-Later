@@ -7,7 +7,7 @@ public class SceneController : MonoBehaviour
 	public static void SceneSelect(string sceneName)
     {
 		SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
-		AdMediaController.S.ResetAdBanner(); // TEST Reset Banner
+		AdMediaController.S.ResetAdBanner();
 	}
 
 	public static IEnumerator SceneTransition(string sceneName, float time) // Update function only
