@@ -134,9 +134,9 @@ public class TutorialController : MonoBehaviour
 
             case 4:
                 titleTxt.text = "OBSTACLES";
-                instructionsTxt.text = "SHOOT OR EVADE OBSTACLES TO BUILD YOUR SCORE" +
-                    "\nNOT ALL OBSTACLES CAN BE DESTROYED WITH ONE SHOT, THEY CAN HOWEVER BE STALLED" +
-                    "\nBE MINDFUL OF THE KINETIC ENERGY STORED IN THESE OBSTACLES";
+                instructionsTxt.text = "DESTROY OBSTACLES TO BUILD YOUR SCORE" +
+                    "\nOBSTACLES HAVE VARYING LEVELS OF TOUGHNESS" +
+                    "\nBE MINDFUL OF THE KINETIC ENERGY STORED IN STALLED OBSTACLES";
 
                 tutImg1.sprite = _satSprite;
                 tutImg1.GetComponent<RectTransform>().anchoredPosition = new Vector2(-65, 80);
@@ -157,7 +157,7 @@ public class TutorialController : MonoBehaviour
 
             case 5:
                 titleTxt.text = "POWER UPS";
-                instructionsTxt.text = "COLLECT POWER UPS BY MOVING YOUR SHIP INTO THEM" +
+                instructionsTxt.text = "COLLECT POWER UPS TO INSCREASE YOUR SHIPS STATS" +
                     "\nLIGHT POWER INCREASES YOUR SHIPS RATE OF FIRE" +
                     "\nDARK POWER INCREASES YOUR SHIPS MOVEMENT SPEED";
 

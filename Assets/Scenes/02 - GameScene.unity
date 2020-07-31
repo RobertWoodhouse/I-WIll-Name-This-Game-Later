@@ -1119,6 +1119,7 @@ MonoBehaviour:
   - {fileID: 4402826616856750972, guid: 5a5ea6cb85dbb453495e3525e148bf91, type: 3}
   - {fileID: 3092773730343288313, guid: e87fe9598b02447d9ae9a7fd90d7b0c8, type: 3}
   - {fileID: 910476883097539104, guid: e83e9487648af477d86a7c1975b08d9c, type: 3}
+  - {fileID: 1059160736709418221, guid: 4b0a7a4efaddf4cfeaace50ee5652d3b, type: 3}
   _obstaclesDestructable:
   - {fileID: 1294409626498124768, guid: cb7f0c651dcd048b39e639d7ff7f70ed, type: 3}
   - {fileID: 2632646889473888255, guid: c99790198bc724cca9cbaa0d901f18e2, type: 3}
